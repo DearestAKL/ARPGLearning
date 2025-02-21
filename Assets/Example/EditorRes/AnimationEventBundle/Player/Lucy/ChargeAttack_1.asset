@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4f4738209fa41e4873a97923373ec2, type: 3}
+  m_Name: ChargeAttack_1
+  m_EditorClassIdentifier: 
+  TargetAnimationEventClip: {fileID: 7400000, guid: c3b0dbd506bb17f4d98687cbcc2c957d,
+    type: 2}
+  GroupInfoList:
+  - {fileID: 11400000, guid: 981e73d0ae09bc6469bdeadd83392f11, type: 2}
+  - {fileID: 11400000, guid: c13a29aad66b6fa4dbb28986ccdffcff, type: 2}
+  - {fileID: 11400000, guid: 7c01cf9914d95d8479920c7313fac446, type: 2}
+  - {fileID: 11400000, guid: d5f935ff5d0322d46b51c47a845068d9, type: 2}

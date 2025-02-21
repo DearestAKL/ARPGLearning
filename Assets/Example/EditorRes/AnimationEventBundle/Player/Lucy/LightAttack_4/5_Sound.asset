@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4510313726602828521
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab6cabbf2c840fe9229f24ab17df8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Content: event:/3D/kict_1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20057d6bda207476b96e07d4022d8a85, type: 3}
+  m_Name: 5_Sound
+  m_EditorClassIdentifier: 
+  GroupId: 5
+  Name: Sound
+  TrackList:
+  - TrackId: 50001
+    IsSkippable: 0
+    TrackName: Sound_1
+    GroupId: 5
+    ListenerTypeName: IEditorCharacterSoundAnimationEventListener
+    MethodName: RegisterCommonSoundPlay
+    ParamList: []
+    KeyFrames: 10000000
+    IsBroken: 0
+  - TrackId: 50002
+    IsSkippable: 0
+    TrackName: Sound_2
+    GroupId: 5
+    ListenerTypeName: IEditorCharacterSoundAnimationEventListener
+    MethodName: RegisterCommonSoundPlay
+    ParamList: []
+    KeyFrames: 1f000000
+    IsBroken: 0
+  ParameterHeaderList:
+  - trackID: 50001
+    methodUID: 400001
+    dataBody: 7b22436f6e74656e74223a226576656e743a2f33442f6b6963745f31227d
+  - trackID: 50002
+    methodUID: 400001
+    dataBody: 7b22436f6e74656e74223a226576656e743a2f33442f6b6963745f31227d
+  ObjectParameterList:
+  - {fileID: 654839915481413278}
+  - {fileID: -4510313726602828521}
+--- !u!114 &654839915481413278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab6cabbf2c840fe9229f24ab17df8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Content: event:/3D/kict_1

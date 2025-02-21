@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f0d5c6161d4aaea68d1cbf1c2bb960, type: 3}
+  m_Name: LucyShadow
+  m_EditorClassIdentifier: 
+  StateInfos:
+  - LayerNo: 0
+    Name: Idle
+    Clips:
+    - {fileID: 7400000, guid: 199af49408c7e8642b1dcd1644a5a62e, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: bfd98618529d5494eb6eccee3353dd4e, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: RunLoop
+    Clips:
+    - {fileID: 7400000, guid: 95a2a301a915dcc44bdd1da5f4576339, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: GetHitSmall
+    Clips:
+    - {fileID: 7400000, guid: c9ee79cba8b79424f956674281b553c0, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 37f87fd045ea58d438525c89909a778a, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: GetHitLarge
+    Clips:
+    - {fileID: 7400000, guid: 011f0a2b105fe034b96c27eceec50606, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: f91a0766ad77ec7479815a28be9deb89, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: KnockUpStart
+    Clips:
+    - {fileID: 7400000, guid: a67f113a4c5ca3e43ba541907b3a23d3, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: KnockUpLoop
+    Clips:
+    - {fileID: 7400000, guid: 5ffa27ee2c290894183a5eb34e580a98, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: KnockUpLand
+    Clips:
+    - {fileID: 7400000, guid: c6631dd092cb15b49be2b8fadea374dd, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: LyingLoop
+    Clips:
+    - {fileID: 7400000, guid: 706d6db1b9a60644d95f6e56baacf1b4, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: c716b88a159b4534f9f5d58be7a86a35, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: GetUp
+    Clips:
+    - {fileID: 7400000, guid: 9da42300c8bd4e646a08cc7ea5b1d4c7, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 535824804aadefa47b0cce6f3225bbb5, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: Die
+    Clips:
+    - {fileID: 7400000, guid: 3acd6d076a46db044a5ab1f054b4ff8a, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: Attack_1
+    Clips:
+    - {fileID: 7400000, guid: ea32e3d68914fed4492ff0f6e2c7b6d4, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 61dc44840906b0441a63d3714b5ba28d, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: Attack_2
+    Clips:
+    - {fileID: 7400000, guid: 3eb81bb3bbc9d8a4d8c3870abbf7f816, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: ca2a798009fcb81438e4a721607bf4ce, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: Attack_3
+    Clips:
+    - {fileID: 7400000, guid: ed375152fa79e264f9115b404a190e50, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: f7e1c17299a1d9a42822ce28d8e4ef72, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  LayerInfos:
+  - LayerNo: 0
+    LayerWeight: 1
+    IsAdditive: 0
+    StartState: 
+    AvatarMask: {fileID: 0}
+    Foldings: 1
+  AtoBInfos:
+  - NameA: 
+    NameB: Idle
+    FadeType: 2
+    FadeTime: 0.6

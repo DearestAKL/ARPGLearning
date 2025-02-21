@@ -1,0 +1,334 @@
+{
+    "FileVersion": "2.0.0",
+    "EnableAddressable": false,
+    "LocationToLower": false,
+    "IncludeAssetGUID": false,
+    "OutputNameStyle": 0,
+    "BuildPipeline": "ScriptableBuildPipeline",
+    "PackageName": "DefaultPackage",
+    "PackageVersion": "2023-11-29-1297",
+    "AssetList": [
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Effect/Battle/Character/EF_GroundSmash_1.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Effect/Battle/Character/EF_Slash_1.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Effect/Battle/Character/EF_Stab_1.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 0
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Effect/Battle/Common/EF_CMN_Hit.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 1
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/ShaderVariants/MyShaderVariants.shadervariants",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 2
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Scene/BattleScene.unity",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 3
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Scene/BattleVolumeProfile.asset",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 4
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Scene/HomeScene.unity",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 5
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/UI/_UIMod/UIMod_Button_Oval.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 6
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/UI/_UIMod/UIMod_Button_Small.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 6
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/UI/Panel/UICommonMessageDialog.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 7
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/UI/Panel/UILoading.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 7
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/UI/Panel/UIMainMenuPanel.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 7
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/UI/Panel/UISettingDialog.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 7
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Render/CameraRender.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 8
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/LubanData/action_tbaction.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 9
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/LubanData/course_tbcourse.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 9
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/LubanData/dialogueactor_tbdialogueactor.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 9
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/LubanData/dialoguecheck_tbdialoguecheck.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 9
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/LubanData/dialoguetrigger_tbdialoguetrigger.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 9
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/LubanData/localization_tblocalization.bytes",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 9
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Audio/AudioMixer.mixer",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 10
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Audio/machine_gun.wav",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 10
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Audio/Bgm/Battle.wav",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 11
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Audio/Bgm/Light.wav",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 11
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Audio/Bgm/Menu.wav",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 11
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Example/GameRes/Audio/Bgm/Night.wav",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 11
+        }
+    ],
+    "BundleList": [
+        {
+            "BundleName": "assets_example_gameres_effect_battle_character.bundle",
+            "UnityCRC": 147562792,
+            "FileHash": "b1bccce717ee10192272061d8a3e007e",
+            "FileCRC": "bf69dc6f",
+            "FileSize": 207431,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                2
+            ]
+        },
+        {
+            "BundleName": "assets_example_gameres_effect_battle_common.bundle",
+            "UnityCRC": 858450664,
+            "FileHash": "49d477868db52d5e947ba24f1bcd22de",
+            "FileCRC": "e6cc959e",
+            "FileSize": 81075,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                2
+            ]
+        },
+        {
+            "BundleName": "unityshaders.bundle",
+            "UnityCRC": 3373022151,
+            "FileHash": "ce03b4931cbde3a8aa5a50b1162f673e",
+            "FileCRC": "91ce8a6e",
+            "FileSize": 184905,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "assets_example_gameres_scene_battlescene.bundle",
+            "UnityCRC": 2871521214,
+            "FileHash": "08585cc842287c5880d129cb5081a160",
+            "FileCRC": "81edeca6",
+            "FileSize": 5818946,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                4,
+                2
+            ]
+        },
+        {
+            "BundleName": "assets_example_gameres_scene_battlevolumeprofile.bundle",
+            "UnityCRC": 1732524557,
+            "FileHash": "ee73064cf94f575616647476650493b6",
+            "FileCRC": "b4edb20b",
+            "FileSize": 3609,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "assets_example_gameres_scene_homescene.bundle",
+            "UnityCRC": 588314902,
+            "FileHash": "15ad8fb437f820b0e6c58e88a0db3eb6",
+            "FileCRC": "5d45d138",
+            "FileSize": 5590,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "assets_example_gameres_ui__uimod.bundle",
+            "UnityCRC": 501867115,
+            "FileHash": "515b757f89d72a90e964da9550b6c44e",
+            "FileCRC": "2c7c6408",
+            "FileSize": 7473678,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                2
+            ]
+        },
+        {
+            "BundleName": "assets_example_gameres_ui_panel.bundle",
+            "UnityCRC": 3513959019,
+            "FileHash": "eb95b9621725f84e5115837223b3e8f6",
+            "FileCRC": "84b07b7e",
+            "FileSize": 7522524,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": [
+                2
+            ]
+        },
+        {
+            "BundleName": "assets_example_gameres_render.bundle",
+            "UnityCRC": 3742368199,
+            "FileHash": "f795321c1b753075dcc7be5683bde642",
+            "FileCRC": "8e00352c",
+            "FileSize": 11734,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "assets_example_gameres_lubandata.bundle",
+            "UnityCRC": 771895455,
+            "FileHash": "8abe8324c16deb5e5ade932591e43aa1",
+            "FileCRC": "3a83c35d",
+            "FileSize": 2766,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "assets_example_gameres_audio.bundle",
+            "UnityCRC": 3370622510,
+            "FileHash": "dc06f402004fe630e6b07a8e7c17ac6f",
+            "FileCRC": "d8d19f0c",
+            "FileSize": 9261,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        },
+        {
+            "BundleName": "assets_example_gameres_audio_bgm.bundle",
+            "UnityCRC": 1082155418,
+            "FileHash": "381b70dd57fafc4ffbc6d8bbfde8c7ae",
+            "FileCRC": "de66430b",
+            "FileSize": 14503580,
+            "Encrypted": false,
+            "Tags": [],
+            "DependIDs": []
+        }
+    ]
+}

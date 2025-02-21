@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8857818991300148638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d48d76c82b14e29a53ba5110849da48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 8872377352371650114, guid: 2000af674480c5548bd00afebae1b9ef, type: 3}
+  EffectId: Assets/Example/GameRes/Effect/Battle/Character/Kick5.prefab
+  TargetBoneName: 
+  OffsetPosition:
+    X: -0.2
+    Y: 0.85
+    Z: 0.25
+  OffsetRotation:
+    X: 160
+    Y: 0
+    Z: 45
+  EffectSize:
+    X: 0.7
+    Y: 0.7
+    Z: 0.7
+  CameraOffset: 0
+  CancelRemove: 0
+  ChangeAttribute: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20057d6bda207476b96e07d4022d8a85, type: 3}
+  m_Name: 3_Effect
+  m_EditorClassIdentifier: 
+  GroupId: 3
+  Name: Effect
+  TrackList:
+  - TrackId: 30001
+    IsSkippable: 0
+    TrackName: Slash
+    GroupId: 3
+    ListenerTypeName: IEditorCharacterEffectAnimationEventListener
+    MethodName: RegisterEffectPlay
+    ParamList: []
+    KeyFrames: 0b000000
+    IsBroken: 0
+  ParameterHeaderList:
+  - trackID: 30001
+    methodUID: 300101
+    dataBody: 7b22456666656374223a7b22696e7374616e63654944223a35303239387d2c224566666563744964223a224173736574732f4578616d706c652f47616d655265732f4566666563742f426174746c652f4368617261637465722f4b69636b352e707265666162222c22546172676574426f6e654e616d65223a22222c224f6666736574506f736974696f6e223a7b2258223a2d302e32303030303030303239383032333232352c2259223a302e383530303030303233383431383537392c225a223a302e32357d2c224f6666736574526f746174696f6e223a7b2258223a3136302e302c2259223a302e302c225a223a34352e307d2c2245666665637453697a65223a7b2258223a302e3639393939393938383037393037312c2259223a302e3639393939393938383037393037312c225a223a302e3639393939393938383037393037317d2c2243616d6572614f6666736574223a302e302c2243616e63656c52656d6f7665223a66616c73652c224368616e6765417474726962757465223a66616c73657d
+  ObjectParameterList:
+  - {fileID: -8857818991300148638}

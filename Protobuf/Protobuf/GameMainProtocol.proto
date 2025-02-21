@@ -1,0 +1,297 @@
+syntax = "proto3";
+package GameMain;
+
+option csharp_namespace = "GameMain.Runtime";
+
+import "Protobuf/GfGameProtocol.proto";
+
+
+// ==========AnimationEvent==========
+message AnimationEventParameterMessageEffectPlay
+{
+    string                     effectId = 1;
+    string                     targetBoneName = 2;
+    GfGame.GfFloat3Message    		   offsetPosition = 3;
+    GfGame.GfFloat3Message            offsetRotation = 4;
+    GfGame.GfFloat3Message            effectSize = 5;
+    float                      cameraOffset = 6;
+    bool                       cancelRemove = 7;   
+    bool                       changeAttribute = 8;
+}
+
+message AnimationEventParameterMessageUintId 
+{
+    uint32 id = 1;
+}
+
+message AnimationEventParameterMessageIntValue 
+{
+    int32 value = 1;
+}
+
+message AnimationEventParameterMessageNull
+{
+}
+
+message AnimationEventParameterMessageString
+{
+    string content = 1;
+}
+
+message AnimationEventParameterMessageCameraShake
+{
+	CameraShakeParameterMessage param = 1;
+}
+
+message AnimationEventParameterMessageShell
+{
+	int32 id = 1;
+    GfGame.GfFloat3Message offsetPosition = 2;
+    GfGame.GfFloat3Message offsetRotation = 3;
+	bool isLockTarget = 4;
+}
+
+message CameraShakeParameterMessage
+{
+	// 震动强度
+	int32 shakePower = 1;
+	// 震动方向
+	int32 shakeDirection = 2;
+}
+
+// ==========AttackDefinition==========
+message AttackDefinitionGroupMessage
+{
+	// 攻击定义组Id
+	int32                  	attackGroupId				= 1;
+	// 攻击定义Info数组
+	repeated AttackDefinitionInfoMessage infos = 2;
+	
+	repeated NumericalMessage numericalValues = 99;
+}
+
+
+message AttackDefinitionInfoMessage
+{
+	//Id
+	int32                  	attackId				= 1;
+	//基础百分比
+	int32                  	percentIndex			= 2;
+	//削韧值
+	int32                  	reducePoiseValue		= 3;
+	
+	//反应等级
+	int32                  	reactionLevelType		= 4;
+	//水平冲击力
+	int32                  	horizontalPower 		= 5;
+	//垂直冲击力
+	int32                  	verticalPower			= 6;
+	
+	repeated AttackDefinitionCollisionMessage collisions = 7;
+	
+	//相机震动
+	CameraShakeParameterMessage cameraShake = 8;
+	
+	//百分比来源（只支持攻击，防御和生命值）
+	int32 sourceType = 9;
+	//攻击类型
+	int32 categoryType = 10;
+	//攻击目标类型
+	int32 hitCategoryType = 11;
+	//对同一对象碰撞检测的间隔时间
+	float ignoreTime = 12;
+	
+	//攻击命中 攻击方 hitstop 等级
+	int32 AttackerHitStopLevel = 13;
+	//攻击命中 受击方 hitstop 等级
+	int32 DefenderHitStopLevel = 14;
+
+}
+
+message AttackDefinitionCollisionMessage
+{
+	// 碰撞器延伸
+	GfGame.GfFloat2Message 		extents 				= 1;
+	// 碰撞器中心偏移
+    GfGame.GfFloat2Message 		offset 					= 2;
+}
+
+// ==========PassiveSkillDefinition==========
+
+message PassiveSkillDefinitionMessage
+{
+	int32 id = 1;
+	repeated PassiveSkillDefinitionEventMessage events = 3;
+	
+	repeated NumericalMessage numericalValues = 99;
+}
+
+message PassiveSkillDefinitionEventMessage
+{	
+	int32 eventType = 1;
+	repeated PassiveSkillProConditionMessage conditions = 2;
+	repeated PassiveSkillAddBufferMessage addBuffers = 3;
+}
+
+message PassiveSkillProConditionMessage
+{
+	int32 proConditionType = 1;
+	oneof proCondition
+	{
+		TimeIntervalConditionMessage timeInterval = 11;
+		AttributeConditionMessage attribute = 12;
+		HasBufferConditionMessage hasBuffer = 13;
+	}
+}
+
+
+message PassiveSkillAddBufferMessage
+{
+	int32 buffId = 1;
+	int32 selectTargetType = 2;
+	repeated SelectTargetFilterMessage filters = 3;
+}
+
+message SelectTargetFilterMessage
+{
+	int32 filterType = 1;
+	oneof filter
+	{
+		AttributeConditionMessage attribute = 11;
+	}
+}
+
+// ==========BufferDefinition==========
+message BufferDefinitionMessage
+{
+	int32 id = 1;
+	int32 overlayType = 2;
+	int32 overlayLimit = 3;
+	
+	repeated BufferEndConditionMessage endConditions = 11;
+	
+	repeated BufferEffectDefinitionMessage effects = 12;
+	
+	repeated NumericalMessage numericalValues = 99;
+}
+
+message BufferEndConditionMessage
+{
+	int32 endType = 1;
+	int32 endValue = 2;
+}
+
+// ==========BufferEffectDefinition==========
+message BufferEffectDefinitionMessage
+{
+	int32 effectType = 1;
+	int32 triggerType = 2;
+	repeated BufferEffectValidConditionMessage validConditions = 3;
+
+	oneof bufferEffect
+	{
+		AttributeBufferEffectDefinitionMessage attribute = 11;
+		ChangeCurHpBufferEffectDefinitionMessage changeCurHp = 12;
+	}
+}
+
+message AttributeBufferEffectDefinitionMessage
+{
+	//改变属性
+	int32 attributeType = 1;
+	//改变属性值
+	int32 attributeIndex = 2;
+	//是否是百分比
+	bool isPercentage = 3;
+	
+	//来源属性
+	int32 sourceType = 4;
+	//是否使用来源属性
+	bool isUsedSourceType = 5;
+	//是否使用Buffer来源者的属性
+	bool isUsedBufferSource = 6;
+}
+
+
+message ChangeCurHpBufferEffectDefinitionMessage
+{	
+	int32 sourceType = 1;
+	int32 fixedValueIndex = 2;
+	int32 percentageValueIndex = 3;
+	bool isAdd = 4;
+	//是否使用Buffer来源者的属性
+	bool isUsedBufferSource = 5;
+}
+
+message BufferEffectValidConditionMessage
+{
+	int32 validType = 1;
+	
+	oneof validCondition
+	{
+		TimeIntervalConditionMessage timeInterval = 11;
+		AttributeConditionMessage attribute = 12;
+	}
+}
+
+//==================Condition===============
+message TimeIntervalConditionMessage
+{
+	float interval = 1;
+}
+
+message AttributeConditionMessage
+{
+	int32 attributeType = 1;
+	int32 attributeIndex = 2;
+	bool isLessThan = 3;
+}
+
+message HasBufferConditionMessage
+{
+	int32 bufferId = 1;
+}
+
+// ==========ShellDefinition==========
+message ShellDefinitionMessage
+{
+	int32 id = 1;
+	string effectId = 2;
+	float duration = 3;
+	
+	repeated ShellDefinitionChildInfoMessage childInfos     = 30;
+	
+	AttackDefinitionInfoMessage attackDefinitionInfo = 98;
+	repeated NumericalMessage numericalValues = 99;
+	
+	int32 shellType = 100;
+	oneof shellConfig
+	{
+		ShellBulletDefinitionMessage bullet = 101;
+		ShellAreaDefinitionMessage area = 102;
+	}
+}
+
+message ShellDefinitionChildInfoMessage
+{
+    int32 childShellId                           = 1;
+    GfGame.GfFloat3Message childGenerationOffset = 2;
+}
+
+message ShellBulletDefinitionMessage
+{
+	int32 speed = 1;
+	int32 bulletType = 2;
+}
+
+message ShellAreaDefinitionMessage
+{
+
+}
+
+//==========Numerical==========
+message NumericalMessage
+{
+	int32 excel = 1;
+	int32 local = 2;
+}

@@ -1,0 +1,28 @@
+{
+    "AssetGuid": "ecacfe9ef5057364eaa39d122620deb3",
+    "IsBlackboardVisible": false,
+    "DialogueGraphVersion": "2.0.0",
+    "nodes": [
+        {
+            "GUID": "04337cfe-ffe9-4b55-b299-500f4f310630",
+            "Type": "DialogueGraph.DialogueNode",
+            "DrawState": {
+                "Position": {
+                    "serializedVersion": "2",
+                    "x": 102.0,
+                    "y": 124.0,
+                    "width": 163.0,
+                    "height": 96.0
+                },
+                "Expanded": true
+            },
+            "NodeData": "{\"lines\":\"[]\"}",
+            "PortData": [
+                "fedf707e-29e7-49d2-b27c-1d16137de06a",
+                "3a5fd9f4-dcc1-4eb3-ac8e-0b30284d8921"
+            ]
+        }
+    ],
+    "edges": [],
+    "serializedProperties": []
+}

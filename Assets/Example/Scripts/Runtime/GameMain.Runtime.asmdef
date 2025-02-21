@@ -1,0 +1,29 @@
+{
+    "name": "GameMain.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c59b6ff5af0ad6745be3f3df4b64deab",
+        "GUID:7fdb25b69eb91ef4dacf6bce3b5a1aab",
+        "GUID:23c1afbcb6630a44eb5cbbaf7b38300b",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:3436c9ff4c3071d47a954eb9818f8957",
+        "GUID:facac4034bea50c42be1bd2faa8dee09",
+        "GUID:2a81c6962524d424a8ef5072bd3b0fa0",
+        "GUID:e34a5702dd353724aa315fb8011f08c3",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:0c752da273b17c547ae705acf0f2adf2",
+        "GUID:6a3d313928794a047a43600da69957e4",
+        "GUID:1baf1ffff1031e948b3b228ab3453251"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

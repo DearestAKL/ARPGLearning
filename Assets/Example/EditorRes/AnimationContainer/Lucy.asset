@@ -1,0 +1,243 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f0d5c6161d4aaea68d1cbf1c2bb960, type: 3}
+  m_Name: Lucy
+  m_EditorClassIdentifier: 
+  StateInfos:
+  - LayerNo: 0
+    Name: Idle
+    Clips:
+    - {fileID: 7400000, guid: a8483ae1c0bbb164db9f5b2146df5d5a, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: bfd98618529d5494eb6eccee3353dd4e, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: WalkStart
+    Clips:
+    - {fileID: 7400000, guid: 2bb6a51e898924742b592e6c6c8fe868, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 76d26ebac855c1a4a82bfa0e29bbd177, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: WalkLoop
+    Clips:
+    - {fileID: 7400000, guid: bf0b2935e553b484cb46931485ed5d4e, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: WalkEnd
+    Clips:
+    - {fileID: 7400000, guid: c2bcba33490307b408002db562a832f5, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: fb8c60db79a5cb548a7ee0093bc38fee, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: RunStart
+    Clips:
+    - {fileID: 7400000, guid: bf049b3ad2cc6b94f8365e917d6c6a15, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: ebf1b9a7c35da174b8e12e2d4e103a46, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: RunLoop
+    Clips:
+    - {fileID: 7400000, guid: 58ff0fb10d3ce9943859f311d98380dc, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: d22cb9e9af4461d4b8e3a6d7afa37266, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: RunEnd
+    Clips:
+    - {fileID: 7400000, guid: ded6b850e526a3848b513f00e0b62d76, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: a48256b21c516dd4cbfd406253736174, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: Dash
+    Clips:
+    - {fileID: 7400000, guid: 4d93df932e6a5cc4382bba27e862003e, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: fac0288ff114bbb419b7f33e0ac8277b, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: SprintLoop
+    Clips:
+    - {fileID: 7400000, guid: 7c1e84dab2ae5784b801ae51c72624c3, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 671b3decaf2c1d84d94a73e54463de1a, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: SprintEnd
+    Clips:
+    - {fileID: 7400000, guid: 07e28ffd0c7e3e64ea4ac51eefea4574, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 5c624b4c0b6255c4b846523a50438459, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: LightAttack_1
+    Clips:
+    - {fileID: 7400000, guid: a69d372ed74681345afa624747915ec4, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: d0ce5fa74551d4241a989d4a694aa9f4, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: LightAttack_2
+    Clips:
+    - {fileID: 7400000, guid: 32350d19114be654dafce902cb95f1a3, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 065fdaece1c75864785898dee73bfefc, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: LightAttack_3
+    Clips:
+    - {fileID: 7400000, guid: 74dd122080152844e8ca9ff9116a868a, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 2d6d189972a988e40803e795ebac4199, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: LightAttack_4
+    Clips:
+    - {fileID: 7400000, guid: c94d90e09bb98c449b98e643551fd6ad, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 70c0a288188af8240ab236df42ae0f60, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: LightAttack_5
+    Clips:
+    - {fileID: 7400000, guid: f056c909ea8551a4782ee7c172522863, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: bf2649000a13f324f99d205697644c7c, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: ChargeAttack_1
+    Clips:
+    - {fileID: 7400000, guid: c3b0dbd506bb17f4d98687cbcc2c957d, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: a369075e4eba5ea4bbd9c7c1ab9a941d, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: GetHitSmall
+    Clips:
+    - {fileID: 7400000, guid: c9ee79cba8b79424f956674281b553c0, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 37f87fd045ea58d438525c89909a778a, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: GetHitLarge
+    Clips:
+    - {fileID: 7400000, guid: 011f0a2b105fe034b96c27eceec50606, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: f91a0766ad77ec7479815a28be9deb89, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: KnockUpStart
+    Clips:
+    - {fileID: 7400000, guid: a67f113a4c5ca3e43ba541907b3a23d3, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: KnockUpLoop
+    Clips:
+    - {fileID: 7400000, guid: 5ffa27ee2c290894183a5eb34e580a98, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: KnockUpLand
+    Clips:
+    - {fileID: 7400000, guid: c6631dd092cb15b49be2b8fadea374dd, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: LyingLoop
+    Clips:
+    - {fileID: 7400000, guid: 706d6db1b9a60644d95f6e56baacf1b4, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: c716b88a159b4534f9f5d58be7a86a35, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: GetUp
+    Clips:
+    - {fileID: 7400000, guid: 9da42300c8bd4e646a08cc7ea5b1d4c7, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 535824804aadefa47b0cce6f3225bbb5, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: Die
+    Clips:
+    - {fileID: 7400000, guid: 3acd6d076a46db044a5ab1f054b4ff8a, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  LayerInfos:
+  - LayerNo: 0
+    LayerWeight: 1
+    IsAdditive: 0
+    StartState: 
+    AvatarMask: {fileID: 0}
+    Foldings: 1
+  AtoBInfos:
+  - NameA: 
+    NameB: Idle
+    FadeType: 2
+    FadeTime: 0.6

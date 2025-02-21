@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4f4738209fa41e4873a97923373ec2, type: 3}
+  m_Name: LightAttack_4
+  m_EditorClassIdentifier: 
+  TargetAnimationEventClip: {fileID: 7400000, guid: c94d90e09bb98c449b98e643551fd6ad,
+    type: 2}
+  GroupInfoList:
+  - {fileID: 11400000, guid: c34eaf749155ac7428fb1c17521eb6f0, type: 2}
+  - {fileID: 11400000, guid: adff3905911ecdd44838b213b47583e6, type: 2}
+  - {fileID: 11400000, guid: eebaaaec1a371244aa3f3acf034c90af, type: 2}
+  - {fileID: 11400000, guid: 8281c5762a2f4954395dc54f6f438621, type: 2}

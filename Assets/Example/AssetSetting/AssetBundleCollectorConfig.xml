@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root Version="v2.0.0">
+  <Common ShowPackageView="False" ShowEditorAlias="False" UniqueBundleName="False" />
+  <Package PackageName="DefaultPackage" PackageDesc="" AutoAddressable="False" LocationToLower="False" IncludeAssetGUID="False" IgnoreDefaultType="True">
+    <Group GroupActiveRule="EnableGroup" GroupName="battle" GroupDesc="战斗" AssetTags="">
+      <Collector CollectPath="Assets/Example/GameRes/Effect" CollectGUID="17f4fd9268082134e9d63beed035cdaa" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="shader" GroupDesc="着色器" AssetTags="">
+      <Collector CollectPath="Assets/Example/GameRes/ShaderVariants" CollectGUID="9512e1f0ddab16940a15c6c9bc14e252" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackShaderVariants" FilterRule="CollectShaderVariants" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="scene" GroupDesc="场景" AssetTags="">
+      <Collector CollectPath="Assets/Example/GameRes/Scene" CollectGUID="3664c50ebae96d1428d9897e7e7dc9d9" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackSeparately" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="ui" GroupDesc="界面" AssetTags="">
+      <Collector CollectPath="Assets/Example/GameRes/UI" CollectGUID="bb04b9ea35e05aa40b7d3409be82422a" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+      <Collector CollectPath="Assets/Example/GameRes/Render" CollectGUID="f6716da57c19d564e86d5b2a0d2167d8" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="config" GroupDesc="配置" AssetTags="">
+      <Collector CollectPath="Assets/Example/GameRes/LubanData" CollectGUID="698ff567081598c4dab08411b3e1bf45" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="Audio" GroupDesc="声音" AssetTags="">
+      <Collector CollectPath="Assets/Example/GameRes/Audio" CollectGUID="682e42b6c9834cf4693a32e09a212e50" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+  </Package>
+</root>

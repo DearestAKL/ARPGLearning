@@ -1,0 +1,120 @@
+syntax = "proto3";
+package GfGame;
+
+option csharp_namespace = "Akari.GfGame";
+
+// ==========Math==========
+
+message GfFloat2Message
+{
+    float x = 1;
+    float y = 2;
+}
+
+message GfFloat3Message
+{
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}
+
+message GfFloat4Message
+{
+    float x = 1;
+    float y = 2;
+    float z = 3;
+    float w = 4;
+}
+
+message GfQuaternionMessage
+{
+    float x = 1;
+    float y = 2;
+    float z = 3;
+    float w = 4;
+}
+
+
+// ==========AnimationEvent Base==========
+
+message GfAnimationEventSubTrackMessage
+{
+
+    int32              length            = 1;
+
+    bool               isEdge            = 2;
+
+    bool               isUnityOnly       = 3;
+
+    string             listenerName      = 4;
+
+    string             methodName        = 5;
+
+    sint32             methodUniqueId    = 6;
+
+    sint32             parameterType     = 7;
+
+    bytes              ignitionFrames    = 8;
+
+    repeated GfAnimationEventRangeOfFrameMessage rangeOfFrames = 9;
+
+    bool               isEditorOnly      = 10;
+}
+
+
+message GfAnimationEventRangeOfFrameMessage
+{
+    int32 begin                          = 1;
+    int32 end                            = 2;
+}
+
+message GfAnimationEventFileHeaderMessage
+{
+    int32 trackNum                       = 1;
+}
+
+message GfResourceFileHeaderMessage
+{
+    string fileType         = 1;
+}
+
+// ==========GfAnimationContainer==========
+message GfAnimationContainerMessage
+{
+    repeated GfAnimationStateMessage stateInfos = 1;
+    repeated GfAnimationAtoBMessage atoBInfos = 2;
+	
+    repeated GfAnimationLayerMessage layerInfos = 10;
+}
+
+message GfAnimationLayerMessage
+{
+	int32 layerNo = 1;
+	float layerWeight = 2;
+	bool isAdditive = 3;
+	string startState = 4;
+	string avatarMaskPath = 5;
+}
+
+
+message GfAnimationStateMessage
+{
+	int32 layerNo = 1;
+	string stateName = 2;
+	repeated string clipPaths = 3;
+	string animationEventPath = 4;
+	bool IsRepeat = 5;
+	float Length = 6;
+	float FrameRate = 7;
+	string ParameterName = 8;
+	bool isSyncBlend = 9;
+}
+
+message GfAnimationAtoBMessage
+{
+	string nameA = 1;
+	string nameB = 2;
+	int32 fadeType = 3;
+	float fadeTime = 4;
+}
+

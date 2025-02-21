@@ -1,0 +1,25 @@
+{
+    "name": "GameMain.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c59b6ff5af0ad6745be3f3df4b64deab",
+        "GUID:7fdb25b69eb91ef4dacf6bce3b5a1aab",
+        "GUID:23c1afbcb6630a44eb5cbbaf7b38300b",
+        "GUID:8754637b41760714fa9b8a12f48a6770",
+        "GUID:069880bc15e61cf45bcad46a52052fe0",
+        "GUID:aab3caaf43456d6449a3e035348ff798",
+        "GUID:2a81c6962524d424a8ef5072bd3b0fa0",
+        "GUID:0c752da273b17c547ae705acf0f2adf2"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

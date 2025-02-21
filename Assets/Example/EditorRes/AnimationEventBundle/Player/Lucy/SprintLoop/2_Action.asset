@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20057d6bda207476b96e07d4022d8a85, type: 3}
+  m_Name: 2_Action
+  m_EditorClassIdentifier: 
+  GroupId: 2
+  Name: Action
+  TrackList:
+  - TrackId: 20001
+    IsSkippable: 0
+    TrackName: CanMove
+    GroupId: 2
+    ListenerTypeName: IEditorCharacterActionCancelAnimationEventListener
+    MethodName: RegisterCanMove
+    ParamList: []
+    KeyFrames: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+    IsBroken: 0
+  - TrackId: 20002
+    IsSkippable: 0
+    TrackName: CanDash
+    GroupId: 2
+    ListenerTypeName: IEditorCharacterActionCancelAnimationEventListener
+    MethodName: RegisterCanDash
+    ParamList: []
+    KeyFrames: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+    IsBroken: 0
+  - TrackId: 20004
+    IsSkippable: 0
+    TrackName: CanAttack
+    GroupId: 2
+    ListenerTypeName: IEditorCharacterActionCancelAnimationEventListener
+    MethodName: RegisterCanAttack
+    ParamList: []
+    KeyFrames: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+    IsBroken: 0
+  ParameterHeaderList:
+  - trackID: 20001
+    methodUID: 100201
+    dataBody: 7b7d
+  - trackID: 20002
+    methodUID: 100204
+    dataBody: 7b7d
+  - trackID: 20004
+    methodUID: 100202
+    dataBody: 7b7d
+  ObjectParameterList:
+  - {fileID: 6670241314229819425}
+  - {fileID: 2439905613202738208}
+  - {fileID: 8014486969989777006}
+--- !u!114 &2439905613202738208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcb1b28146444969034956e57a0d1eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6670241314229819425
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcb1b28146444969034956e57a0d1eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8014486969989777006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcb1b28146444969034956e57a0d1eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

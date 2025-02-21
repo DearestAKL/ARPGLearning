@@ -1,0 +1,14 @@
+*.csproj
+.idea/.idea.S/.idea/.gitignore
+.idea/
+Library/
+Temp/
+UserSettings/
+Output/
+obj/
+Logs/
+CDN/
+Bundles/
+*.sln
+fmod_editor.log
+Assets/Example/GameArt/Lucy/

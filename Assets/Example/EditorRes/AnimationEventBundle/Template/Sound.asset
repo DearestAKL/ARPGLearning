@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20057d6bda207476b96e07d4022d8a85, type: 3}
+  m_Name: Sound
+  m_EditorClassIdentifier: 
+  GroupId: 5
+  Name: Sound
+  TrackList:
+  - TrackId: 50001
+    IsSkippable: 0
+    TrackName: Sound_1
+    GroupId: 5
+    ListenerTypeName: IEditorCharacterSoundAnimationEventListener
+    MethodName: RegisterCommonSoundPlay
+    ParamList: []
+    KeyFrames: 0a000000
+    IsBroken: 0
+  ParameterHeaderList:
+  - trackID: 50001
+    methodUID: 400001
+    dataBody: 7b22436f6e74656e74223a226576656e743a2f53776f72642f537461625f31227d
+  ObjectParameterList: []

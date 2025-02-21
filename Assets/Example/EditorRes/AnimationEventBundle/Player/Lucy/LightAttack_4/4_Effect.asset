@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20057d6bda207476b96e07d4022d8a85, type: 3}
+  m_Name: 4_Effect
+  m_EditorClassIdentifier: 
+  GroupId: 4
+  Name: Effect
+  TrackList:
+  - TrackId: 40001
+    IsSkippable: 0
+    TrackName: Kick1
+    GroupId: 4
+    ListenerTypeName: IEditorCharacterEffectAnimationEventListener
+    MethodName: RegisterEffectPlay
+    ParamList: []
+    KeyFrames: 10000000
+    IsBroken: 0
+  - TrackId: 40002
+    IsSkippable: 0
+    TrackName: Kick2
+    GroupId: 4
+    ListenerTypeName: IEditorCharacterEffectAnimationEventListener
+    MethodName: RegisterEffectPlay
+    ParamList: []
+    KeyFrames: 1f000000
+    IsBroken: 0
+  ParameterHeaderList:
+  - trackID: 40001
+    methodUID: 300101
+    dataBody: 7b22456666656374223a7b22696e7374616e63654944223a38303031327d2c224566666563744964223a224b69636b322e707265666162222c22546172676574426f6e654e616d65223a22222c224f6666736574506f736974696f6e223a7b2258223a2d302e31373030303030303137383831333933352c2259223a302e363130303030303134333035313134382c225a223a302e3639393939393938383037393037317d2c224f6666736574526f746174696f6e223a7b2258223a332e302c2259223a3134302e302c225a223a3136302e307d2c2245666665637453697a65223a7b2258223a302e343030303030303035393630343634352c2259223a302e343030303030303035393630343634352c225a223a302e343030303030303035393630343634357d2c2243616d6572614f6666736574223a302e302c2243616e63656c52656d6f7665223a66616c73652c224368616e6765417474726962757465223a66616c73657d
+  - trackID: 40002
+    methodUID: 300101
+    dataBody: 7b22456666656374223a7b22696e7374616e63654944223a38303135387d2c224566666563744964223a224b69636b332e707265666162222c22546172676574426f6e654e616d65223a22222c224f6666736574506f736974696f6e223a7b2258223a302e31313939393939393733313737393039392c2259223a312e373030303030303437363833373135392c225a223a312e357d2c224f6666736574526f746174696f6e223a7b2258223a2d32312e302c2259223a302e302c225a223a302e307d2c2245666665637453697a65223a7b2258223a312e302c2259223a312e302c225a223a312e307d2c2243616d6572614f6666736574223a302e302c2243616e63656c52656d6f7665223a66616c73652c224368616e6765417474726962757465223a66616c73657d
+  ObjectParameterList:
+  - {fileID: 5612762334860520846}
+  - {fileID: 2360099293191123979}
+--- !u!114 &2360099293191123979
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d48d76c82b14e29a53ba5110849da48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 7177838504599835611, guid: 69d941e9c6eb6c547be9d0f005021245, type: 3}
+  EffectId: Kick3.prefab
+  TargetBoneName: 
+  OffsetPosition:
+    X: 0.12
+    Y: 1.7
+    Z: 1.5
+  OffsetRotation:
+    X: -21
+    Y: 0
+    Z: 0
+  EffectSize:
+    X: 1
+    Y: 1
+    Z: 1
+  CameraOffset: 0
+  CancelRemove: 0
+  ChangeAttribute: 0
+--- !u!114 &5612762334860520846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d48d76c82b14e29a53ba5110849da48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 3605167960148228128, guid: f2c62118370cd8841b948e2325cf9132, type: 3}
+  EffectId: Kick2.prefab
+  TargetBoneName: 
+  OffsetPosition:
+    X: -0.17
+    Y: 0.61
+    Z: 0.7
+  OffsetRotation:
+    X: 3
+    Y: 140
+    Z: 160
+  EffectSize:
+    X: 0.4
+    Y: 0.4
+    Z: 0.4
+  CameraOffset: 0
+  CancelRemove: 0
+  ChangeAttribute: 0

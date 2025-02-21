@@ -1,0 +1,48 @@
+syntax = "proto3";
+package Battle;
+
+option csharp_namespace = "DialogueGraph.Runtime";
+
+message DlogMessage
+{
+	repeated NodeMessage nodes = 1;
+	repeated PropertyMessage properties = 2;
+	int32 startNode = 3;
+}
+
+message NodeMessage
+{
+	int32 type = 1;
+	
+	repeated ConversationLineMessage Lines = 2;
+	
+	int32 curActor = 3;
+}
+
+message PropertyMessage
+{
+	int32 type = 1;
+	string reference = 2;
+}
+
+
+message ConversationLineMessage
+{
+	// 内容
+	string message = 1;
+	// 下一个节点id
+	int32 nextNode = 2;
+	
+	// 触发事件
+	repeated int32 triggers = 3;
+	// 条件树
+	repeated CheckTreeMessage checkTrees = 4;
+}
+
+message CheckTreeMessage
+{
+	int32 booleanOperation = 1;
+	int32 curProperty = 2;
+	CheckTreeMessage subtreeA = 3;
+	CheckTreeMessage subtreeB = 4;
+}

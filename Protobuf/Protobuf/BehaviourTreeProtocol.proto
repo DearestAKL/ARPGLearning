@@ -1,0 +1,136 @@
+syntax = "proto3";
+package GameMain;
+
+option csharp_namespace = "GameMain.Runtime";
+
+//==========Base==========
+message GfBtFileHeaderMessage
+{
+    repeated int32        nodeTypes = 1;
+    repeated int32        propertyTypes = 2;
+    int32                startNodeIndex = 3;
+	repeated GfBtPropertyEdgeMessage        PropertyEdges = 4;
+}
+
+message GfBtPropertyEdgeMessage
+{
+	int32 propertyIndex = 1;
+	int32 nodeIndex = 2;
+}
+
+message GfBtBaseMessage
+{
+	int32 index = 1;
+}
+
+message GfBtCompositeMessage
+{
+	repeated int32 children = 1;
+}
+
+message GfBtStartMessage
+{
+	int32 child = 1;
+}
+
+message GfBtParallelMessage
+{
+	GfBtCompositeMessage composite = 1;
+	//ONE = 0,ALL = 1
+	int32 failurePolicy = 2;
+	//ONE = 0,ALL = 1
+    int32 successPolicy = 3;
+}
+
+message GfBtSelectorMessage
+{
+	GfBtCompositeMessage composite = 1;
+	bool                  random = 2;
+}
+
+message GfBtSequencerMessage
+{
+	GfBtCompositeMessage composite = 1;
+	bool                  random = 2;
+}
+
+message GfBtPropertyMessage
+{
+	//0=Get, 1=Set
+	int32 type = 1;
+}
+
+//==========Action==========
+message BtWaitMessage
+{
+	float duration = 1;
+	float randomVariance = 2;
+}
+
+message BtDebugMessage
+{
+	string message = 1;
+}
+
+message BtCharacterIdleMessage
+{
+}
+
+message BtCharacterMoveMessage
+{
+}
+
+message BtCharacterPatrolMessage
+{
+}
+
+message BtCharacterPlayAnimationStateMessage
+{
+	string stateName = 1;
+}
+
+//==========ExposedProperty==========
+message BtPropertyIntMessage
+{
+	string key = 1;
+	int32 value = 2;
+}
+
+message BtPropertyStringMessage
+{
+	string key = 1;
+	string content = 2; 
+}
+
+//==========Decorator==========
+message BtBaseConditionMessage
+{
+	int32 child = 1;
+	int32 operator = 2;
+	int32 stops = 3;
+	string key = 4;
+}
+
+message BtFloatConditionMessage
+{
+	BtBaseConditionMessage base = 1;
+	float floatValue = 2;
+}
+
+message BtBoolConditionMessage
+{
+	BtBaseConditionMessage base = 1;
+	bool boolValue = 2;
+}
+
+message BtCharacterServiceMessage
+{
+	int32 child = 1;
+	float interval = 2;
+}
+
+message BtCharacterSeekMessage
+{
+	float radius = 1;
+	int32 angle = 2;
+}

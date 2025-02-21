@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20057d6bda207476b96e07d4022d8a85, type: 3}
+  m_Name: 1_Damage
+  m_EditorClassIdentifier: 
+  GroupId: 1
+  Name: Damage
+  TrackList:
+  - TrackId: 10001
+    IsSkippable: 0
+    TrackName: Attack
+    GroupId: 1
+    ListenerTypeName: IEditorCharacterDamageAnimationEventListener
+    MethodName: RegisterAttack
+    ParamList: []
+    KeyFrames: 0800000009000000
+    IsBroken: 0
+  ParameterHeaderList:
+  - trackID: 10001
+    methodUID: 100002
+    dataBody: 7b224964223a317d
+  ObjectParameterList:
+  - {fileID: 4016941114438930123}
+--- !u!114 &4016941114438930123
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92537e57a0f4852919b990b89c2480f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 1
