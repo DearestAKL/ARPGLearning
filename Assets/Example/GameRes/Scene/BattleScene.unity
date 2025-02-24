@@ -327,8 +327,6 @@ MonoBehaviour:
   IsShowProInputCommandsStr: 0
   proInputCommandsStr: 
   testCharacterId: 1001
-  ShakePower: 1
-  ShakeDirection: 0
   isFixedUpdate: 1
   isDebugUpdate: 0
   enableProInput: 0

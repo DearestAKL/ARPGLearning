@@ -15,6 +15,8 @@ namespace GameMain.Runtime
         /// </summary>
         protected async UniTask CheckYooAssetsInit()
         {
+            Cursor.visible = true;
+            
             if (ManagerHelper.IsInitYooAssets)
             {
                 return ; 

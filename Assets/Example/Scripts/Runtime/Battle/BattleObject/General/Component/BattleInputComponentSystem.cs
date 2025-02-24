@@ -4,6 +4,7 @@ using Akari.GfGame;
 using Akari.GfUnity;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.Interactions;
 using Utils;
 
@@ -160,7 +161,7 @@ namespace GameMain.Runtime
             {
                 return;
             }
-            
+
             if (DisableBattleInput)
             {
                 _isMoving = false;
@@ -218,7 +219,7 @@ namespace GameMain.Runtime
         
         private void OnBasicAttackStarted(InputAction.CallbackContext context)
         {
-            if (DisableBattleInput) { return; }
+            if (DisableBattleInput || EventSystemUtility.IsPointerOverGUIAction()) { return; }
 
             if (context.interaction is TapInteraction)
             {
@@ -236,7 +237,7 @@ namespace GameMain.Runtime
 
         private void OnBasicAttackPerformed(InputAction.CallbackContext context)
         {
-            if (DisableBattleInput) { return; }
+            if (DisableBattleInput || EventSystemUtility.IsPointerOverGUIAction()) { return; }
             
             if (context.interaction is HoldInteraction)
             {
@@ -255,14 +256,13 @@ namespace GameMain.Runtime
 
         private void OnBasicAttackCanceled(InputAction.CallbackContext context)
         {
-            if (DisableBattleInput) { return; }
+            if (DisableBattleInput || EventSystemUtility.IsPointerOverGUIAction()) { return; }
             
             if (context.interaction is HoldInteraction)
             {
                 _fireHolding = false;
             }
         }
-        
         //=================Dash=================
         
         private void OnDashStarted(InputAction.CallbackContext context)

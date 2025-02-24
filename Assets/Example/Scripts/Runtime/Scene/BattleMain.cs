@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using Ryu.InGame.Unity;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 using Random = UnityEngine.Random;
 
 namespace GameMain.Runtime
@@ -17,16 +18,12 @@ namespace GameMain.Runtime
         [Range(1001,1001)]
         public int testCharacterId = 1001;
 
-        public BattleCameraShakeParam.ShakePower ShakePower;
-        public BattleCameraShakeParam.ShakeDirection ShakeDirection;
-        
         //DEBUG
         public bool isFixedUpdate = false;//启用固定帧，防止卡顿导致伤害丢失
         public bool isDebugUpdate = false;//启用调试帧，每秒50次
         
         public bool enableProInput = false;
         public float proInputTime = 0.5f;
-        
         
         private int _fixedCount = 0;
         
@@ -109,19 +106,6 @@ namespace GameMain.Runtime
                 WorldManager.Instance.Update(Time.deltaTime);
             }
             
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                BattleAdmin.EntityComponentSystem.RequestToEntity(BattleUnityAdmin.BattleMainCameraView.SelfHandle,
-                    new CameraShakeRequest(ShakePower, ShakeDirection));
-            }
-
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                BattleAdmin.Factory.Character.CreateEnemyCharacter(
-                    new GameCharacterModel(new EnemyData(2001,10)), GfFloat3.Zero, GfQuaternion.Identity, "enemyKey").ToCoroutine();
-            }
-
-
             if (BattleUnityAdmin.BattleInput != null && IsShowProInputCommandsStr) 
             {
                 BattleUnityAdmin.BattleInput.EnableProInput = enableProInput;
@@ -187,7 +171,7 @@ namespace GameMain.Runtime
             await BattleAdmin.Factory.Character.CreateCharacterSummoner(new GameCharacterModel(summonerData),
                 GfFloat3.Right,
                 GfQuaternion.Identity,"summonerKey");
-            
+
             UIHelper.EndLoading();
         }
 
@@ -247,7 +231,11 @@ namespace GameMain.Runtime
         {
             //=====OtherInput=====
             BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.Return].started += OnReturnStarted;
-            BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.Test].started += OnTestStarted;
+            BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.GMCommon].started += OnGMCommonStarted;
+            BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.GMBattle].started += OnGMBattleStarted;
+            
+            BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.ShowCursor].performed += OnShowCursorPerformed;
+            BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.ShowCursor].canceled += OnShowCursorCanceled;
         }
 
         //=================Exit=================
@@ -261,8 +249,8 @@ namespace GameMain.Runtime
             UIManager.Instance.CloseBaseStackPopPanel();
         }
         
-        //=================Test=================
-        private async void OnTestStarted(InputAction.CallbackContext context)
+        //=================GMCommon=================
+        private async void OnGMCommonStarted(InputAction.CallbackContext context)
         {
             if (UIManager.Instance.HasPopUp)
             {
@@ -272,7 +260,34 @@ namespace GameMain.Runtime
 
             await UIManager.Instance.OpenUIPanel(UIType.UIGMCommonPanel);
         }
-
+        
+        //=================GMBattle=================
+        private async void OnGMBattleStarted(InputAction.CallbackContext context)
+        {
+            if (UIManager.Instance.HasPopUp)
+            {
+                //有弹窗时暂时屏蔽
+                return;
+            }
+            
+            await UIManager.Instance.OpenUIPanel(UIType.UIGMBattlePanel);
+        }
+        
+        private void OnShowCursorPerformed(InputAction.CallbackContext context)
+        {
+            if (context.interaction is HoldInteraction)
+            {
+                BattleUnityAdmin.BattleInput.SetBattleInputDisable(true);
+            }
+        }
+        
+        private void OnShowCursorCanceled(InputAction.CallbackContext context)
+        {
+            if (context.interaction is HoldInteraction)
+            {
+                BattleUnityAdmin.BattleInput.SetBattleInputDisable(false);
+            }
+        }
         #endregion
     }
 }

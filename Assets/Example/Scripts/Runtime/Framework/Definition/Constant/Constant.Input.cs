@@ -25,8 +25,11 @@ namespace GameMain.Runtime
             public const string Menu = "Menu";//菜单 键盘Esc 手柄菜单键（三个横杆
             public const string Backpack = "Backpack";//键盘B
             
-            public const string Test = "Test";//测试按键 键盘Shift+K
+            public const string GMCommon = "GMCommon";//测试按键 键盘Shift+C
+            public const string GMBattle = "GMBattle";//测试按键 键盘Shift+B
             public const string Fishing = "Fishing";//钓鱼 鼠标左键
+            
+            public const string ShowCursor = "ShowCursor";//显示鼠标指针 left alt
         }
     }
 }

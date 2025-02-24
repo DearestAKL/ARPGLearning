@@ -82,6 +82,7 @@ namespace GameMain.Runtime
             _uiTypeMap.Add(UIType.UIBackpackPanel,typeof(UIBackpackPanel));
             _uiTypeMap.Add(UIType.UISideFilterDialog,typeof(UISideFilterDialog));
             _uiTypeMap.Add(UIType.UIFishPanel,typeof(UIFishPanel));
+            _uiTypeMap.Add(UIType.UIGMBattlePanel,typeof(UIGMBattlePanel));
         }
 
         public Type GetUIPanelType(string panelName)
@@ -262,6 +263,7 @@ namespace GameMain.Runtime
         public const string UIBackpackPanel = "UIBackpackPanel";
         public const string UISideFilterDialog = "UISideFilterDialog";
         public const string UIFishPanel = "UIFishPanel";
+        public const string UIGMBattlePanel = "UIGMBattlePanel";
 
         private static readonly Dictionary<string, string> UITypeGroupMap = new Dictionary<string, string>()
         {
@@ -277,6 +279,7 @@ namespace GameMain.Runtime
 
             //Window Mid 可全部显示
             {UIType.UIFishPanel,UIGroupType.MidCommon},
+            {UIType.UIGMBattlePanel,UIGroupType.MidCommon},
             
             //Window Top 应用界面栈，只显示最上层
 
