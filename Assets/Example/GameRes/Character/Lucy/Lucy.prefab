@@ -4865,6 +4865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _updateMode: 3
+  IsApplyRootMotion: 0
 --- !u!114 &5529319370828355463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4907,7 +4908,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.98, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &8187748735443800700
 GameObject:
   m_ObjectHideFlags: 0

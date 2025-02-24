@@ -182,6 +182,12 @@ namespace GameMain.Runtime
             
             //AudioManager.Instance.PlayBgm(Constant.Sound.BgmFondness);
 
+            //召唤物伙伴
+            var summonerData = new SummonerData(9001,10);
+            await BattleAdmin.Factory.Character.CreateCharacterSummoner(new GameCharacterModel(summonerData),
+                GfFloat3.Zero,
+                GfQuaternion.Identity,"summonerKey");
+            
             UIHelper.EndLoading();
         }
 

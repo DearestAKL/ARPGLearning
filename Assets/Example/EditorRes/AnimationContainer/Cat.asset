@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f0d5c6161d4aaea68d1cbf1c2bb960, type: 3}
+  m_Name: Cat
+  m_EditorClassIdentifier: 
+  StateInfos:
+  - LayerNo: 0
+    Name: Idle
+    Clips:
+    - {fileID: 7400000, guid: 16b7968eb86eeeb4ca494916ffb21dd0, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: f06a4d4cc48a6b3489c53d2f41698a59, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: WalkLoop
+    Clips:
+    - {fileID: 7400000, guid: 659acc12f73e48e48bfab74efddef3aa, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: RunLoop
+    Clips:
+    - {fileID: 7400000, guid: 7a8fedd309511714f93cd5df0c1843b5, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: GetHitSmall
+    Clips:
+    - {fileID: 7400000, guid: 80bfbdfcb1df40142a39f9c9f4e9ded2, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: Die
+    Clips:
+    - {fileID: 7400000, guid: 0c8d7ef0c691b82488b4d9e8e9e983f2, type: 2}
+    AnimationEvent: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  LayerInfos:
+  - LayerNo: 0
+    LayerWeight: 1
+    IsAdditive: 0
+    StartState: 
+    AvatarMask: {fileID: 0}
+    Foldings: 1
+  AtoBInfos: []

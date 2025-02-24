@@ -94,6 +94,7 @@ namespace GameMain.Runtime
         Player = 1,
         Npc = 2,
         Enemy = 3,
+        Summoner = 4,
     }
 
     [Flags]

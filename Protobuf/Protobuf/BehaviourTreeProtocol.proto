@@ -89,6 +89,12 @@ message BtCharacterPlayAnimationStateMessage
 	string stateName = 1;
 }
 
+message BtCharacterFollowMessage
+{
+	int32 minDistance = 1;
+	int32 maxDistance = 2;
+}
+
 //==========ExposedProperty==========
 message BtPropertyIntMessage
 {

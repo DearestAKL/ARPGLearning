@@ -15,5 +15,11 @@ namespace GameMain.Runtime
              GfQuaternion rotation,
              string enemyKey
         );
+        
+        UniTask<GfEntity> CreateCharacterSummoner(GameCharacterModel gameCharacterModel,
+            GfFloat3 position,
+            GfQuaternion rotation,
+            string summonerKey
+        );
     }
 }

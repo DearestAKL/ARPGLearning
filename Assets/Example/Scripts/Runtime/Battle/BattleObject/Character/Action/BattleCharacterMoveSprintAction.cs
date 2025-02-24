@@ -115,6 +115,12 @@ namespace GameMain.Runtime
                     }
                     break;
             }
+            
+            //如果是没有位移的动画 则代码控制位移
+            if (!Animation.HasRootMotionMoveAnimation)
+            {
+                HorizontalMove(deltaTime, Accessor.Condition.MoveDirection, 4.5f);
+            }
         }
 
         public override void OnExit(AGfFsmState nextAction)

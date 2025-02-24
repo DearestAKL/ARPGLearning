@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83dc4655bfa3db84a9d933ea8d59bba1, type: 3}
+  m_Name: Cat
+  m_EditorClassIdentifier: 
+  m_Nodes:
+  - rid: 1482356608526450749
+  - rid: 1482356608526450750
+  - rid: 1482356608526450751
+  - rid: 1482356608526450754
+  m_Edges:
+  - m_GUID: 1984ca4c-f705-48e6-b679-d717ad2dcf53
+    m_StartNodeGUID: f74bcc60-0e56-4019-be18-b01e7bfaf831
+    m_EndNodeGUID: f591893c-19de-4fde-8fcc-105a78d43b95
+    m_StartPortName: Output
+    m_EndPortName: Input
+  - m_GUID: 76f638c9-86df-40d1-8303-01a34aed739c
+    m_StartNodeGUID: 66e02248-77b0-4cae-8aa3-7894cd6e2fdd
+    m_EndNodeGUID: f74bcc60-0e56-4019-be18-b01e7bfaf831
+    m_StartPortName: Output
+    m_EndPortName: Input
+  - m_GUID: 35f3cb50-83b4-478e-ba96-439de0e9fd0a
+    m_StartNodeGUID: f591893c-19de-4fde-8fcc-105a78d43b95
+    m_EndNodeGUID: ae4027ce-c94b-4c21-8a8f-0b9db880f112
+    m_StartPortName: Output
+    m_EndPortName: Input
+  m_PropertyEdges: []
+  m_ExposedProperties: []
+  m_RootGUID: 66e02248-77b0-4cae-8aa3-7894cd6e2fdd
+  m_Description: 
+  m_NodeGroups: []
+  m_StackNodes: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1482356608526450749
+      type: {class: RootNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: 66e02248-77b0-4cae-8aa3-7894cd6e2fdd
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 0, y: 0}
+        m_OutputEdgeGUID: 76f638c9-86df-40d1-8303-01a34aed739c
+    - rid: 1482356608526450750
+      type: {class: CharacterServiceNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: f74bcc60-0e56-4019-be18-b01e7bfaf831
+        m_Expanded: 1
+        m_ShowPanel: 1
+        m_Position: {x: 152, y: 0}
+        m_InputEdgeGUID: 76f638c9-86df-40d1-8303-01a34aed739c
+        m_OutputEdgeGUID: 1984ca4c-f705-48e6-b679-d717ad2dcf53
+        interval: 0.125
+    - rid: 1482356608526450751
+      type: {class: SelectorNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: f591893c-19de-4fde-8fcc-105a78d43b95
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 502, y: 0}
+        m_InputEdgeGUID: 1984ca4c-f705-48e6-b679-d717ad2dcf53
+        m_OutputEdgeGUIDs:
+        - 35f3cb50-83b4-478e-ba96-439de0e9fd0a
+        m_IsRandom: 0
+    - rid: 1482356608526450754
+      type: {class: CharacterFollowNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: ae4027ce-c94b-4c21-8a8f-0b9db880f112
+        m_Expanded: 1
+        m_ShowPanel: 1
+        m_Position: {x: 697, y: 0}
+        m_InputEdgeGUID: 35f3cb50-83b4-478e-ba96-439de0e9fd0a
+        minDistance: 2
+        maxDistance: 3

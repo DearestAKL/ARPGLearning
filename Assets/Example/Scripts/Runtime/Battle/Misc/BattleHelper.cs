@@ -34,6 +34,7 @@ namespace GameMain.Runtime
             GfPbFactory.SetFactory(RyPbTypes.BtNodeCharacterPlayAnimationStateAction, new BtCharacterPlayAnimationStateNodeFactory());
             GfPbFactory.SetFactory(RyPbTypes.BtNodeCharacterSeekAction, new BtCharacterSeekNodeFactory());
             GfPbFactory.SetFactory(RyPbTypes.BtNodeCharacterPatrolAction, new BtCharacterPatrolNodeFactory());
+            GfPbFactory.SetFactory(RyPbTypes.BtNodeCharacterFollowAction, new BtCharacterFollowNodeFactory());
             
             GfPbFactory.SetFactory(RyPbTypes.BtNodeFloatCondition, new BtFloatConditionNodeFactory());
             GfPbFactory.SetFactory(RyPbTypes.BtNodeCharacterService, new BtServiceNodeFactory());

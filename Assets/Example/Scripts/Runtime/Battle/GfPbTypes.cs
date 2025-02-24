@@ -38,6 +38,7 @@ namespace GameMain.Runtime
         public const int BtNodeCharacterPlayAnimationStateAction = GfPbTypeId.BehaviourTree + 305;
         public const int BtNodeCharacterSeekAction = GfPbTypeId.BehaviourTree + 306;
         public const int BtNodeCharacterPatrolAction = GfPbTypeId.BehaviourTree + 307;
+        public const int BtNodeCharacterFollowAction = GfPbTypeId.BehaviourTree + 308;
         
         public const int BtNodeCharacterService = GfPbTypeId.BehaviourTree + 402;
         public const int BtNodeBoolCondition = GfPbTypeId.BehaviourTree + 403;

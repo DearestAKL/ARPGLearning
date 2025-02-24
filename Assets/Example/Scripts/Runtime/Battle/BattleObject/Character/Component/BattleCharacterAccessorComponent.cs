@@ -31,8 +31,6 @@ namespace GameMain.Runtime
         public BattleCharacterTransformComponent Transform { get; }
         public BattleCharacterPassiveSkillComponent PassiveSkill { get; }
         public BattleCharacterBufferComponent Buffer { get; }
-        
-        public BattleDamageWarningComponent DamageWarning { get; }
 
         public GfColliderComponent2D<uint, BattleColliderAttackParameter, BattleColliderDefendParameter> ColliderComponent { get; }
         
@@ -53,7 +51,6 @@ namespace GameMain.Runtime
             Transform = entity.GetComponent<BattleCharacterTransformComponent>();
             PassiveSkill = entity.GetComponent<BattleCharacterPassiveSkillComponent>();
             Buffer = entity.GetComponent<BattleCharacterBufferComponent>();
-            DamageWarning = entity.GetComponent<BattleDamageWarningComponent>();
         }
 
         public void SetDamageNotificator(IBattleObjectDamageNotificator damageNotificator)

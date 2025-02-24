@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TreeDesigner
 {
     [Serializable]
     [NodeName("PlayAnimationState")]
-    [NodePath("Action/Character/PlayAnimationState")]
+    [NodePath("Action/PlayAnimationState")]
     public class CharacterPlayAnimationStateNode  : ActionNode
     {
         [SerializeField,ShowInPanel("StateName")]
-        string m_StateName;
+        string stateName;
         
         public override int GetPbTypeId()
         {
@@ -20,7 +21,7 @@ namespace TreeDesigner
         {
             var message = new GameMain.Runtime.BtCharacterPlayAnimationStateMessage()
             {
-                StateName = m_StateName
+                StateName = stateName
             };
             return message;
         }

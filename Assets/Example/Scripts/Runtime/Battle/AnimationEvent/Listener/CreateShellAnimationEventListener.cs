@@ -6,7 +6,7 @@ namespace GameMain.Runtime
     public interface ICreateShellAnimationEventListener : IGfAnimationEventListener
     {
         void CreateShell(AnimationEventParameterShell param, GfAnimationEventCallInfo info);
-        void CreateWarningShell(AnimationEventParameterShell param, GfAnimationEventCallInfo info);
+        void CreateShellWarning(AnimationEventParameterShell param, GfAnimationEventCallInfo info);
     }
     
     public class CreateShellAnimationEventListener : ACharacterAnimationEventListener, ICreateShellAnimationEventListener
@@ -26,7 +26,7 @@ namespace GameMain.Runtime
             CreateShell(param.Id, basePosition, param.OffsetPosition, direction);
         }
         
-        public async void CreateWarningShell(AnimationEventParameterShell param, GfAnimationEventCallInfo info)
+        public async void CreateShellWarning(AnimationEventParameterShell param, GfAnimationEventCallInfo info)
         {
             GfFloat3 basePosition = GetBasePosition(param);
             GfFloat3 direction = GetDirection(param);
@@ -36,11 +36,7 @@ namespace GameMain.Runtime
             var collisions = shellDefinitionMessage.AttackDefinitionInfo.Collisions;
             var extent = collisions.Count > 0 ? collisions[0].Extents.ToGfFloat2() : GfFloat2.One;
             
-            Accessor.DamageWarning.CreatDamageWarning(1, basePosition.ToXZFloat2(), extent, GfQuaternion.LookRotation(direction),
-                () =>
-                {
-                    CreateShell(param.Id, basePosition, param.OffsetPosition, direction);
-                });
+            Accessor.Entity.Request(new CreatDamageWarningRequest(1f, basePosition.ToXZFloat2(), extent, GfQuaternion.LookRotation(direction)));
         }
 
         private async void CreateShell(int shellId, GfFloat3 basePosition, GfFloat3 offset, GfFloat3 direction)

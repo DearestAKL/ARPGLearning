@@ -47,7 +47,6 @@ namespace GameMain.Runtime
         private static readonly string LyingAnimationName     = "LyingLoop";
         private static readonly string GetUpAnimationName = "GetUp";
         
-        private Status _status;
         
         private float _elapsedTime;
 
@@ -58,6 +57,9 @@ namespace GameMain.Runtime
         private float _curVerticalVelocity;
         private bool _hasHorizontalVelocity;
         private bool _hasVerticalVelocity;
+        
+        private bool _isInvalid = false;
+        private Status _status = Status.KnockUpStart;
 
         public override void OnEnter(AGfFsmState prevAction, bool reenter)
         {
@@ -79,11 +81,27 @@ namespace GameMain.Runtime
         {
             base.OnStart();
             AnimationClipIndex = GetAnimationClipIndex();
-            Animation.Play(AnimationClipIndex);
+            if (AnimationClipIndex < 0)
+            {
+                _isInvalid = true;
+                //没有配套的击飞动作 则改为击退action
+                EndActionAndRequestForChange(
+                    BattleCharacterKnockBackActionData.Create(_actionData.DamageVector,
+                        _actionData.HorizontalVelocity));
+            }
+            else
+            {
+                Animation.Play(AnimationClipIndex);
+            }
         }
 
         public override void OnUpdate(float deltaTime)
         {
+            if (_isInvalid)
+            {
+                return;
+            }
+            
             deltaTime *= Animation.Speed;
             
             switch (_status)

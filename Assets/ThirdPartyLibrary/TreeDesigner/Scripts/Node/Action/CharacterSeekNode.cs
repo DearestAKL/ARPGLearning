@@ -5,7 +5,7 @@ namespace TreeDesigner
 {
     [Serializable]
     [NodeName("Seek")]
-    [NodePath("Action/Character/Seek")]
+    [NodePath("Action/Seek")]
     public class CharacterSeekNode : ActionNode
     {
         [SerializeField,ShowInPanel("Radius")]

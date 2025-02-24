@@ -45,18 +45,20 @@ namespace GameMain.Runtime {
             "IhgKFkJ0Q2hhcmFjdGVySWRsZU1lc3NhZ2UiGAoWQnRDaGFyYWN0ZXJNb3Zl",
             "TWVzc2FnZSIaChhCdENoYXJhY3RlclBhdHJvbE1lc3NhZ2UiOQokQnRDaGFy",
             "YWN0ZXJQbGF5QW5pbWF0aW9uU3RhdGVNZXNzYWdlEhEKCXN0YXRlTmFtZRgB",
-            "IAEoCSIyChRCdFByb3BlcnR5SW50TWVzc2FnZRILCgNrZXkYASABKAkSDQoF",
-            "dmFsdWUYAiABKAUiNwoXQnRQcm9wZXJ0eVN0cmluZ01lc3NhZ2USCwoDa2V5",
-            "GAEgASgJEg8KB2NvbnRlbnQYAiABKAkiVQoWQnRCYXNlQ29uZGl0aW9uTWVz",
-            "c2FnZRINCgVjaGlsZBgBIAEoBRIQCghvcGVyYXRvchgCIAEoBRINCgVzdG9w",
-            "cxgDIAEoBRILCgNrZXkYBCABKAkiXQoXQnRGbG9hdENvbmRpdGlvbk1lc3Nh",
-            "Z2USLgoEYmFzZRgBIAEoCzIgLkdhbWVNYWluLkJ0QmFzZUNvbmRpdGlvbk1l",
-            "c3NhZ2USEgoKZmxvYXRWYWx1ZRgCIAEoAiJbChZCdEJvb2xDb25kaXRpb25N",
-            "ZXNzYWdlEi4KBGJhc2UYASABKAsyIC5HYW1lTWFpbi5CdEJhc2VDb25kaXRp",
-            "b25NZXNzYWdlEhEKCWJvb2xWYWx1ZRgCIAEoCCI8ChlCdENoYXJhY3RlclNl",
-            "cnZpY2VNZXNzYWdlEg0KBWNoaWxkGAEgASgFEhAKCGludGVydmFsGAIgASgC",
-            "IjcKFkJ0Q2hhcmFjdGVyU2Vla01lc3NhZ2USDgoGcmFkaXVzGAEgASgCEg0K",
-            "BWFuZ2xlGAIgASgFQhOqAhBHYW1lTWFpbi5SdW50aW1lYgZwcm90bzM="));
+            "IAEoCSJEChhCdENoYXJhY3RlckZvbGxvd01lc3NhZ2USEwoLbWluRGlzdGFu",
+            "Y2UYASABKAUSEwoLbWF4RGlzdGFuY2UYAiABKAUiMgoUQnRQcm9wZXJ0eUlu",
+            "dE1lc3NhZ2USCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgFIjcKF0J0UHJv",
+            "cGVydHlTdHJpbmdNZXNzYWdlEgsKA2tleRgBIAEoCRIPCgdjb250ZW50GAIg",
+            "ASgJIlUKFkJ0QmFzZUNvbmRpdGlvbk1lc3NhZ2USDQoFY2hpbGQYASABKAUS",
+            "EAoIb3BlcmF0b3IYAiABKAUSDQoFc3RvcHMYAyABKAUSCwoDa2V5GAQgASgJ",
+            "Il0KF0J0RmxvYXRDb25kaXRpb25NZXNzYWdlEi4KBGJhc2UYASABKAsyIC5H",
+            "YW1lTWFpbi5CdEJhc2VDb25kaXRpb25NZXNzYWdlEhIKCmZsb2F0VmFsdWUY",
+            "AiABKAIiWwoWQnRCb29sQ29uZGl0aW9uTWVzc2FnZRIuCgRiYXNlGAEgASgL",
+            "MiAuR2FtZU1haW4uQnRCYXNlQ29uZGl0aW9uTWVzc2FnZRIRCglib29sVmFs",
+            "dWUYAiABKAgiPAoZQnRDaGFyYWN0ZXJTZXJ2aWNlTWVzc2FnZRINCgVjaGls",
+            "ZBgBIAEoBRIQCghpbnRlcnZhbBgCIAEoAiI3ChZCdENoYXJhY3RlclNlZWtN",
+            "ZXNzYWdlEg4KBnJhZGl1cxgBIAEoAhINCgVhbmdsZRgCIAEoBUITqgIQR2Ft",
+            "ZU1haW4uUnVudGltZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -75,6 +77,7 @@ namespace GameMain.Runtime {
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtCharacterMoveMessage), global::GameMain.Runtime.BtCharacterMoveMessage.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtCharacterPatrolMessage), global::GameMain.Runtime.BtCharacterPatrolMessage.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtCharacterPlayAnimationStateMessage), global::GameMain.Runtime.BtCharacterPlayAnimationStateMessage.Parser, new[]{ "StateName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtCharacterFollowMessage), global::GameMain.Runtime.BtCharacterFollowMessage.Parser, new[]{ "MinDistance", "MaxDistance" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtPropertyIntMessage), global::GameMain.Runtime.BtPropertyIntMessage.Parser, new[]{ "Key", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtPropertyStringMessage), global::GameMain.Runtime.BtPropertyStringMessage.Parser, new[]{ "Key", "Content" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtBaseConditionMessage), global::GameMain.Runtime.BtBaseConditionMessage.Parser, new[]{ "Child", "Operator", "Stops", "Key" }, null, null, null, null),
@@ -2195,6 +2198,163 @@ namespace GameMain.Runtime {
 
   }
 
+  public sealed partial class BtCharacterFollowMessage : pb::IMessage<BtCharacterFollowMessage> {
+    private static readonly pb::MessageParser<BtCharacterFollowMessage> _parser = new pb::MessageParser<BtCharacterFollowMessage>(() => new BtCharacterFollowMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BtCharacterFollowMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[15]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BtCharacterFollowMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BtCharacterFollowMessage(BtCharacterFollowMessage other) : this() {
+      minDistance_ = other.minDistance_;
+      maxDistance_ = other.maxDistance_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BtCharacterFollowMessage Clone() {
+      return new BtCharacterFollowMessage(this);
+    }
+
+    /// <summary>Field number for the "minDistance" field.</summary>
+    public const int MinDistanceFieldNumber = 1;
+    private int minDistance_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MinDistance {
+      get { return minDistance_; }
+      set {
+        minDistance_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "maxDistance" field.</summary>
+    public const int MaxDistanceFieldNumber = 2;
+    private int maxDistance_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int MaxDistance {
+      get { return maxDistance_; }
+      set {
+        maxDistance_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BtCharacterFollowMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BtCharacterFollowMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (MinDistance != other.MinDistance) return false;
+      if (MaxDistance != other.MaxDistance) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (MinDistance != 0) hash ^= MinDistance.GetHashCode();
+      if (MaxDistance != 0) hash ^= MaxDistance.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (MinDistance != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(MinDistance);
+      }
+      if (MaxDistance != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(MaxDistance);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (MinDistance != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MinDistance);
+      }
+      if (MaxDistance != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxDistance);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BtCharacterFollowMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.MinDistance != 0) {
+        MinDistance = other.MinDistance;
+      }
+      if (other.MaxDistance != 0) {
+        MaxDistance = other.MaxDistance;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            MinDistance = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            MaxDistance = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   /// <summary>
   ///==========ExposedProperty==========
   /// </summary>
@@ -2206,7 +2366,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[15]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2363,7 +2523,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[16]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2523,7 +2683,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[17]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2736,7 +2896,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[18]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2899,7 +3059,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[19]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3062,7 +3222,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[20]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3219,7 +3379,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[21]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

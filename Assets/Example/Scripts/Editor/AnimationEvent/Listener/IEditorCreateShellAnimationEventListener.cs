@@ -11,9 +11,9 @@ namespace GameMain.Editor
         [Skippable(false)]
         void CreateShell(EditorAnimationEventParameterShell param);
         
-        [Unique(GfListenerMethodId.RegisterCreateWarningShell)]
+        [Unique(GfListenerMethodId.RegisterCreateShellWarning)]
         [InvokeTrigger(InvokeTriggerType.Edge)]
         [Skippable(false)]
-        void CreateWarningShell(EditorAnimationEventParameterShell param);
+        void CreateShellWarning(EditorAnimationEventParameterShell param);
     }
 }

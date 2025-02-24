@@ -51,6 +51,11 @@ namespace GameMain.Runtime
         {
             InitData(enemyData);
         }
+        
+        public GameCharacterModel(SummonerData summonerData)
+        {
+            InitData(summonerData);
+        }
 
         #region Character
         private void InitData(CharacterData character,WeaponData weapon = null, List<ArmorData> armors = null)
@@ -110,6 +115,23 @@ namespace GameMain.Runtime
             AiAssetName = enemyData.Config.AiAssetName;
         }
 
+        #endregion
+        
+        #region Summoner
+
+        private void InitData(SummonerData summonerData)
+        {
+            Id = summonerData.Config.Id;
+            CanReceiveKnockUp = summonerData.Config.CanReceiveKnockUp;
+            CharacterAssetName = summonerData.Config.CharacterAssetName;
+            ContainerAssetName = summonerData.Config.ContainerAssetName;
+            
+            Hp = summonerData.Hp;
+            Attack = summonerData.Attack;
+            Defense = summonerData.Defense;
+            
+            AiAssetName = summonerData.Config.AiAssetName;
+        }
         #endregion
     }
 }

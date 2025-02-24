@@ -8,6 +8,7 @@ namespace GameMain.Runtime
             public const string Interactive = "Interactive";
             public const string Player = "Player";
             public const string Enemy = "Enemy";
+            public const string Summoner = "Summoner";
         }
     }
 }

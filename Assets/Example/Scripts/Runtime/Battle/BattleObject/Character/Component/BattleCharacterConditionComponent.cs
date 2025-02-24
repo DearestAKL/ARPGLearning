@@ -68,8 +68,11 @@ namespace GameMain.Runtime
                 case BattleCharacterType.Enemy:
                     TeamId = TeamId.TeamB;
                     break;
-                case BattleCharacterType.Invalid:
                 case BattleCharacterType.Npc:
+                case BattleCharacterType.Summoner:
+                    TeamId = TeamId.TeamA;
+                    break;
+                case BattleCharacterType.Invalid:
                     TeamId = TeamId.Invalid;
                     break;
             }

@@ -34,10 +34,10 @@ namespace GameMain.Runtime
         public const int ActionType = (int)BattleCharacterActionType.KnockBack;
         
         private static readonly string GetHitLargeAnimationName = "GetHitLarge";
-        private static readonly string GetHitSmallAnimationName = "GetHitSmall";
-        
+
         private float _elapsedTime;
         private bool _hasHorizontalInitVelocity;
+        private bool _isInvalid = false;
         
         public override void OnEnter(AGfFsmState prevAction, bool reenter)
         {
@@ -54,11 +54,28 @@ namespace GameMain.Runtime
         {
             base.OnStart();
             AnimationClipIndex = GetAnimationClipIndex();
-            Animation.Play(AnimationClipIndex);
+            
+            if (AnimationClipIndex < 0)
+            {
+                _isInvalid = true;
+                //没有配套的击退动画 则改为受击动画GitHit
+                EndActionAndRequestForChange(
+                    BattleCharacterGetHitActionData.Create(_actionData.DamageVector,
+                        _actionData.HorizontalVelocity));
+            }
+            else
+            {
+                Animation.Play(AnimationClipIndex);
+            }
         }
 
         public override void OnUpdate(float deltaTime)
         {
+            if (_isInvalid)
+            {
+                return;
+            }
+            
             deltaTime *= Animation.Speed;
             
             if (_hasHorizontalInitVelocity)
@@ -85,12 +102,6 @@ namespace GameMain.Runtime
 
         private int GetAnimationClipIndex()
         {
-            if (!Animation.HasClipIndex(GetHitLargeAnimationName))
-            {
-                // 部分怪物没有GetHitLargeAnimation，会取用GetHitSmallAnimation
-                return Animation.GetClipIndex(GetHitSmallAnimationName);
-            }
-
             return Animation.GetClipIndex(GetHitLargeAnimationName);
         }
     }

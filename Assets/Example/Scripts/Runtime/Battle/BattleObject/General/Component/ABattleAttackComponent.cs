@@ -115,7 +115,7 @@ namespace GameMain.Runtime
                 }
 
             }
-            else 
+            else if (TeamId == TeamId.TeamB)
             {
                 //TeamB
 
@@ -128,6 +128,10 @@ namespace GameMain.Runtime
                 {
                     layerMask |= BattleLayerMask.TeamB;
                 }
+            }
+            else
+            {
+                layerMask = BattleLayerMask.Invalid;
             }
 
             return layerMask;

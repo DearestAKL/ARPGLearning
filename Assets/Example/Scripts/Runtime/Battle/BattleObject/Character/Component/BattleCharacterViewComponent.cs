@@ -13,7 +13,7 @@ namespace GameMain.Runtime
 
         private BattleCharacterAccessorComponent Accessor => Entity.GetComponent(ref _accessorCache);
         public GfBoneComponent BoneComponent => Entity.GetComponent(ref _boneComponentCache);
-        
+
         private BattleCharacterUnityView _unityView;
         public BattleCharacterUnityView UnityView => _unityView;
         
@@ -37,7 +37,9 @@ namespace GameMain.Runtime
         public override async void OnStart()
         {
             _statusPiece = await UIManager.Instance.Factory.GetUIBattleItem<UIBattleStatusPiece>("UIBattleStatusPiece",true);
-            _statusPiece.Init(Accessor.Condition.HpProperty.CurValueRatio, Accessor.Condition.PoiseHandler.CurrentRatio,Accessor.Condition.TeamId == TeamId.TeamA);
+            bool isUserPlayer = Accessor.Entity == BattleAdmin.Player.Entity;
+            _statusPiece.Init(Accessor.Condition.HpProperty.CurValueRatio, Accessor.Condition.PoiseHandler.CurrentRatio,
+                Accessor.Condition.TeamId == TeamId.TeamA, isUserPlayer);
 
             // 将屏幕坐标转换为UI坐标
             _statusPiece.UpdatePosition(UIHelper.WorldPositionToBattleUI(Accessor.Transform.Transform.Position.ToVector3(), new Vector2(0, 150F)));

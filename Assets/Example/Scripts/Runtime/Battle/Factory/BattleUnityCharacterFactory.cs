@@ -5,7 +5,6 @@ using Akari.GfGame;
 using Akari.GfUnity;
 using Cysharp.Threading.Tasks;
 using GfAnimation;
-using Ryu.InGame.Unity;
 using UnityEngine;
 
 namespace GameMain.Runtime
@@ -39,6 +38,15 @@ namespace GameMain.Runtime
             
             return entity;
         }
+        
+        public async UniTask<GfEntity> CreateCharacterSummoner(GameCharacterModel gameCharacterModel,GfFloat3 position, GfQuaternion rotation,string summonerKey)
+        {
+            var entity = await CreateCharacterInternal(gameCharacterModel, BattleCharacterType.Summoner,position,rotation);
+
+            var actionComponent = entity.GetComponent<BattleObjectActionComponent>();
+            actionComponent.Add(BattleCharacterPlayAnimationStateAction.ActionType, new BattleCharacterPlayAnimationStateAction());
+            return entity;
+        }
 
         private async UniTask<GfEntity> CreateCharacterInternal(GameCharacterModel gameCharacterModel,BattleCharacterType battleCharacterType,GfFloat3 position, GfQuaternion rotation)
         {
@@ -55,33 +63,47 @@ namespace GameMain.Runtime
             var entityTransform = entityUnityView.transform.CreateGfUnityTransform(isPooled);
             entityUnityView.Init(battleCharacterType, entity);
             
+            //基础组件 Actor
             entity.AddComponent(new GfActorComponent(entityTransform));
-            var attackComponent = entity.AddComponent(new BattleCharacterAttackComponent());
-            var colliderComponent = entity.AddComponent(new GfColliderComponent2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter>());
-            
-            var animationComponent = entity.AddComponent(new GfAnimationComponent());
-
-            entity.AddComponent(new BattleCharacterConditionComponent(battleCharacterType, gameCharacterModel));
-            
-            var actionComponent = entity.AddComponent(new BattleObjectActionComponent(new BattleObjectActionContext(entity)));
-
+            //基础组件 Transform
             var transformComponent = entity.AddComponent(new BattleCharacterTransformComponent(entityTransform));
             transformComponent.SetTransform(position,rotation);
             
+            //攻击组件 Attack
+            var attackComponent = entity.AddComponent(new BattleCharacterAttackComponent());
+            //受击碰撞组件 Collider
+            var colliderComponent = entity.AddComponent(new GfColliderComponent2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter>());
+            
+            //动画组件 Animation 依赖于Action
+            var animationComponent = entity.AddComponent(new GfAnimationComponent());
+            
+            animationComponent.HasRootMotionMoveAnimation = entityUnityView.Animation.HasRootMotionMoveAnimation;
+            
+            //行为组件Action 用来驱动Animation
+            var actionComponent = entity.AddComponent(new BattleObjectActionComponent(new BattleObjectActionContext(entity)));
+            
+            //状态组件 Condition 记录角色数据
+            entity.AddComponent(new BattleCharacterConditionComponent(battleCharacterType, gameCharacterModel));
+
+            //被动技能组件 PassiveSkill
             var passiveSkillComponent = entity.AddComponent(new BattleCharacterPassiveSkillComponent());
+            //Buff组件 Buffer
             entity.AddComponent(new BattleCharacterBufferComponent());
             
-            entity.AddComponent(new BattleDamageWarningComponent());
-
-            entity.AddComponent(new GfVfxSpeedAffectComponent(BattleAdmin.VfxManager));
-            
+            //访问器组件Accessor 组件引用的集合
             var battleCharacterAccessorComponent = entity.AddComponent(new BattleCharacterAccessorComponent(entity));
 
+            //角色表现组件 CharacterView 
             var viewComponent = entity.AddComponent(new BattleCharacterViewComponent(entityUnityView));
             
+            //角色表现组件 伤害预警 DamageWarning
+            entity.AddComponent(new BattleDamageWarningComponent());
+            //角色表现组件 特效速度控制 VfxSpeedAffect
+            entity.AddComponent(new GfVfxSpeedAffectComponent(BattleAdmin.VfxManager));
+            //角色表现组件 骨骼组件 应用于特效Attach，也就是跟随相关逻辑
             entity.AddComponent(new GfBoneComponent(entityUnityView.Bone.Bones, entityUnityView.Bone.BoneIndexMap));
             
-            //Subsidiary
+            //创建角色附属对象
             if (entityUnityView.SubsidiaryAnimationTrackViews != null && entityUnityView.SubsidiaryAnimationTrackViews.Count > 0)
             {
                 for (int i = 0; i < entityUnityView.SubsidiaryAnimationTrackViews.Count; i++)
@@ -91,8 +113,10 @@ namespace GameMain.Runtime
                 }
             }
             
+            //初始化Attack组件
             attackComponent.Initialize(new BattleCharacterDamageCauserHandler(battleCharacterAccessorComponent));
-            
+                
+            //初始化Collider组件
             colliderComponent.Add(BattleColliderGroupName.Defend,
                 new GfColliderGroup2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter>(
                     new[] { RyColliderHelper.CreateColliderForDefenderSize() }, GfAxis.None, GfAxis.Z));
@@ -103,19 +127,21 @@ namespace GameMain.Runtime
             var defendParameter = new BattleColliderDefendParameter(entity.ThisHandle, entity.ThisHandle, defendColliderId, receiver, damageNotificator);
             colliderComponent.SetParameter(BattleColliderGroupName.Defend, defendParameter);
             colliderComponent.SetEnable(BattleColliderGroupName.Defend, true);
-            
+            //设置DamageReceiver与DamageNotificator
             battleCharacterAccessorComponent.SetDamageReceiver(receiver);
             battleCharacterAccessorComponent.SetDamageNotificator(damageNotificator);
             
+            //初始化动画组件
             animationComponent.AddTrack(new GfAnimationEventTrack());
-            animationComponent.AddTrack(new GfMultilayerAnimationTrack(entityUnityView.Animation,
-                entityUnityView.Root));
+            animationComponent.AddTrack(new GfMultilayerAnimationTrack(entityUnityView.Animation, entityUnityView.Root));
             
 #if UNITY_EDITOR
             entityUnityView.gameObject.GetOrAddComponent<CharacterAnimationContainerView>().SetEntity(entity);
 #endif
             
+            //为Action组件添加Action
             actionComponent.Add(BattleCharacterIdleAction.ActionType, new BattleCharacterIdleAction());
+            
             actionComponent.Add(BattleCharacterMoveWalkAction.ActionType, new BattleCharacterMoveWalkAction());
             actionComponent.Add(BattleCharacterMoveRunAction.ActionType, new BattleCharacterMoveRunAction());
             actionComponent.Add(BattleCharacterMoveSprintAction.ActionType, new BattleCharacterMoveSprintAction());
@@ -126,18 +152,26 @@ namespace GameMain.Runtime
             
             actionComponent.Add(BattleCharacterDieAction.ActionType, new BattleCharacterDieAction());
             
+            //Build AnimationContainer 传入动画数据
             BuildAnimationContainer(entity, characterAssets);
+            
+            //设置攻击定义
             if (characterAssets.AttackDefinitions != null)
             {
                 entity.GetComponent<BattleCharacterAttackComponent>().DamageCauserHandler.AttackDefinitions = characterAssets.AttackDefinitions;
             }
+            
+            //设置AI
             if (characterAssets.AIResource != null) 
             {
+                //添加AI组件 Director
                 entity.AddComponent(new BattleCharacterDirectorComponent(characterAssets.AIResource.CreateData()));
             }
             
+            //添加被动技能
             passiveSkillComponent.AddPassiveSkills(gameCharacterModel.PassiveSkillIds);
             
+            //执行初始Action
             actionComponent.ForceTransition(new GfFsmStateTransitionRequest(BattleCharacterIdleAction.ActionType, new BattleCharacterIdleActionData()));
             
             return entity;

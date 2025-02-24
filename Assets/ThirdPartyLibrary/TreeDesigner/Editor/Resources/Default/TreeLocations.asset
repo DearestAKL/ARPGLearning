@@ -20,19 +20,19 @@ MonoBehaviour:
   - path: Assets/ThirdPartyLibrary/TreeDesigner
     expanded: 0
   - path: Assets/Example
-    expanded: 0
+    expanded: 1
   - path: Assets/Example/EditorRes
-    expanded: 0
+    expanded: 1
   - path: Assets/Example/EditorRes/BehaviourTree
-    expanded: 0
+    expanded: 1
   TreeInfos:
-  - guid: ea1ce714463eeed4a821eb2377410d2a
-    path: Assets/Example/EditorRes/BehaviourTree/Cactus_Patrol.asset
-    name: Cactus_Patrol
-    type: BaseTree
-    locked: 0
   - guid: a726d712a2d0c41458d4dcee806bee8a
     path: Assets/Example/EditorRes/BehaviourTree/LucyShadow.asset
     name: LucyShadow
+    type: BaseTree
+    locked: 0
+  - guid: feff37f2f49c1c243b61d4e8d017ba02
+    path: Assets/Example/EditorRes/BehaviourTree/Cat.asset
+    name: Cat
     type: BaseTree
     locked: 0

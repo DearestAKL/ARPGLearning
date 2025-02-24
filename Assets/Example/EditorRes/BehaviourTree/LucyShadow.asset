@@ -153,8 +153,8 @@ MonoBehaviour:
       data:
         m_GUID: 17d475bd-7eab-4dd8-99e7-dd880839b60a
         m_Expanded: 1
-        m_ShowPanel: 0
-        m_Position: {x: 1145, y: 68}
+        m_ShowPanel: 1
+        m_Position: {x: 1029, y: 92}
         m_InputEdgeGUID: f0c81c45-7c41-4ca4-8034-6a9a1acb23fc
         radius: 15
         angle: 360
@@ -166,7 +166,7 @@ MonoBehaviour:
         m_ShowPanel: 1
         m_Position: {x: 2146.7002, y: -258.5}
         m_InputEdgeGUID: d786ea32-2f4b-4ae2-b49d-ed177b5c89b4
-        m_StateName: Attack_3
+        stateName: Attack_3
     - rid: 1482356537062850622
       type: {class: SequenceNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
@@ -293,7 +293,7 @@ MonoBehaviour:
         m_ShowPanel: 1
         m_Position: {x: 2471, y: -632}
         m_InputEdgeGUID: 1f58f264-9dec-49e6-8a05-aa65a1789342
-        m_StateName: Attack_1
+        stateName: Attack_1
     - rid: 3582606103650238476
       type: {class: CharacterPlayAnimationStateNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
@@ -302,7 +302,7 @@ MonoBehaviour:
         m_ShowPanel: 1
         m_Position: {x: 2471, y: -546}
         m_InputEdgeGUID: 328eab74-06ba-45a5-ab63-a3076f2e3104
-        m_StateName: Attack_2
+        stateName: Attack_2
     - rid: 3582606103650238478
       type: {class: WaitNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:

@@ -57,6 +57,7 @@ namespace GameMain.Runtime
                 return;
             }
             
+            //TODO:不再固定为player
             //检测范围内是否有敌对目标
             var toTarget = BattleAdmin.Player.Transform.CurrentPosition - Accessor.Transform.Transform.Position;
             if (toTarget.Magnitude <= _radius)

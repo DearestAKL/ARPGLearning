@@ -41,9 +41,30 @@ namespace GameMain.Runtime
 
         public async void Init(BattleCharacterType battleCharacterType,GfEntity entity)
         {
+            if (battleCharacterType == BattleCharacterType.Player)
+            {
+                gameObject.layer = LayerMask.NameToLayer(Constant.Layer.Player);
+            }
+            else if (battleCharacterType == BattleCharacterType.Summoner)
+            {
+                gameObject.layer = LayerMask.NameToLayer(Constant.Layer.Summoner);
+            }
+            else if (battleCharacterType == BattleCharacterType.Enemy)
+            {
+                gameObject.layer = LayerMask.NameToLayer(Constant.Layer.Enemy);
+            }
+            else if (battleCharacterType == BattleCharacterType.Npc)
+            {
+                
+            }
+            else
+            {
+                
+            }
+            
             gameObject.layer = LayerMask.NameToLayer(battleCharacterType == BattleCharacterType.Player
                 ? Constant.Layer.Player
-                : Constant.Layer.Enemy);
+                : Constant.Layer.Summoner);
             
             if (battleCharacterType == BattleCharacterType.Player)
             {

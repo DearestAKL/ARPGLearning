@@ -4,7 +4,7 @@ namespace TreeDesigner
 {
     [Serializable]
     [NodeName("Move")]
-    [NodePath("Action/Character/Move")]
+    [NodePath("Action/Move")]
     public class CharacterMoveNode  : ActionNode
     {
         public override int GetPbTypeId()

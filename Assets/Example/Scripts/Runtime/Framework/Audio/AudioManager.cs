@@ -66,6 +66,11 @@ namespace GameMain.Runtime
         public void SetMainVolume(float value)
         {
             _mainVolume = value;
+
+            //Update
+            SetBgmVolume(_bgmVolume);
+            SetSoundVolume(_soundAudioGroup.Volume);
+            SetVoiceVolume(_voiceAudioGroup.Volume);
         }
 
         public void SetBgmVolume(float value)

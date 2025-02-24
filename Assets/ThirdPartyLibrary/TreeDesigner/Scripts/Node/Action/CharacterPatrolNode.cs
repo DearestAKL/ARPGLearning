@@ -5,7 +5,7 @@ namespace TreeDesigner
 {
     [Serializable]
     [NodeName("Patrol")]
-    [NodePath("Action/Character/Patrol")]
+    [NodePath("Action/Patrol")]
     public class CharacterPatrolNode : ActionNode
     {
         public override int GetPbTypeId()

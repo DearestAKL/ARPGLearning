@@ -13,17 +13,17 @@ namespace GameMain.Runtime
         [SerializeField] private float visibilitySpanTime = 3f;
         
         private float _elapsedTime;
-        private bool _isPlayer;
+        private bool _isUserPlayer;
         private bool _isVisibility;
         public bool IsVisibility => _isVisibility;
 
         private readonly Color _playerColor = new Color(55f/255f,158f/255f,13f/255f,1f);
         private readonly Color _enemyColor = new Color(212f/255f,33f/255f,40f/255f,1f);
 
-        public void Init(float hpRatio,float poiseRatio,bool isPlayer = false)
+        public void Init(float hpRatio, float poiseRatio, bool isTeamA, bool isUserPlayer)
         {
-            _isPlayer = isPlayer;
-            hpHpBar.InitRatio(hpRatio, isPlayer ? _playerColor: _enemyColor);
+            _isUserPlayer = isUserPlayer;
+            hpHpBar.InitRatio(hpRatio, isTeamA ? _playerColor: _enemyColor);
 
             poiseBar.gameObject.SetActive(poiseRatio > -1);
             if (poiseRatio > -1)
@@ -31,12 +31,12 @@ namespace GameMain.Runtime
                 poiseBar.InitRatio(poiseRatio);
             }
             
-            SetVisibility(_isPlayer);
+            SetVisibility(_isUserPlayer);
         }
 
         public void UpdateHp(float newHpRatio)
         {
-            if (!_isPlayer) 
+            if (!_isUserPlayer) 
             {
                 SetVisibility(true);
                 _elapsedTime = 0;
@@ -66,7 +66,7 @@ namespace GameMain.Runtime
 
         private void Update()
         {
-            if (_isPlayer || !_isVisibility)
+            if (_isUserPlayer || !_isVisibility)
             {
                 return;
             }

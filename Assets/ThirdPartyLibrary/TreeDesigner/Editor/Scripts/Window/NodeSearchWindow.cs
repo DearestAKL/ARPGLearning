@@ -26,6 +26,8 @@ namespace TreeDesigner.Editor
         }
         public List<SearchTreeEntry> CreateSearchTree(SearchWindowContext context)
         {
+            Debug.Log("CreateSearchTree");
+            
             List<SearchTreeEntry> searchTreeEntries = new List<SearchTreeEntry>();
             searchTreeEntries.Add(new SearchTreeGroupEntry(new GUIContent("Create Nodes")));
 

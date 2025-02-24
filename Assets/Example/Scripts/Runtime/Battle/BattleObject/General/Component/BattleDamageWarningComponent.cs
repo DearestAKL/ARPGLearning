@@ -18,6 +18,7 @@ namespace GameMain.Runtime
         public override void OnAwake()
         {
             Entity.On<GfActiveChangedRequest>(OnGfActiveChangedRequest);
+            Entity.On<CreatDamageWarningRequest>(OnCreatDamageWarningRequest);
         }
 
         public override void OnDelete()
@@ -48,12 +49,18 @@ namespace GameMain.Runtime
                 _warningData.Remove(remove);
             }
         }
-
-        public async void CreatDamageWarning(float warningTime, GfFloat2 position, GfFloat2 extents,GfQuaternion rotation,Action completeAction)
+        
+        private void OnCreatDamageWarningRequest(in CreatDamageWarningRequest request)
         {
-            WarningData warningData = new WarningData(warningTime, completeAction);
+            WarningData warningData = new WarningData(request.WarningTime);
             _warningData.Add(warningData);
             
+            //表现object
+            CreateWarningInstance(warningData, request.Position, request.Extents, request.Rotation);
+        }
+
+        private async void CreateWarningInstance(WarningData warningData, GfFloat2 position, GfFloat2 extents,GfQuaternion rotation)
+        {
             //表现object
             if (Math.Abs(extents.Y) < 0.01f) 
             {
@@ -73,7 +80,7 @@ namespace GameMain.Runtime
                 warningRectangle.transform.position = new Vector3(position.X + positionOffset.X, 0, position.Y + positionOffset.Y);
             }
         }
-        
+
         private void OnGfActiveChangedRequest(in GfActiveChangedRequest request)
         {
             if (!request.Enable)
@@ -96,14 +103,12 @@ namespace GameMain.Runtime
     {
         private float _warningTime;
         private float _elapsedTime;
-        private Action _completeAction;
         public float Rate { get; private set; }
         public bool IsCompleted{ get; set; }
 
-        public WarningData(float warningTime,Action completeAction)
+        public WarningData(float warningTime)
         {
             _warningTime = warningTime;
-            _completeAction = completeAction;
 
             _elapsedTime = 0;
             IsCompleted = false;
@@ -120,13 +125,29 @@ namespace GameMain.Runtime
             if (_elapsedTime > _warningTime)
             {
                 Rate = 1F;
-                _completeAction?.Invoke();
                 IsCompleted = true;
             }
             else
             {
                 Rate = _elapsedTime / _warningTime;
             }
+        }
+    }
+    
+    public readonly struct CreatDamageWarningRequest : IGfRequest
+    {
+        public          GfRunTimeTypeId RttId => GfRunTimeTypeOf<CreatDamageWarningRequest>.Id;
+        public readonly float WarningTime;
+        public readonly GfFloat2 Position;
+        public readonly GfFloat2 Extents;
+        public readonly GfQuaternion Rotation;
+
+        public CreatDamageWarningRequest(float warningTime, GfFloat2 position, GfFloat2 extents,GfQuaternion rotation)
+        {
+            WarningTime = warningTime;
+            Position = position;
+            Extents = extents;
+            Rotation = rotation;
         }
     }
 }
