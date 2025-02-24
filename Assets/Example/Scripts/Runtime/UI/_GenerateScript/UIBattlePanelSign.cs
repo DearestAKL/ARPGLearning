@@ -1,5 +1,5 @@
 ﻿// 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-07-25 10:23:19.932
+// 生成时间：2025-02-24 16:53:49.223
 //------------------------------------------------------------
 
 namespace GameMain.Runtime
@@ -18,6 +18,7 @@ namespace GameMain.Runtime
 		protected TMPro.TextMeshProUGUI txtTime = null;
 		protected TMPro.TextMeshProUGUI txtGemNum = null;
 		protected TMPro.TextMeshProUGUI txtCoinNum = null;
+		protected GameMain.Runtime.UIBattleAttackInfo dash = null;
 		
 		
         public override void OnInit(string name, UnityEngine.GameObject go, UnityEngine.Transform parent, object userData)
@@ -42,6 +43,7 @@ namespace GameMain.Runtime
 			txtTime = rc.Get<TMPro.TextMeshProUGUI>("txtTime");
 			txtGemNum = rc.Get<TMPro.TextMeshProUGUI>("txtGemNum");
 			txtCoinNum = rc.Get<TMPro.TextMeshProUGUI>("txtCoinNum");
+			dash = rc.Get<GameMain.Runtime.UIBattleAttackInfo>("dash");
 			
         }
     }

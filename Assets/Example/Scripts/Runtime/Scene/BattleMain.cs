@@ -185,7 +185,7 @@ namespace GameMain.Runtime
             //召唤物伙伴
             var summonerData = new SummonerData(9001,10);
             await BattleAdmin.Factory.Character.CreateCharacterSummoner(new GameCharacterModel(summonerData),
-                GfFloat3.Zero,
+                GfFloat3.Right,
                 GfQuaternion.Identity,"summonerKey");
             
             UIHelper.EndLoading();
@@ -270,7 +270,7 @@ namespace GameMain.Runtime
                 return;
             }
 
-            await UIManager.Instance.OpenUIPanel(UIType.UITestPanel);
+            await UIManager.Instance.OpenUIPanel(UIType.UIGMCommonPanel);
         }
 
         #endregion

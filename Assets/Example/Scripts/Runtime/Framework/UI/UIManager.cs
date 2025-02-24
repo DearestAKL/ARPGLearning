@@ -77,7 +77,7 @@ namespace GameMain.Runtime
             _uiTypeMap.Add(UIType.UITipsDialog,typeof(UITipsDialog));
             _uiTypeMap.Add(UIType.UIAttributeDetailDialog,typeof(UIAttributeDetailDialog));
             _uiTypeMap.Add(UIType.UICharacterAscensionPanel,typeof(UICharacterAscensionPanel));
-            _uiTypeMap.Add(UIType.UITestPanel,typeof(UITestPanel));
+            _uiTypeMap.Add(UIType.UIGMCommonPanel,typeof(UIGMCommonPanel));
             _uiTypeMap.Add(UIType.UIRewardDialog,typeof(UIRewardDialog));
             _uiTypeMap.Add(UIType.UIBackpackPanel,typeof(UIBackpackPanel));
             _uiTypeMap.Add(UIType.UISideFilterDialog,typeof(UISideFilterDialog));
@@ -257,7 +257,7 @@ namespace GameMain.Runtime
         public const string UITipsDialog = "UITipsDialog";
         public const string UIAttributeDetailDialog = "UIAttributeDetailDialog";
         public const string UICharacterAscensionPanel = "UICharacterAscensionPanel";
-        public const string UITestPanel = "UITestPanel";
+        public const string UIGMCommonPanel = "UIGMCommonPanel";
         public const string UIRewardDialog = "UIRewardDialog";
         public const string UIBackpackPanel = "UIBackpackPanel";
         public const string UISideFilterDialog = "UISideFilterDialog";
@@ -272,7 +272,7 @@ namespace GameMain.Runtime
             {UIType.UISideMenuPanel,UIGroupType.Base},
             {UIType.UICharacterAscensionPanel,UIGroupType.Base},
             {UIType.UIBackpackPanel,UIGroupType.Base},
-            {UIType.UITestPanel,UIGroupType.Base},
+            {UIType.UIGMCommonPanel,UIGroupType.Base},
             {UIType.UISettingPanel,UIGroupType.Base},
 
             //Window Mid 可全部显示

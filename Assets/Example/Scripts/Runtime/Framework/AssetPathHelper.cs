@@ -191,7 +191,7 @@ namespace GameMain.Runtime
         public static readonly Dictionary<int, string> EffectDictionary = new Dictionary<int, string>()
         {
             {(int)CommonEffectType.Hit, "EF_CMN_Hit"},
-            {(int)CommonEffectType.Dash, "EF_CMN_Dash"},
+            //{(int)CommonEffectType.Dash, "EF_CMN_Dash"},
             {(int)CommonEffectType.Die, "EF_CMN_Die"},
         };
 

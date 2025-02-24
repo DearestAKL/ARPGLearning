@@ -130,6 +130,7 @@ namespace GameMain.Runtime
             switch (actionId)
             {
                 case BattleCharacterLightAttackAction.ActionType:
+                case BattleCharacterChargeAttackAction.ActionType:
                     basicAttack.SetForce(forceValue);
                     break;
                 case BattleCharacterSpecialAttackAction.ActionType:
@@ -138,14 +139,19 @@ namespace GameMain.Runtime
                 case BattleCharacterUltimateAction.ActionType:
                     ultimate.SetForce(forceValue);
                     break;
+                case BattleCharacterDashAction.ActionType:
+                    dash.SetForce(forceValue);
+                    break;
             }
         }
 
         private bool IsSkillAction(int actionId)
         {
             return actionId == BattleCharacterLightAttackAction.ActionType
+                   || actionId == BattleCharacterChargeAttackAction.ActionType
                    || actionId == BattleCharacterSpecialAttackAction.ActionType
-                   || actionId == BattleCharacterUltimateAction.ActionType;
+                   || actionId == BattleCharacterUltimateAction.ActionType
+                   || actionId == BattleCharacterDashAction.ActionType;
         }
         
         private void UpdateHp(int curHp,int maxHp)
