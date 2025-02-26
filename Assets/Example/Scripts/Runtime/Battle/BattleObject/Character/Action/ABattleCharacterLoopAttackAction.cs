@@ -208,7 +208,7 @@ namespace GameMain.Runtime
             {
                 HorizontalMove(deltaTime, Accessor.Condition.MoveDirection, _moveVelocity);
 
-                var localMoveDirection = Accessor.Transform.CurrentRotation * Accessor.Condition.MoveDirection;
+                var localMoveDirection = Accessor.Entity.Transform.Rotation * Accessor.Condition.MoveDirection;
                 if (HasMoveTest)
                 {
                     //Back(0) => Idle(0.5f) => Forward(1)

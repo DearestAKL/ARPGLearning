@@ -223,5 +223,21 @@ namespace GameMain.Runtime
 
             //MoveSpeedProperty
         }
+
+        public void IgnoreSkillCd(bool enable)
+        {
+            if (ObjectCoolTimes == null)
+            {
+                return;
+            }
+            
+            for (int i = 0; i < ObjectCoolTimes.Length; i++)
+            {
+                if (i == 0 || i == 1)
+                {
+                    ObjectCoolTimes[i].IgnoreCd(enable);
+                }
+            }
+        }
     }
 }

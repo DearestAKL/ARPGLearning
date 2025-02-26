@@ -229,6 +229,24 @@ MonoBehaviour:
     IsSyncBlend: 0
     ParameterName: 
     Foldings: 1
+  - LayerNo: 0
+    Name: SpecialAttack
+    Clips:
+    - {fileID: 7400000, guid: 25847d457b8037a4e8d20c2d65e8dbe0, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 07c41db8e82d6bc47ba026ebbce1fe61, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: Ultimate
+    Clips:
+    - {fileID: 7400000, guid: 1f4d2f176e5893c47a7593cc2024bbf9, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 5285ad0d0e022fd4ca923dae374f752a, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
   LayerInfos:
   - LayerNo: 0
     LayerWeight: 1

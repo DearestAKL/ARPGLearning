@@ -33,6 +33,9 @@ namespace GameMain.Runtime
         {
             base.OnInit(name, go, parent, userData);
 
+            btnMod.SetActive(false);
+            toggleMod.SetActive(false);
+            
             btnClose.onClick.AddListener(Close);
             
             var displayStrings = _typeDisplayStrings.Values.ToList();
@@ -113,6 +116,16 @@ namespace GameMain.Runtime
 
             var txt = btn.GetComponentInChildren<TextMeshProUGUI>();
             txt.text = btnText;
+        }
+        
+        private void CreatToggle(UnityAction<bool> action,string toggleText)
+        {
+            var toggle = Object.Instantiate(toggleMod, contentSingleToggles).GetComponent<Toggle>();
+            toggle.gameObject.SetActive(true);
+            toggle.onValueChanged.AddListener(action);
+
+            var txt = toggle.GetComponentInChildren<TextMeshProUGUI>();
+            txt.text = toggleText;
         }
 
         private async void OnOpenFishPanel()

@@ -20,15 +20,14 @@ namespace GameMain.Runtime
 
         public void CreateShell(AnimationEventParameterShell param, GfAnimationEventCallInfo info)
         {
-            GfFloat3 basePosition = GetBasePosition(param);
+            GfFloat3 position = GetPosition(param);
             GfFloat3 direction = GetDirection(param);
-            
-            CreateShell(param.Id, basePosition, param.OffsetPosition, direction);
+            CreateShell(param.Id, position, direction);
         }
         
         public async void CreateShellWarning(AnimationEventParameterShell param, GfAnimationEventCallInfo info)
         {
-            GfFloat3 basePosition = GetBasePosition(param);
+            GfFloat3 basePosition = GetPosition(param);
             GfFloat3 direction = GetDirection(param);
             
             //默认 根据shell配置的碰撞范围 显示预警范围
@@ -39,34 +38,36 @@ namespace GameMain.Runtime
             Accessor.Entity.Request(new CreatDamageWarningRequest(1f, basePosition.ToXZFloat2(), extent, GfQuaternion.LookRotation(direction)));
         }
 
-        private async void CreateShell(int shellId, GfFloat3 basePosition, GfFloat3 offset, GfFloat3 direction)
+        private async void CreateShell(int shellId, GfFloat3 position, GfFloat3 direction)
         {
             var shellDefinitionMessage = await PbDefinitionHelper.GetShellDefinitionMessage(shellId);
             var attackDefinitionInfoData = AttackDefinitionInfoData.CreatData(shellDefinitionMessage, shellDefinitionMessage.AttackDefinitionInfo);
             var shellDamageCauserHandler = new BattleShellDamageCauserHandler(Accessor.Entity, Accessor.Condition.TeamId,attackDefinitionInfoData);
             
-            var shellEntity = BattleAdmin.Factory.Shell.CreateShell((uint)shellId, shellDefinitionMessage, shellDamageCauserHandler, basePosition, offset, direction);
+            var shellEntity = BattleAdmin.Factory.Shell.CreateShell((uint)shellId, shellDefinitionMessage, shellDamageCauserHandler, position, direction);
             BattleAdmin.Factory.Shell.CreateShellEffect(Accessor.Entity.ThisHandle, shellEntity, shellDefinitionMessage.EffectId);
         }
 
-        private GfFloat3 GetBasePosition(AnimationEventParameterShell param)
+        private GfFloat3 GetPosition(AnimationEventParameterShell param)
         {
-            GfFloat3 basePosition = GfFloat3.Zero;
+            GfFloat3 position = GfFloat3.Zero;
             if (param.IsLockTarget)
             {
                 //TODO:及时选择目标
                 var targetAccessor = Accessor.Condition.Target;
                 if (targetAccessor != null && targetAccessor.Entity != null)
                 {
-                    basePosition = targetAccessor.Transform.CurrentPosition;
+                    position = targetAccessor.Entity.Transform.Position;
+                    position = GfTransformHelper.TransformPoint(position, targetAccessor.Entity.Transform.Rotation, targetAccessor.Entity.Transform.Scale, param.OffsetPosition);
                 }
             }
             else
             {
-                basePosition = Accessor.Transform.CurrentPosition;
+                position = Accessor.Entity.Transform.Position;
+                position = GfTransformHelper.TransformPoint(position, Accessor.Entity.Transform.Rotation, Accessor.Entity.Transform.Scale, param.OffsetPosition);
             }
 
-            return basePosition;
+            return position;
         }
         
         private GfFloat3 GetDirection(AnimationEventParameterShell param)
@@ -77,13 +78,13 @@ namespace GameMain.Runtime
                 var targetAccessor = Accessor.Condition.Target;
                 if (targetAccessor != null && targetAccessor.Entity != null)
                 {
-                    var lookRotation = GfQuaternion.LookRotation(targetAccessor.Transform.CurrentPosition - Accessor.Transform.CurrentPosition);
+                    var lookRotation = GfQuaternion.LookRotation(targetAccessor.Entity.Transform.Position - Accessor.Entity.Transform.Position);
                     direction = lookRotation * GfQuaternion.Euler(param.OffsetRotation) * GfFloat3.Forward;
                 }
             }
             else
             {
-                direction = Accessor.Transform.Transform.Rotation * GfQuaternion.Euler(param.OffsetRotation) * GfFloat3.Forward;
+                direction = Accessor.Entity.Transform.Rotation * GfQuaternion.Euler(param.OffsetRotation) * GfFloat3.Forward;
             }
             
             return direction;

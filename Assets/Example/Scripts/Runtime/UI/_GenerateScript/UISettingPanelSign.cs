@@ -12,7 +12,7 @@ namespace GameMain.Runtime
 		protected GameMain.Runtime.UISettingInputView input = null;
 		protected GameMain.Runtime.UISettingSoundView sound = null;
 		protected GameMain.Runtime.UISettingLanguageView language = null;
-		protected GameMain.Runtime.UIToggleGroupEx toggleGroupEx = null;
+		protected GameMain.Runtime.UICustomToggleGroupEx CustomToggleGroupEx = null;
 		
 		
         public override void OnInit(string name, UnityEngine.GameObject go, UnityEngine.Transform parent, object userData)
@@ -31,7 +31,7 @@ namespace GameMain.Runtime
 			input = rc.Get<GameMain.Runtime.UISettingInputView>("input");
 			sound = rc.Get<GameMain.Runtime.UISettingSoundView>("sound");
 			language = rc.Get<GameMain.Runtime.UISettingLanguageView>("language");
-			toggleGroupEx = rc.Get<GameMain.Runtime.UIToggleGroupEx>("toggleGroupEx");
+			CustomToggleGroupEx = rc.Get<GameMain.Runtime.UICustomToggleGroupEx>("toggleGroupEx");
 			
         }
     }

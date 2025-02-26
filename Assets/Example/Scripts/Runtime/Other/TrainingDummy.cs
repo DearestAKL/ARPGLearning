@@ -26,7 +26,7 @@ namespace GameMain.Runtime
             
             var colliderComponent = entity.AddComponent(new GfColliderComponent2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter>());
             
-            var transformComponent = entity.AddComponent(new BattleCharacterTransformComponent(entityTransform));
+            var transformComponent = entity.AddComponent(new BattleCharacterTransformComponent());
             var viewComponent = entity.AddComponent(new BattleCharacterViewComponent());
             
             _accessor = entity.AddComponent(new BattleCharacterAccessorComponent(entity));

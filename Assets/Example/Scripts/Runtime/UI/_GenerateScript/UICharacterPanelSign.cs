@@ -7,7 +7,7 @@ namespace GameMain.Runtime
     public class UICharacterPanelSign : UIPanel
     {
 		//---UI---
-		protected GameMain.Runtime.UIToggleGroupEx toggleGroupEx = null;
+		protected GameMain.Runtime.UICustomToggleGroupEx CustomToggleGroupEx = null;
 		protected GameMain.Runtime.UICharacterDetailView detailView = null;
 		protected GameMain.Runtime.UICharacterEquipmentView characterEquipmentView = null;
 		protected UnityEngine.UI.Button btnClose = null;
@@ -25,7 +25,7 @@ namespace GameMain.Runtime
 
             ReferenceCollector rc = RootGo.GetComponent<ReferenceCollector>();
 			
-            toggleGroupEx = rc.Get<GameMain.Runtime.UIToggleGroupEx>("toggleGroupEx");
+            CustomToggleGroupEx = rc.Get<GameMain.Runtime.UICustomToggleGroupEx>("toggleGroupEx");
 			detailView = rc.Get<GameMain.Runtime.UICharacterDetailView>("detailView");
 			btnClose = rc.Get<UnityEngine.UI.Button>("btnClose");
 			txtTitle = rc.Get<TMPro.TextMeshProUGUI>("txtTitle");

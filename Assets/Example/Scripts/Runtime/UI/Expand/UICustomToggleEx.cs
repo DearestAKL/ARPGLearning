@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace GameMain.Runtime
 {
     [RequireComponent(typeof(Toggle))]
-    public class UIToggleEx : APointerExpand
+    public class UICustomToggleEx : APointerExpand
     {
         public enum Type
         {
@@ -22,7 +22,7 @@ namespace GameMain.Runtime
         [SerializeField] private Color colorOn;
         
         private Toggle _toggle;
-        private UIToggleGroupEx _toggleGroupEx;
+        private UICustomToggleGroupEx customToggleGroupEx;
 
         private int _index = -1;
 
@@ -40,11 +40,11 @@ namespace GameMain.Runtime
         }
         public int Index => _index;
 
-        public void Init(UIToggleGroupEx toggleGroupEx, int index, string toggleName = null,string iconPath = null)
+        public void Init(UICustomToggleGroupEx customToggleGroupEx, int index, string toggleName = null,string iconPath = null)
         {
             Toggle.onValueChanged.AddListener(OnValueChanged);
             
-            _toggleGroupEx = toggleGroupEx;
+            this.customToggleGroupEx = customToggleGroupEx;
             _index = index;
             
             if (!string.IsNullOrEmpty(toggleName))
@@ -89,7 +89,7 @@ namespace GameMain.Runtime
         {
             if (isOn)
             {
-                _toggleGroupEx.ChangeCurIndex(_index);
+                customToggleGroupEx.ChangeCurIndex(_index);
             }
 
             if (type == Type.Label)

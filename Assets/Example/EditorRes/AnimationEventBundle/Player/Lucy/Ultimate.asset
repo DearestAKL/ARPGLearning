@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4f4738209fa41e4873a97923373ec2, type: 3}
+  m_Name: Ultimate
+  m_EditorClassIdentifier: 
+  TargetAnimationEventClip: {fileID: 3275155870316364618, guid: 7023b8758f1574a439a48ed8765ef92c,
+    type: 3}
+  GroupInfoList:
+  - {fileID: 11400000, guid: ab218d8701e56f64f854168e8f0a6092, type: 2}
+  - {fileID: 11400000, guid: b541a8cae4f567445b1050f516c82bb8, type: 2}
+  - {fileID: 11400000, guid: 89fbeee8afb89ac428e43fad6ec9ffe9, type: 2}
+  - {fileID: 11400000, guid: 495c3a9e147139047bd1598051066ce6, type: 2}

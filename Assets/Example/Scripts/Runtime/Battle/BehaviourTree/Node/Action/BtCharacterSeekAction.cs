@@ -35,7 +35,7 @@ namespace GameMain.Runtime
             OnUpdateTimer();
             Clock.AddTimer(1f, 0f, -1, OnUpdateTimer);
 #if UNITY_EDITOR
-            _gizmosData = GizmosData.CreateCircleGizmosData(Accessor.Transform.Transform, _radius, _angle);
+            _gizmosData = GizmosData.CreateCircleGizmosData(Accessor.Entity.Transform, _radius, _angle);
             GizmosManager.Instance.AddGizmosData(_gizmosData);
 #endif
         }
@@ -59,10 +59,10 @@ namespace GameMain.Runtime
             
             //TODO:不再固定为player
             //检测范围内是否有敌对目标
-            var toTarget = BattleAdmin.Player.Transform.CurrentPosition - Accessor.Transform.Transform.Position;
+            var toTarget = BattleAdmin.Player.Entity.Transform.Position - Accessor.Entity.Transform.Position;
             if (toTarget.Magnitude <= _radius)
             {
-                float targetAngle = GfFloat3.Angle(Accessor.Transform.Transform.Forward,  toTarget.Normalized);
+                float targetAngle = GfFloat3.Angle(Accessor.Entity.Transform.Forward,  toTarget.Normalized);
                 if (targetAngle <= _angle / 2)
                 {
                     Director.SetTarget(BattleAdmin.Player);

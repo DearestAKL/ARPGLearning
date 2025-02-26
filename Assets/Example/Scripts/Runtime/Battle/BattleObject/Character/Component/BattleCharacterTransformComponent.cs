@@ -4,22 +4,13 @@ using Akari.GfUnity;
 
 namespace GameMain.Runtime
 {
-    public interface IBattleCharacterTransformComponent 
-    {
-        GfTransform Transform { get; }
-    }
-
-    public sealed class BattleCharacterTransformComponent : AGfGameComponent<BattleCharacterTransformComponent>, IBattleCharacterTransformComponent
+    public sealed class BattleCharacterTransformComponent : AGfGameComponent<BattleCharacterTransformComponent>
     {
         private GfComponentCache<BattleCharacterViewComponent> _viewCache;
 
         private BattleCharacterViewComponent View => Entity.GetComponent(ref _viewCache);
         
         private float _curYSpeed;
-        public GfTransform Transform { get; }
-
-        public GfFloat3 CurrentPosition => Transform.Position;
-        public GfQuaternion CurrentRotation => Transform.Rotation;
 
         private GfFloat3 _worldPositionCache;
 
@@ -27,14 +18,14 @@ namespace GameMain.Runtime
         {
             get
             {
-                return CurrentPosition.Y <= 0.0001f;
+                return Entity.Transform.Rotation.Y <= 0.0001f;
             }
         }
         
 
-        public BattleCharacterTransformComponent(GfTransform transform) 
+        public BattleCharacterTransformComponent() 
         {
-            Transform = transform;
+
         }
 
         public override void OnStart()
@@ -50,7 +41,7 @@ namespace GameMain.Runtime
         public override void OnEndUpdate(float deltaTime)
         {
             base.OnEndUpdate(deltaTime);
-            Transform.UpdateTransform();
+            Entity.Transform.UpdateTransform();
         }
 
         public void MovePosition(GfFloat3 diffPosition)
@@ -60,14 +51,14 @@ namespace GameMain.Runtime
 
         public void SetTransform(GfFloat3 position ,GfQuaternion rotation)
         {
-            Transform.Position = position;
-            Transform.Rotation = rotation;
+            Entity.Transform.Position = position;
+            Entity.Transform.Rotation = rotation;
             UnityEngine.Physics.SyncTransforms();
         }
 
         public void RecordWorldPosition()
         {
-            _worldPositionCache = CurrentPosition;
+            _worldPositionCache = Entity.Transform.Position;
         }
         
         public void ResetToRecordWorldPosition()

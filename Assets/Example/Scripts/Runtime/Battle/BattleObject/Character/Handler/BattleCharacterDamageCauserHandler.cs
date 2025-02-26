@@ -16,7 +16,12 @@ namespace GameMain.Runtime
 
         public GfFloat3 GetCauserPosition()
         {
-            return _accessor.Transform.CurrentPosition;
+            return _accessor.Entity.Transform.Position;
+        }
+
+        public GfFloat2 CalculateDamageVector(GfFloat3 receiverPosition)
+        {
+            return (receiverPosition - _accessor.Entity.Transform.Position).ToXZFloat2().Normalized;
         }
 
         public AttackDefinitionInfoData[] AttackDefinitions { get; set; }

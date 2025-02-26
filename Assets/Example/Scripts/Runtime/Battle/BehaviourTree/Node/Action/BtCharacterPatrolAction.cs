@@ -39,7 +39,7 @@ namespace GameMain.Runtime
         {
             if (Accessor.Condition.IsMoving)
             {
-                var directionToTarget  = _targetPos - Accessor.Transform.CurrentPosition;
+                var directionToTarget  = _targetPos - Accessor.Entity.Transform.Position;
                 Accessor.Condition.MoveDirection = directionToTarget.ToXZFloat2().Normalized;
                 
                 if (directionToTarget.Magnitude <= 1F)
@@ -69,7 +69,7 @@ namespace GameMain.Runtime
                     Accessor.Condition.IsMoving = true;
                     
 #if UNITY_EDITOR
-                    _gizmosData = GizmosData.CreateLineGizmosData(Accessor.Transform.Transform, _targetPos);
+                    _gizmosData = GizmosData.CreateLineGizmosData(Accessor.Entity.Transform, _targetPos);
                     GizmosManager.Instance.AddGizmosData(_gizmosData);
 #endif
                 }

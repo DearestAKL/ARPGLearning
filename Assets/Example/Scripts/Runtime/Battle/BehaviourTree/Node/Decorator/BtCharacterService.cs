@@ -81,7 +81,7 @@ namespace GameMain.Runtime
             {
                 //与目标距离
                 var playerDistanceKey = CharacterBlackboardKey.PlayerDistance.GetString();
-                var playerWorldVectors = Director.Target.Transform.CurrentPosition - CharacterBlackBoard.Accessor.Transform.Transform.Position;
+                var playerWorldVectors = Director.Target.Entity.Transform.Position - CharacterBlackBoard.Accessor.Entity.Transform.Position;
                 Blackboard[playerDistanceKey] = playerWorldVectors.Magnitude;
 
                 if (playerWorldVectors.Magnitude > 20)

@@ -49,7 +49,7 @@ namespace GameMain.Runtime
             Animation.Play(AnimationClipIndex);
 
 
-            AudioManager.Instance.PlaySound(Constant.Sound.GetRandomDashSound(), true, Accessor.Transform.CurrentPosition.ToVector3());
+            AudioManager.Instance.PlaySound(Constant.Sound.GetRandomDashSound(), true, Accessor.Entity.Transform.Position.ToVector3());
             // BattleAdmin.Factory.Effect.CreateEffectByEntity(Entity,
             //     CommonEffectType.Dash.GetPath(), EffectGroup.OneShot, GfFloat3.Zero,
             //     GfQuaternion.Identity, GfFloat3.One, GfVfxDeleteMode.Delete, GfVfxPriority.High);

@@ -10,13 +10,12 @@ namespace GameMain.Runtime
 
         }
 
-        public GfEntity CreateShell(uint shellId, ShellDefinitionMessage shellDefinition,BattleShellDamageCauserHandler shellDamageCauserHandler, in GfFloat3 basePosition,
-            in GfFloat3 offset, in GfFloat3 direction)
+        public GfEntity CreateShell(uint shellId, ShellDefinitionMessage shellDefinition,BattleShellDamageCauserHandler shellDamageCauserHandler, in GfFloat3 position, in GfFloat3 direction)
         {
             var entity = BattleAdmin.EntityComponentSystem.Create(0, GfEntityGroupId.Shell, $"shell{shellId}");
             
             var gfTransform = new GfTransform();
-            gfTransform.Position = basePosition + offset;
+            gfTransform.Position = position;
             
             entity.AddComponent(new GfActorComponent(gfTransform));
             entity.AddComponent(new GfColliderComponent2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter>());

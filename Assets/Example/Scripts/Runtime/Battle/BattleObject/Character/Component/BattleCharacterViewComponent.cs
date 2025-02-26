@@ -42,7 +42,7 @@ namespace GameMain.Runtime
                 Accessor.Condition.TeamId == TeamId.TeamA, isUserPlayer);
 
             // 将屏幕坐标转换为UI坐标
-            _statusPiece.UpdatePosition(UIHelper.WorldPositionToBattleUI(Accessor.Transform.Transform.Position.ToVector3(), new Vector2(0, 150F)));
+            _statusPiece.UpdatePosition(UIHelper.WorldPositionToBattleUI(Accessor.Entity.Transform.Position.ToVector3(), new Vector2(0, 150F)));
         }
 
         public override void OnEnd()
@@ -72,7 +72,7 @@ namespace GameMain.Runtime
             if (_statusPiece != null && _statusPiece.IsVisibility)
             {
                 // 将屏幕坐标转换为UI坐标
-                _statusPiece.UpdatePosition(UIHelper.WorldPositionToBattleUI(Accessor.Transform.Transform.Position.ToVector3(), new Vector2(0, 150F)));
+                _statusPiece.UpdatePosition(UIHelper.WorldPositionToBattleUI(Accessor.Entity.Transform.Position.ToVector3(), new Vector2(0, 150F)));
                 _statusPiece.UpdatePoiseBar(Accessor.Condition.PoiseHandler.CurrentRatio,Accessor.Condition.PoiseHandler.IsFailure);
                 
                 if (Accessor.Condition.HpProperty.IsViewDirty)
@@ -128,7 +128,7 @@ namespace GameMain.Runtime
 
         private void PlayDamageUI(IBattleSimpleDamageResult damageResult,bool isCritical = false) 
         {
-            var uiPosition =  UIHelper.WorldPositionToBattleUI(Accessor.Transform.Transform.Position.ToVector3(), new Vector2(0, 100f));
+            var uiPosition =  UIHelper.WorldPositionToBattleUI(Accessor.Entity.Transform.Position.ToVector3(), new Vector2(0, 100f));
             UIHelper.ShowDamageNum(uiPosition, damageResult, isCritical);
         }
 

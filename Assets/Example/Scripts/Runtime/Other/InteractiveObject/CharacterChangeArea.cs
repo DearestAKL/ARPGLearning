@@ -42,8 +42,8 @@ namespace GameMain.Runtime
             var lastCharacterId = lastPlayer.Condition.CharacterId;
             await UIHelper.StartLoading();
 
-            GfFloat3 position = lastPlayer.Transform.CurrentPosition;
-            GfQuaternion rotation = lastPlayer.Transform.CurrentRotation;
+            GfFloat3 position = lastPlayer.Entity.Transform.Position;
+            GfQuaternion rotation = lastPlayer.Entity.Transform.Rotation;
 
             var entity = await BattleAdmin.Factory.Character.CreateUserCharacter(
                 new GameCharacterModel(RuntimeDataHelper.CreateCharacterData(characterId)), 

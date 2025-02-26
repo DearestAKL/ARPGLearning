@@ -15,7 +15,7 @@ namespace GameMain.Runtime
         
         public GfFloat3 GetReceiverPosition()
         {
-            return _accessor.Transform.Transform.Position;
+            return _accessor.Entity.Transform.Position;
         }
 
         public bool CanReceiveKnockUp()

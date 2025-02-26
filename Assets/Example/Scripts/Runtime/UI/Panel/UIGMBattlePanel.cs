@@ -16,9 +16,14 @@ namespace GameMain.Runtime
         {
             base.OnInit(name, go, parent, userData);
 
+            btnMod.SetActive(false);
+            toggleMod.SetActive(false);
+            
             btnClose.onClick.AddListener(Close);
             
             CreatButton(SpawnEnemy,"生成Enemy");
+            
+            CreatToggle(GMConfig.SetIgnoreSkillCd, GMConfig.IgnoreSkillCd, "技能无Cd");
         }
 
         private void CreatButton(UnityAction action,string btnText)
@@ -29,6 +34,17 @@ namespace GameMain.Runtime
             
             var txt = btn.GetComponentInChildren<TextMeshProUGUI>();
             txt.text = btnText;
+        }
+
+        private void CreatToggle(UnityAction<bool> action, bool isOn, string toggleText)
+        {
+            var toggle = Object.Instantiate(toggleMod, contentSingleToggles).GetComponent<Toggle>();
+            toggle.gameObject.SetActive(true);
+            toggle.isOn = isOn;
+            toggle.onValueChanged.AddListener(action);
+
+            var txt = toggle.GetComponentInChildren<TextMeshProUGUI>();
+            txt.text = toggleText;
         }
 
         private void SpawnEnemy()

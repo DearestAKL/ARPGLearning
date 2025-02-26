@@ -36,14 +36,14 @@ namespace GameMain.Runtime
                 return;
             }
             Director.SetTarget(BattleAdmin.Player);
-            
-            var toTarget = Director.Target.Transform.CurrentPosition - Accessor.Transform.Transform.Position;
+
+            var toTarget = Director.Target.Entity.Transform.Position - Accessor.Entity.Transform.Position;
             if (toTarget.Magnitude > _maxDistance)
             {
                 Accessor.Condition.IsMoving = true;
                 StartMove();
                 //靠近
-                var directionToTarget  = Director.Target.Transform.CurrentPosition - Accessor.Transform.CurrentPosition;
+                var directionToTarget  = Director.Target.Entity.Transform.Position - Accessor.Entity.Transform.Position;
                 Accessor.Condition.MoveDirection = directionToTarget .ToXZFloat2().Normalized;
             }
             else if(toTarget.Magnitude < _minDistance)
@@ -51,7 +51,7 @@ namespace GameMain.Runtime
                 Accessor.Condition.IsMoving = true;
                 StartMove();
                 //远离
-                var directionToTarget  =  Accessor.Transform.CurrentPosition - Director.Target.Transform.CurrentPosition;
+                var directionToTarget  =  Accessor.Entity.Transform.Position - Director.Target.Entity.Transform.Position;
                 Accessor.Condition.MoveDirection = directionToTarget .ToXZFloat2().Normalized;
             }
             else

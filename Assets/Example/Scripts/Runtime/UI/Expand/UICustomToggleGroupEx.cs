@@ -1,58 +1,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace GameMain.Runtime
 {
     [RequireComponent(typeof(ToggleGroup))]
-    public class UIToggleGroupEx : MonoBehaviour
+    public class UICustomToggleGroupEx : MonoBehaviour
     {
-        [SerializeField] private UIToggleEx toggleExPrefab;
+        [SerializeField] private UICustomToggleEx toggleExPrefab;
         [SerializeField] private ToggleGroup toggleGroup;
-        [SerializeField] private List<UIToggleEx> toggleExes = new List<UIToggleEx>();
+        [SerializeField] private List<UICustomToggleEx> toggleExes = new List<UICustomToggleEx>();
 
         private int _curTypeId = -1;
         public UnityEvent<int> OnToggleChanged = new UnityEvent<int>();
 
         public void CreateToggleEx(int index, string toggleName = null,string iconPath = null)
         {
-            UIToggleEx toggleEx = null;
+            UICustomToggleEx customToggleEx = null;
             //是否已经有符合条件的Toggle
             for (int i = 0; i < toggleExes.Count; i++)
             {
                 if (toggleExes[i].Index == index)
                 {
-                    toggleEx = toggleExes[i];
+                    customToggleEx = toggleExes[i];
                     break;
                 }
             }
 
             //是否有待使用的Toggle
-            if (toggleEx == null)
+            if (customToggleEx == null)
             {
                 for (int i = 0; i < toggleExes.Count; i++)
                 {
                     //待使用
                     if (toggleExes[i].Index < 0)
                     {
-                        toggleEx = toggleExes[i];
-                        toggleEx.Init(this, index, toggleName,iconPath);
+                        customToggleEx = toggleExes[i];
+                        customToggleEx.Init(this, index, toggleName,iconPath);
                         break;
                     }
                 }
             }
 
             //创建一个新的的Toggle
-            if (toggleEx == null)
+            if (customToggleEx == null)
             {
-                toggleEx = Instantiate(toggleExPrefab, transform);
-                toggleEx.Toggle.group = toggleGroup;
-                toggleEx.Init(this, index, toggleName,iconPath);
-                toggleExes.Add(toggleEx);
+                customToggleEx = Instantiate(toggleExPrefab, transform);
+                customToggleEx.Toggle.group = toggleGroup;
+                customToggleEx.Init(this, index, toggleName,iconPath);
+                toggleExes.Add(customToggleEx);
             }
             
-            toggleEx.gameObject.SetActive(true);
+            customToggleEx.gameObject.SetActive(true);
         }
 
         public bool SetToggleOn(int typeId)

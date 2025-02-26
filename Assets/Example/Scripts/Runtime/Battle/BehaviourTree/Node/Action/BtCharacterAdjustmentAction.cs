@@ -32,7 +32,7 @@ namespace GameMain.Runtime
         
         private void OnUpdateTimer()
         {
-            var directionToTarget = Director.Target.Transform.CurrentPosition - Accessor.Transform.CurrentPosition;
+            var directionToTarget = Director.Target.Entity.Transform.Position - Accessor.Entity.Transform.Position;
             // 计算当前位置与目标的距离
             float distanceToTarget = directionToTarget.Magnitude;
             if (distanceToTarget > distance)

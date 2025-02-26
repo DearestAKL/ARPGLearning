@@ -20,6 +20,8 @@ namespace GameMain.Runtime
             _speed = speed;
             _bulletType = bulletType;
             _direction = direction;
+            
+            shellDamageCauserHandler.SetMoveDirection(_direction);
         }
 
         protected override void OnAwakeInternal()

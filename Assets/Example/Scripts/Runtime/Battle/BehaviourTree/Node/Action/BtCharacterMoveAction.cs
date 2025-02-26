@@ -24,7 +24,7 @@ namespace GameMain.Runtime
             Clock.AddTimer(0.1f, 0.02f, -1, OnUpdateTimer);
             
 #if UNITY_EDITOR
-            _gizmosData = GizmosData.CreateLineGizmosData(Accessor.Transform.Transform, Director.Target.Transform.Transform);
+            _gizmosData = GizmosData.CreateLineGizmosData(Accessor.Entity.Transform, Director.Target.Entity.Transform);
             GizmosManager.Instance.AddGizmosData(_gizmosData);
 #endif
         }
@@ -42,7 +42,7 @@ namespace GameMain.Runtime
         {
             if (Director.Target != null) 
             {
-                var directionToTarget  = Director.Target.Transform.CurrentPosition - Accessor.Transform.CurrentPosition;
+                var directionToTarget  = Director.Target.Entity.Transform.Position - Accessor.Entity.Transform.Position;
                 Accessor.Condition.MoveDirection = directionToTarget .ToXZFloat2().Normalized;
             }
         }

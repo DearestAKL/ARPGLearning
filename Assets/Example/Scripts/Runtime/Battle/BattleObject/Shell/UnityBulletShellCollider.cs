@@ -49,10 +49,11 @@ namespace GameMain.Runtime
                 return;
             }
 
-            _shellBulletComponent.Entity.Request(new DeleteShellRequest());
-            
-            _shellBulletComponent = null;
-            GfPrefabPool.Return(this);
+            //TODO:判断是否为墙体
+            // _shellBulletComponent.Entity.Request(new DeleteShellRequest());
+            //
+            // _shellBulletComponent = null;
+            // GfPrefabPool.Return(this);
         }
         
         public static async void Create(BattleShellBulletComponent shellBulletComponent)

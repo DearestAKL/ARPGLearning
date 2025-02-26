@@ -10,7 +10,9 @@ namespace GameMain.Runtime
         public GfEntity                     ThisEntity             { get; private set; }
 
         private readonly BattleCharacterAccessorComponent _ownerAccessor;
-        
+
+        private GfFloat3 _moveDirection = GfFloat3.Zero;
+
         public AttackDefinitionInfoData[] AttackDefinitions { get; set; }
         public AttackDefinitionInfoData AttackDefinition 
         {
@@ -45,6 +47,11 @@ namespace GameMain.Runtime
             ThisEntity = thisEntity;
         }
 
+        public void SetMoveDirection(GfFloat3 direction)
+        {
+            _moveDirection = direction;
+        }
+
 
         public void Dispose()
         {
@@ -53,6 +60,32 @@ namespace GameMain.Runtime
         public GfFloat3 GetCauserPosition()
         {
             return ThisEntity.Transform.Position;
+        }
+        
+        public GfFloat2 CalculateDamageVector(GfFloat3 receiverPosition)
+        {
+            //移动类的Shell 需要考虑移动方向的权重加成
+            if (!_moveDirection.IsZero)
+            {
+                var impactDirection = (receiverPosition - ThisEntity.Transform.Position).ToXZFloat2().Normalized;
+                var moveDirection = _moveDirection.ToXZFloat2().Normalized;
+                float dot = GfFloat2.Dot(moveDirection, impactDirection);
+                if (dot < -0.9f) 
+                {
+                    //方向相反 优先动量方向
+                    return moveDirection;
+                } 
+                else
+                {
+                    var moveWeight = 0.5F;
+                    return (impactDirection * (1 - moveWeight) + moveDirection * moveWeight).Normalized;;
+                }
+            }
+            else
+            {
+                //没有移动则按中心点向量计算
+                return (receiverPosition - ThisEntity.Transform.Position).ToXZFloat2().Normalized; 
+            }
         }
         
         public int GetLevel()

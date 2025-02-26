@@ -172,7 +172,7 @@ namespace GameMain.Runtime
             result.AttackCategoryType = infoData.AttackCategoryType;
             result.OriginalVariation = (int)damageValue;
             
-            result.DamageVector = (receiverHandler.GetReceiverPosition() - causerHandler.GetCauserPosition()).ToXZFloat2().Normalized;
+            result.DamageVector = causerHandler.CalculateDamageVector(receiverHandler.GetReceiverPosition());
 
             result.ReducePoiseValue = infoData.ReducePoiseValue;
             result.ReactionLevelType = infoData.ReactionLevelType;

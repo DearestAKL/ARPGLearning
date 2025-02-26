@@ -21,6 +21,8 @@ namespace GameMain.Runtime
         public int TotalPercent => GfMathf.Clamp(100 + IncreasePercent - ReductionPercent, MinTotalPercent, MaxTotalPercent);
         public int IncreasePercent         { get; private set; }
         public int ReductionPercent        { get; private set; }
+        
+        public bool IsIgnore { get; private set; }
 
         public BattleObjectCoolTimeHandler(float coolTime, int maxSlotNum, int startSlotNum)
         {
@@ -73,7 +75,17 @@ namespace GameMain.Runtime
 
         public void OnUpdate(float deltaTime)
         {
+            if (IsIgnore)
+            {
+                //开启无CD 直接回满
+                deltaTime = TotalCoolTime;
+            }
             AddCoolTime(deltaTime);
+        }
+
+        public void IgnoreCd(bool enable)
+        {
+            IsIgnore = enable;
         }
     }
 }

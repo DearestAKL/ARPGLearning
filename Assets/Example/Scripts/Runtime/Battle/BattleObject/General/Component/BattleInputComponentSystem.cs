@@ -21,8 +21,6 @@ namespace GameMain.Runtime
 
         private IBattleCharacterAccessorComponent PlayerAccessor => BattleAdmin.Player;
 
-        private BattleCharacterTransformComponent TransformComponent => PlayerAccessor.Transform;
-
 
         private LayerMask _layerMask;
 
@@ -197,8 +195,8 @@ namespace GameMain.Runtime
                 Ray ray = UIManager.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray,out  RaycastHit raycastHit,float.MaxValue,_layerMask))
                 {
-                    _mouseDirection = new GfFloat2(raycastHit.point.x - TransformComponent.CurrentPosition.X,
-                        raycastHit.point.z - TransformComponent.CurrentPosition.Z).Normalized;
+                    _mouseDirection = new GfFloat2(raycastHit.point.x - PlayerAccessor.Entity.Transform.Position.X,
+                        raycastHit.point.z - PlayerAccessor.Entity.Transform.Position.Z).Normalized;
                 }
                 else
                 {

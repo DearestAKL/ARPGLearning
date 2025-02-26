@@ -66,12 +66,12 @@ namespace GameMain.Runtime
              _akariLoopScroll = new AkariLoopScroll<AUIItemData, UIItemCell>(itemScrollView, OnItemUpdateView);
              _akariLoopScroll.SetOnClickInfo(OnItemClick);
 
-             toggleGroupEx.Clear();
+             CustomToggleGroupEx.Clear();
              for (int i = 0; i < _tabTypes.Length; i++)
              {
-                 toggleGroupEx.CreateToggleEx((int)_tabTypes[i]);
+                 CustomToggleGroupEx.CreateToggleEx((int)_tabTypes[i]);
              }
-             toggleGroupEx.OnToggleChanged.AddListener(OnToggleChanged);
+             CustomToggleGroupEx.OnToggleChanged.AddListener(OnToggleChanged);
              
              //sort and filter
              _sortDefDict = new Dictionary<int, UISortDef>()
@@ -108,7 +108,7 @@ namespace GameMain.Runtime
             {
                 _data = data;
                 
-                if (!toggleGroupEx.SetToggleOn((int)_data.TabType))
+                if (!CustomToggleGroupEx.SetToggleOn((int)_data.TabType))
                 {
                     //Toggle没有Changed 这里需要主动调用UpdateView
                     _curType = _data.TabType;

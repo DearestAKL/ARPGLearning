@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20057d6bda207476b96e07d4022d8a85, type: 3}
+  m_Name: 4_Sound
+  m_EditorClassIdentifier: 
+  GroupId: 4
+  Name: Sound
+  TrackList:
+  - TrackId: 40001
+    IsSkippable: 0
+    TrackName: kick
+    GroupId: 4
+    ListenerTypeName: IEditorCharacterSoundAnimationEventListener
+    MethodName: RegisterCommonSoundPlay
+    ParamList: []
+    KeyFrames: 15000000
+    IsBroken: 0
+  ParameterHeaderList:
+  - trackID: 40001
+    methodUID: 400001
+    dataBody: 7b22436f6e74656e74223a226576656e743a2f33442f6b6963745f32227d
+  ObjectParameterList:
+  - {fileID: 6367724257240993563}
+--- !u!114 &6367724257240993563
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab6cabbf2c840fe9229f24ab17df8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Content: event:/3D/kict_2

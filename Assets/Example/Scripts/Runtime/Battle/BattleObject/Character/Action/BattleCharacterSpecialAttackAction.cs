@@ -14,7 +14,8 @@ namespace GameMain.Runtime
 
         public override bool CanTransitionFrom(ABattleCharacterAction currentAction)
         {
-            return currentAction.Accessor.Condition.Frame.CanAttack.Current;
+            //Dash SpecialAttack Ultimate同一优先级，在CanAttack之上 这里使用CanDash的优先级
+            return currentAction.Accessor.Condition.Frame.CanDash.Current;
         }
     }
     

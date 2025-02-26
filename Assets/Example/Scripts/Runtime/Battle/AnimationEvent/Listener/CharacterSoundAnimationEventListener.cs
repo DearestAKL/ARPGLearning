@@ -23,7 +23,7 @@ namespace GameMain.Runtime
 
         public void RegisterCommonSoundPlay(AnimationEventParameterString param, GfAnimationEventCallInfo info)
         {
-            AudioManager.Instance.PlaySound(param.Content, true, Accessor.Transform.CurrentPosition.ToVector3());
+            AudioManager.Instance.PlaySound(param.Content, true, Accessor.Entity.Transform.Position.ToVector3());
         }
     }
 }

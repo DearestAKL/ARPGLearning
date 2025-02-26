@@ -24,6 +24,7 @@ namespace GameMain.Runtime
         TeamId TeamId { get; }
 
         GfFloat3 GetCauserPosition();
+        GfFloat2 CalculateDamageVector(GfFloat3 receiverPosition);
 
         AttackDefinitionInfoData[] AttackDefinitions{ get; set; }
         

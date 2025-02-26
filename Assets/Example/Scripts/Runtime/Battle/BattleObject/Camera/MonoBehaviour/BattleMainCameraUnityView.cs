@@ -85,7 +85,7 @@ namespace GameMain.Runtime
 
         private void OnChangeCharacterEvent(int lastCharacterId, int curCharacterId)
         {
-            var lookTransform = (BattleAdmin.Player.Transform.Transform as GfUnityTransform)?.GetUnityTransform();
+            var lookTransform = (BattleAdmin.Player.Entity.Transform as GfUnityTransform)?.GetUnityTransform();
             SetFreeLookFollow(lookTransform);
             SetFreeLookLookAt(lookTransform);
         }

@@ -8,7 +8,7 @@ namespace GameMain.Runtime
     {
 		//---UI---
 		protected UnityEngine.UI.Button btnFunction = null;
-		protected GameMain.Runtime.UIToggleGroupEx toggleGroupEx = null;
+		protected GameMain.Runtime.UICustomToggleGroupEx CustomToggleGroupEx = null;
 		protected TMPro.TextMeshProUGUI txtTitle = null;
 		protected TMPro.TextMeshProUGUI txtLimit = null;
 		protected UnityEngine.UI.LoopVerticalScrollRect itemScrollView = null;
@@ -32,7 +32,7 @@ namespace GameMain.Runtime
             ReferenceCollector rc = RootGo.GetComponent<ReferenceCollector>();
 			
             btnFunction = rc.Get<UnityEngine.UI.Button>("btnFunction");
-			toggleGroupEx = rc.Get<GameMain.Runtime.UIToggleGroupEx>("toggleGroupEx");
+			CustomToggleGroupEx = rc.Get<GameMain.Runtime.UICustomToggleGroupEx>("toggleGroupEx");
 			txtTitle = rc.Get<TMPro.TextMeshProUGUI>("txtTitle");
 			txtLimit = rc.Get<TMPro.TextMeshProUGUI>("txtLimit");
 			itemScrollView = rc.Get<UnityEngine.UI.LoopVerticalScrollRect>("itemScrollView");

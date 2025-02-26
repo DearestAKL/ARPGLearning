@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5256482382197262226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cce2ac4ab5438aa11501e751451186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 100102
+  OffsetPosition:
+    X: 0
+    Y: 0.725
+    Z: 2
+  OffsetRotation:
+    X: 0
+    Y: 0
+    Z: 0
+  IsLockTarget: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20057d6bda207476b96e07d4022d8a85, type: 3}
+  m_Name: 1_Damage
+  m_EditorClassIdentifier: 
+  GroupId: 1
+  Name: Damage
+  TrackList:
+  - TrackId: 10001
+    IsSkippable: 0
+    TrackName: Attack
+    GroupId: 1
+    ListenerTypeName: IEditorCreateShellAnimationEventListener
+    MethodName: CreateShell
+    ParamList: []
+    KeyFrames: 16000000
+    IsBroken: 0
+  ParameterHeaderList:
+  - trackID: 10001
+    methodUID: 200101
+    dataBody: 7b224964223a3130303130322c224f6666736574506f736974696f6e223a7b2258223a302e302c2259223a302e373235303030303233383431383537392c225a223a322e307d2c224f6666736574526f746174696f6e223a7b2258223a302e302c2259223a302e302c225a223a302e307d2c2249734c6f636b546172676574223a66616c73657d
+  ObjectParameterList:
+  - {fileID: -5256482382197262226}

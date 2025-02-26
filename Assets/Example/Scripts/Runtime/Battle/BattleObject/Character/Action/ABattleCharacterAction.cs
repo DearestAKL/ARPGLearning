@@ -226,7 +226,7 @@ namespace GameMain.Runtime
                 return;
             }
 
-            var transform = Accessor.Transform.Transform;
+            var transform = Accessor.Entity.Transform;
             transform.Rotation = GfQuaternion.LookRotation(targetRotation.ToXZFloat3());
         }
 
@@ -242,7 +242,7 @@ namespace GameMain.Runtime
                 var targetAccessor = Accessor.Condition.Target;
                 if (targetAccessor != null && targetAccessor.Entity != null)
                 {
-                    var direction = targetAccessor.Transform.CurrentPosition - Accessor.Transform.CurrentPosition;
+                    var direction = targetAccessor.Entity.Transform.Position - Accessor.Entity.Transform.Position;
                     Rotate(direction.ToXZFloat2().Normalized); 
                     return;
                 }

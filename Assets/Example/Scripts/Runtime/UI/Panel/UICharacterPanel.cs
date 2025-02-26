@@ -40,13 +40,13 @@ namespace GameMain.Runtime
             
             btnClose.onClick.AddListener(Close);
             
-            toggleGroupEx.Clear();
+            CustomToggleGroupEx.Clear();
             for (int i = 0; i < _tabTypes.Length; i++)
             {
-                toggleGroupEx.CreateToggleEx((int)_tabTypes[i]);
+                CustomToggleGroupEx.CreateToggleEx((int)_tabTypes[i]);
             }
             
-            toggleGroupEx.OnToggleChanged.AddListener(OnToggleChanged);
+            CustomToggleGroupEx.OnToggleChanged.AddListener(OnToggleChanged);
         }
 
         public override void OnOpen(object userData)
@@ -59,7 +59,7 @@ namespace GameMain.Runtime
                 
                 txtTitle.text = _data.CharacterModel.CharacterData.Config.Name;
                 
-                if (!toggleGroupEx.SetToggleOn((int)_data.TabType))
+                if (!CustomToggleGroupEx.SetToggleOn((int)_data.TabType))
                 {
                     //Toggle没有Changed 这里需要主动调用UpdateView
                     _curType = _data.TabType;

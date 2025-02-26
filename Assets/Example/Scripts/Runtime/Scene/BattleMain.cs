@@ -106,18 +106,21 @@ namespace GameMain.Runtime
                 WorldManager.Instance.Update(Time.deltaTime);
             }
             
-            if (BattleUnityAdmin.BattleInput != null && IsShowProInputCommandsStr) 
+            if (BattleUnityAdmin.BattleInput != null) 
             {
                 BattleUnityAdmin.BattleInput.EnableProInput = enableProInput;
                 BattleUnityAdmin.BattleInput.ProInputTime = proInputTime;
-                
-                var proInputCommands = BattleUnityAdmin.BattleInput.ProInputCommands;
-                proInputCommandsStr = "Root";
-                for (int i = 0; i < proInputCommands.Count; i++)
+
+                if (IsShowProInputCommandsStr)
                 {
-                    if (proInputCommands.Nodes[i].Element.Time > 0)
+                    var proInputCommands = BattleUnityAdmin.BattleInput.ProInputCommands;
+                    proInputCommandsStr = "Root";
+                    for (int i = 0; i < proInputCommands.Count; i++)
                     {
-                        proInputCommandsStr = $"{proInputCommandsStr}=>{proInputCommands.Nodes[i].Element.Type}";
+                        if (proInputCommands.Nodes[i].Element.Time > 0)
+                        {
+                            proInputCommandsStr = $"{proInputCommandsStr}=>{proInputCommands.Nodes[i].Element.Type}";
+                        }
                     }
                 }
             }
@@ -193,7 +196,7 @@ namespace GameMain.Runtime
             battleMainCameraUnityView.SetSelfHandle(entity.ThisHandle);
             entity.AddComponent(cameraAccessorComponent);
 
-            var lookTransform = (BattleAdmin.Player.Transform.Transform as GfUnityTransform)?.GetUnityTransform();
+            var lookTransform = (BattleAdmin.Player.Entity.Transform as GfUnityTransform)?.GetUnityTransform();
             battleMainCameraUnityView.SetFreeLookFollow(lookTransform);
             battleMainCameraUnityView.SetFreeLookLookAt(lookTransform);
 

@@ -66,7 +66,7 @@ namespace GameMain.Runtime
             //基础组件 Actor
             entity.AddComponent(new GfActorComponent(entityTransform));
             //基础组件 Transform
-            var transformComponent = entity.AddComponent(new BattleCharacterTransformComponent(entityTransform));
+            var transformComponent = entity.AddComponent(new BattleCharacterTransformComponent());
             transformComponent.SetTransform(position,rotation);
             
             //攻击组件 Attack
