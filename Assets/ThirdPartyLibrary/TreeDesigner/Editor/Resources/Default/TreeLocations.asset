@@ -36,3 +36,8 @@ MonoBehaviour:
     name: Cat
     type: BaseTree
     locked: 0
+  - guid: 2f0a5511624fc1446b8c0a60e5fc434d
+    path: Assets/Example/EditorRes/BehaviourTree/Npc4001.asset
+    name: Npc4001
+    type: BaseTree
+    locked: 0

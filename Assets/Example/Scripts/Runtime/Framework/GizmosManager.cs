@@ -83,17 +83,46 @@ namespace GameMain.Runtime
 
         public static GizmosData CreateLineGizmosData(GfTransform transform, GfFloat3 targetPos)
         {
-            return CreateLineGizmosData((transform as GfUnityTransform)?.GetUnityTransform(), targetPos.ToVector3());
+            var data = new GizmosData();
+            data.Transform = GetUnityTransform(transform);
+            data.TargetPos = targetPos.ToVector3();
+            return data;
         }
 
         public static GizmosData CreateLineGizmosData(GfTransform transform, GfTransform target)
         {
-            return CreateLineGizmosData((transform as GfUnityTransform)?.GetUnityTransform(),(target as GfUnityTransform)?.GetUnityTransform());
+            var data = new GizmosData();
+            data.Transform = GetUnityTransform(transform);
+            data.TargetTransform = GetUnityTransform(target);
+
+            data.HasTargetTransform = true;
+            return data;
         }
         
         public static GizmosData CreateCircleGizmosData(GfTransform transform, float radius, float angle)
         {
-            return CreateCircleGizmosData((transform as GfUnityTransform)?.GetUnityTransform(),radius,angle);
+            var data = new GizmosData();
+            data.Transform = GetUnityTransform(transform);
+            data.Radius = radius;
+            data.Angle = angle;
+            data.Type = ShapeType.Circle;
+            return data;
+        }
+
+        private static Transform GetUnityTransform(GfTransform transform)
+        {
+            if (transform is GfUnityTransform unityTransform)
+            {
+                return unityTransform.GetUnityTransform();
+            }
+            else if(transform is GfKinematicTransform kinematicTransform)
+            {
+                return kinematicTransform.GetUnityTransform();
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 

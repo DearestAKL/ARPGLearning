@@ -40,6 +40,7 @@ public partial class Tables
     public item.TbItem TbItem {get; }
     public chest.TbChest TbChest {get; }
     public summoner.TbSummoner TbSummoner {get; }
+    public npc.TbNpc TbNpc {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -70,6 +71,7 @@ public partial class Tables
         TbItem = new item.TbItem(loader("item_tbitem"));
         TbChest = new chest.TbChest(loader("chest_tbchest"));
         TbSummoner = new summoner.TbSummoner(loader("summoner_tbsummoner"));
+        TbNpc = new npc.TbNpc(loader("npc_tbnpc"));
         ResolveRef();
     }
 	
@@ -102,6 +104,7 @@ public partial class Tables
         TbItem = new item.TbItem(byteBufs["item_tbitem"]);
         TbChest = new chest.TbChest(byteBufs["chest_tbchest"]);
         TbSummoner = new summoner.TbSummoner(byteBufs["summoner_tbsummoner"]);
+        TbNpc = new npc.TbNpc(byteBufs["npc_tbnpc"]);
         ResolveRef();
     }
 	
@@ -136,6 +139,7 @@ public partial class Tables
 			"item_tbitem",
 			"chest_tbchest",
 			"summoner_tbsummoner",
+			"npc_tbnpc",
         };
     }
     
@@ -168,6 +172,7 @@ public partial class Tables
         TbItem.ResolveRef(this);
         TbChest.ResolveRef(this);
         TbSummoner.ResolveRef(this);
+        TbNpc.ResolveRef(this);
     }
 }
 

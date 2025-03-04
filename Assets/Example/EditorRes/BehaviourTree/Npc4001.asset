@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83dc4655bfa3db84a9d933ea8d59bba1, type: 3}
+  m_Name: Npc4001
+  m_EditorClassIdentifier: 
+  m_Nodes:
+  - rid: 3582606103650238465
+  - rid: 3582606103650238466
+  - rid: 3582606103650238467
+  - rid: 1482356698629800172
+  m_Edges:
+  - m_GUID: 8b3f9109-cc54-45dd-b6c0-ab1210b274d5
+    m_StartNodeGUID: 015132fc-285e-4277-bfaf-1782d68cb4eb
+    m_EndNodeGUID: 61d17911-5e09-4b1c-bc7b-7c8b63a72530
+    m_StartPortName: Output
+    m_EndPortName: Input
+  - m_GUID: b904d0fd-3685-42a4-8dfd-c70d898ddac9
+    m_StartNodeGUID: 61d17911-5e09-4b1c-bc7b-7c8b63a72530
+    m_EndNodeGUID: 3dbd21d5-dcf7-461a-becb-e996fc3b5839
+    m_StartPortName: Output
+    m_EndPortName: Input
+  - m_GUID: ef5f099e-ac86-489d-ae75-d568134cd855
+    m_StartNodeGUID: 3dbd21d5-dcf7-461a-becb-e996fc3b5839
+    m_EndNodeGUID: c6bdb294-61a0-49b8-b40f-99b09bdca1f2
+    m_StartPortName: Output
+    m_EndPortName: Input
+  m_PropertyEdges: []
+  m_ExposedProperties: []
+  m_RootGUID: 015132fc-285e-4277-bfaf-1782d68cb4eb
+  m_Description: 
+  m_NodeGroups: []
+  m_StackNodes: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1482356698629800172
+      type: {class: CharacterPatrolNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: c6bdb294-61a0-49b8-b40f-99b09bdca1f2
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 767, y: 0}
+        m_InputEdgeGUID: ef5f099e-ac86-489d-ae75-d568134cd855
+    - rid: 3582606103650238465
+      type: {class: RootNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: 015132fc-285e-4277-bfaf-1782d68cb4eb
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 0, y: 0}
+        m_OutputEdgeGUID: 8b3f9109-cc54-45dd-b6c0-ab1210b274d5
+    - rid: 3582606103650238466
+      type: {class: CharacterServiceNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: 61d17911-5e09-4b1c-bc7b-7c8b63a72530
+        m_Expanded: 1
+        m_ShowPanel: 1
+        m_Position: {x: 175, y: 0}
+        m_InputEdgeGUID: 8b3f9109-cc54-45dd-b6c0-ab1210b274d5
+        m_OutputEdgeGUID: b904d0fd-3685-42a4-8dfd-c70d898ddac9
+        interval: 0.125
+    - rid: 3582606103650238467
+      type: {class: SelectorNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: 3dbd21d5-dcf7-461a-becb-e996fc3b5839
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 525, y: 0}
+        m_InputEdgeGUID: b904d0fd-3685-42a4-8dfd-c70d898ddac9
+        m_OutputEdgeGUIDs:
+        - ef5f099e-ac86-489d-ae75-d568134cd855
+        m_IsRandom: 0

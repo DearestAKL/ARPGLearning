@@ -10,6 +10,7 @@ namespace GameMain.Runtime
     {
         public GfAnimationContainerData AnimationContainerData;
         public readonly Dictionary<string,GfAnimationEventResource> AnimationEventResources = new Dictionary<string, GfAnimationEventResource>();
+        public readonly Dictionary<string,GfRootMotionResource> RootMotionResources = new Dictionary<string, GfRootMotionResource>();
         public readonly Dictionary<string,AnimationClip> AnimationClips = new Dictionary<string, AnimationClip>();
         public readonly Dictionary<string,AvatarMask> AvatarMasks = new Dictionary<string, AvatarMask>();
         public AttackDefinitionInfoData[] AttackDefinitions;
@@ -78,6 +79,15 @@ namespace GameMain.Runtime
                     }
                 }
 
+                var rootMotionPath = characterStateInfo.RootMotionPath;
+                if (!string.IsNullOrEmpty(rootMotionPath) && !RootMotionResources.ContainsKey(rootMotionPath))
+                {
+                    var rootMotionAsset = await AssetManager.Instance.LoadAsset<TextAsset>(rootMotionPath);
+                    var stream = new MemoryStream(rootMotionAsset.bytes);
+                    var rootMotionResource = GfRootMotionResourceFactory.Instance.CreateResource(stream);
+                    RootMotionResources.TryAdd(rootMotionPath,rootMotionResource);
+                }
+
                 for (int j = 0; j < characterStateInfo.ClipPaths.Length; j++)
                 {
                     var clipPath = characterStateInfo.ClipPaths[j];
@@ -91,18 +101,20 @@ namespace GameMain.Runtime
             }
             
             //AttackDefinition
-            var attackDefinitionGroupMessage = await PbDefinitionHelper.GetAttackDefinitionGroupMessage(gameCharacterModel.Id);
-            if (attackDefinitionGroupMessage != null)
+            if (gameCharacterModel.AttackDefinitionGroupId != 0)
             {
-                AttackDefinitions = new AttackDefinitionInfoData[attackDefinitionGroupMessage.Infos.Count];
-                for (int i = 0; i < attackDefinitionGroupMessage.Infos.Count; i++)
+                var attackDefinitionGroupMessage = await PbDefinitionHelper.GetAttackDefinitionGroupMessage(gameCharacterModel.Id);
+                if (attackDefinitionGroupMessage != null)
                 {
-                    AttackDefinitions[i] = AttackDefinitionInfoData.CreatData(attackDefinitionGroupMessage,
-                        attackDefinitionGroupMessage.Infos[i]);
+                    AttackDefinitions = new AttackDefinitionInfoData[attackDefinitionGroupMessage.Infos.Count];
+                    for (int i = 0; i < attackDefinitionGroupMessage.Infos.Count; i++)
+                    {
+                        AttackDefinitions[i] = AttackDefinitionInfoData.CreatData(attackDefinitionGroupMessage,
+                            attackDefinitionGroupMessage.Infos[i]);
+                    }
                 }
             }
-            
-            
+
             //BehaviourTree AI
             if (!string.IsNullOrEmpty(gameCharacterModel.AiAssetName))
             {

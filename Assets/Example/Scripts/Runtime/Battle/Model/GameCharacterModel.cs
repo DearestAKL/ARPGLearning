@@ -11,6 +11,7 @@ namespace GameMain.Runtime
         public string CharacterAssetName { get; private set; }
         public string ContainerAssetName { get; private set; }
         public string AiAssetName { get; private set; }
+        public int AttackDefinitionGroupId { get; private set; }
         public cfg.ActiveSkill NormalActiveSkill { get; private set; }
         public cfg.ActiveSkill SpActiveSkill { get; private set; }
 
@@ -56,6 +57,11 @@ namespace GameMain.Runtime
         {
             InitData(summonerData);
         }
+        
+        public GameCharacterModel(NpcData npcData)
+        {
+            InitData(npcData);
+        }
 
         #region Character
         private void InitData(CharacterData character,WeaponData weapon = null, List<ArmorData> armors = null)
@@ -63,6 +69,7 @@ namespace GameMain.Runtime
             BattleCharacterType = BattleCharacterType.Player;
             
             Id = character.Config.Id;
+            AttackDefinitionGroupId = Id;
             CanReceiveKnockUp = character.Config.CanReceiveKnockUp;
             CharacterAssetName = character.Config.CharacterAssetName;
             ContainerAssetName = character.Config.ContainerAssetName;
@@ -102,6 +109,7 @@ namespace GameMain.Runtime
             BattleCharacterType = BattleCharacterType.Enemy;
             
             Id = enemyData.Config.Id;
+            AttackDefinitionGroupId = Id;
             CanReceiveKnockUp = enemyData.Config.CanReceiveKnockUp;
             CharacterAssetName = enemyData.Config.CharacterAssetName;
             ContainerAssetName = enemyData.Config.ContainerAssetName;
@@ -131,6 +139,22 @@ namespace GameMain.Runtime
             Defense = summonerData.Defense;
             
             AiAssetName = summonerData.Config.AiAssetName;
+        }
+        #endregion
+        
+        #region Summoner
+
+        private void InitData(NpcData npcData)
+        {
+            Id = npcData.Config.Id;
+            CharacterAssetName = npcData.Config.CharacterAssetName;
+            ContainerAssetName = npcData.Config.ContainerAssetName;
+            
+            Hp = npcData.Hp;
+            Attack = npcData.Attack;
+            Defense = npcData.Defense;
+            
+            AiAssetName = npcData.Config.AiAssetName;
         }
         #endregion
     }

@@ -35,7 +35,7 @@ namespace GameMain.Runtime
         private static readonly string WalkLoopAnimationName = "WalkLoop";
         private static readonly string WalkEndAnimationName = "WalkEnd";
         
-        private Status mStatus;
+        private Status _status;
 
         public override void OnEnter(AGfFsmState prevAction, bool reenter)
         {
@@ -43,7 +43,7 @@ namespace GameMain.Runtime
 
             mActionData = GetActionData<BattleCharacterMoveWalkActionData>();
             
-            mStatus = Status.Start;
+            _status = Status.Start;
         }
         
         public override void OnStart()
@@ -58,7 +58,7 @@ namespace GameMain.Runtime
         {
             base.OnUpdate(deltaTime);
 
-            switch (mStatus)
+            switch (_status)
             {
                 case Status.Start:
                     if (Accessor.Condition.IsMoving)
@@ -78,6 +78,14 @@ namespace GameMain.Runtime
                     if (Accessor.Condition.IsMoving)
                     {
                         Rotate(Accessor.Condition.MoveDirection);
+                        if (Accessor.Condition.IsDashHolding)
+                        {
+                            EndActionAndRequestForChange(BattleCharacterMoveSprintActionData.Create());
+                        }
+                        else if (!Accessor.Condition.IsWalk)
+                        {
+                            EndActionAndRequestForChange(BattleCharacterMoveRunActionData.Create());
+                        }
                     }
                     else
                     {
@@ -110,7 +118,7 @@ namespace GameMain.Runtime
         private int GetAnimationClipIndex()
         {
             string animationStateName = "";
-            switch (mStatus)
+            switch (_status)
             {
                 case Status.Start:
                     animationStateName = WalkStartAnimationName;
@@ -128,12 +136,12 @@ namespace GameMain.Runtime
 
         private void ChangeStatus(Status status)
         {
-            if (mStatus == status)
+            if (_status == status)
             {
                 return;
             }
         
-            mStatus = status;
+            _status = status;
             
             AnimationClipIndex = GetAnimationClipIndex();
             Animation.Play(AnimationClipIndex);

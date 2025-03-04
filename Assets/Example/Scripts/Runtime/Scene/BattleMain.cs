@@ -21,11 +21,10 @@ namespace GameMain.Runtime
         //DEBUG
         public bool isFixedUpdate = false;//启用固定帧，防止卡顿导致伤害丢失
         public bool isDebugUpdate = false;//启用调试帧，每秒50次
-        
+
         public bool enableProInput = false;
         public float proInputTime = 0.5f;
         
-        private int _fixedCount = 0;
         
         private BattleGameAdministrator _battleGameAdministrator;
 
@@ -67,7 +66,9 @@ namespace GameMain.Runtime
         {
             if (isFixedUpdate)
             {
-                _fixedCount++;
+                _battleGameAdministrator.OnBeginUpdate(Time.fixedDeltaTime);
+                _battleGameAdministrator.OnUpdate(Time.fixedDeltaTime);
+                _battleGameAdministrator.OnEndUpdate(Time.fixedDeltaTime);
             }
         }
 
@@ -75,13 +76,6 @@ namespace GameMain.Runtime
         {
             if (isFixedUpdate)
             {
-                for (int i = 0; i < _fixedCount; i++)
-                {
-                    _battleGameAdministrator.OnBeginUpdate(Time.fixedDeltaTime);
-                    _battleGameAdministrator.OnUpdate(Time.fixedDeltaTime);
-                    _battleGameAdministrator.OnEndUpdate(Time.fixedDeltaTime);
-                }
-                _fixedCount = 0;
             }
             else if(isDebugUpdate)
             {
@@ -170,9 +164,9 @@ namespace GameMain.Runtime
             //AudioManager.Instance.PlayBgm(Constant.Sound.BgmFondness);
 
             //召唤物伙伴
-            var summonerData = new SummonerData(9001,10);
-            await BattleAdmin.Factory.Character.CreateCharacterSummoner(new GameCharacterModel(summonerData),
-                GfFloat3.Right,
+            var summonerData = new SummonerData(3001,10);
+            await BattleAdmin.Factory.Character.CreateSummonerCharacter(new GameCharacterModel(summonerData),
+                GfFloat3.Right * 2,
                 GfQuaternion.Identity,"summonerKey");
 
             UIHelper.EndLoading();
@@ -196,7 +190,7 @@ namespace GameMain.Runtime
             battleMainCameraUnityView.SetSelfHandle(entity.ThisHandle);
             entity.AddComponent(cameraAccessorComponent);
 
-            var lookTransform = (BattleAdmin.Player.Entity.Transform as GfUnityTransform)?.GetUnityTransform();
+            var lookTransform = BattleAdmin.Player.Entity.GetComponent<BattleCharacterViewComponent>().UnityView.transform;
             battleMainCameraUnityView.SetFreeLookFollow(lookTransform);
             battleMainCameraUnityView.SetFreeLookLookAt(lookTransform);
 
@@ -236,9 +230,6 @@ namespace GameMain.Runtime
             BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.Return].started += OnReturnStarted;
             BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.GMCommon].started += OnGMCommonStarted;
             BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.GMBattle].started += OnGMBattleStarted;
-            
-            BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.ShowCursor].performed += OnShowCursorPerformed;
-            BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.ShowCursor].canceled += OnShowCursorCanceled;
         }
 
         //=================Exit=================
@@ -274,22 +265,6 @@ namespace GameMain.Runtime
             }
             
             await UIManager.Instance.OpenUIPanel(UIType.UIGMBattlePanel);
-        }
-        
-        private void OnShowCursorPerformed(InputAction.CallbackContext context)
-        {
-            if (context.interaction is HoldInteraction)
-            {
-                BattleUnityAdmin.BattleInput.SetBattleInputDisable(true);
-            }
-        }
-        
-        private void OnShowCursorCanceled(InputAction.CallbackContext context)
-        {
-            if (context.interaction is HoldInteraction)
-            {
-                BattleUnityAdmin.BattleInput.SetBattleInputDisable(false);
-            }
         }
         #endregion
     }

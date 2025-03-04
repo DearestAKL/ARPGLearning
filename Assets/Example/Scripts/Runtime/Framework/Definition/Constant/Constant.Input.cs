@@ -29,7 +29,7 @@ namespace GameMain.Runtime
             public const string GMBattle = "GMBattle";//测试按键 键盘Shift+B
             public const string Fishing = "Fishing";//钓鱼 鼠标左键
             
-            public const string ShowCursor = "ShowCursor";//显示鼠标指针 left alt
+            public const string WalkSwitch = "WalkSwitch";//切换为步行状态 left ctrl
         }
     }
 }

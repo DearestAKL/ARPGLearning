@@ -12,35 +12,44 @@ namespace GameMain.Runtime
         [SerializeField] private MultilayerAnimation multilayerAnimation = null;
         [SerializeField] private GfBoneComponentView boneComponentView = default;
         [SerializeField] private CharacterDamageBlinkingView damageBlinkingView  = default;
-        [SerializeField] private CharacterController characterController  = default;
+        [SerializeField] private MyCharacterController characterController  = default;
         [SerializeField] private List<GfSimpleAnimationTrackView> subsidiaryAnimationTrackViews  = default;
         public Transform Root => root;
         public MultilayerAnimation Animation => multilayerAnimation;
         public GfBoneComponentView Bone => boneComponentView;
         public CharacterDamageBlinkingView DamageBlinkingView => damageBlinkingView;
-        public CharacterController CharacterController => characterController;
         public List<GfSimpleAnimationTrackView> SubsidiaryAnimationTrackViews => subsidiaryAnimationTrackViews;
         
         private GameObject _forward;
         private CharacterInteractive _interactive;
+        private Vector2 _mouseDirection = Vector2.one;
 
         private void Awake()
         {
-            characterController = GetComponent<CharacterController>();
+
         }
 
-        public void UpdateForward(Vector2 direction)
+        private void LateUpdate()
         {
-            if (_forward == null || direction.sqrMagnitude <= 0.1f) 
+            if (_forward != null)
+            {
+                _forward.transform.forward = new Vector3(_mouseDirection.x, 0, _mouseDirection.y);
+            }
+        }
+
+        public void UpdateMouseDirection(Vector2 direction)
+        {
+            if (direction.sqrMagnitude < 0.1F)
             {
                 return;
             }
-            
-            _forward.transform.forward = new Vector3(direction.x, 0, direction.y);
+            _mouseDirection = direction;
         }
 
         public async void Init(BattleCharacterType battleCharacterType,GfEntity entity)
         {
+            characterController?.SetGfEntity(entity);
+            
             if (battleCharacterType == BattleCharacterType.Player)
             {
                 gameObject.layer = LayerMask.NameToLayer(Constant.Layer.Player);

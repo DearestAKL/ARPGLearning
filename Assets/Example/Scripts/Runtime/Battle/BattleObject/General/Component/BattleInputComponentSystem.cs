@@ -65,8 +65,8 @@ namespace GameMain.Runtime
             LightAttack,
             ChargeAttack,
             SpecialAttack,
+            //Dash,//冲刺不适合预先输入 直接响应就行
             Ultimate,
-            Dash,
         }
 
         private List<ProInputCommand> _proInputCommandAddCache = new List<ProInputCommand>();
@@ -88,6 +88,8 @@ namespace GameMain.Runtime
             
             _playerInput.actions[Constant.InputDef.SpecialAttack].started += OnSpecialAttackStarted;
             _playerInput.actions[Constant.InputDef.Ultimate].started += OnUltimateStarted;
+            
+            _playerInput.actions[Constant.InputDef.WalkSwitch].started += OnWalkSwitchStarted;
             
             _moveInputAction = _playerInput.actions[Constant.InputDef.Move];
             _layerMask = LayerMask.GetMask(Constant.Layer.Ground);
@@ -269,15 +271,8 @@ namespace GameMain.Runtime
             
             if (context.interaction is TapInteraction)
             {
-                if (EnableProInput)
-                {
-                    AddInputCommand(InputType.Dash);
-                }
-                else
-                {
-                    var nextActionData = BattleCharacterDashActionData.Create();
-                    RequestForChangeAction(nextActionData);
-                }
+                var nextActionData = BattleCharacterDashActionData.Create();
+                RequestForChangeAction(nextActionData);
             }
         }
 
@@ -379,6 +374,15 @@ namespace GameMain.Runtime
                 }
             }
         }
+        
+        //=================WalkSwitch=================
+        private void OnWalkSwitchStarted(InputAction.CallbackContext context)
+        {
+            if (DisableBattleInput) { return; }
+            
+            PlayerAccessor.Condition.IsWalk = !PlayerAccessor.Condition.IsWalk;
+            GfLog.Debug("OnWalkSwitchStarted");
+        }
 
         private void RequestForChangeAction(ABattleCharacterActionData actionData)
         {
@@ -419,7 +423,7 @@ namespace GameMain.Runtime
                 return;
             }
             
-            if (inputCommand.Type == InputType.Dash)
+            if (inputCommand.Type == InputType.SpecialAttack || inputCommand.Type == InputType.Ultimate)
             {
                 if (!PlayerAccessor.Condition.Frame.CanDash.Current)
                 {
@@ -436,13 +440,13 @@ namespace GameMain.Runtime
             
             ABattleCharacterActionData nextActionData = null;
 
-            if (inputCommand.Type == InputType.Dash)
-            {
-                nextActionData = BattleCharacterDashActionData.Create();
-            }
-            else if(inputCommand.Type == InputType.LightAttack)
+            if(inputCommand.Type == InputType.LightAttack)
             {
                 nextActionData = BattleCharacterLightAttackActionData.Create();
+            }
+            else if (inputCommand.Type == InputType.ChargeAttack)
+            {
+                nextActionData = BattleCharacterChargeAttackActionData.Create();
             }
             else if(inputCommand.Type == InputType.SpecialAttack)
             {

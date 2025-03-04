@@ -61,7 +61,7 @@ namespace GameMain.Runtime
         public override void OnUpdate(float deltaTime)
         {
             base.OnUpdate(deltaTime);
-
+            
             switch (_status)
             {
                 case Status.Start:
@@ -85,6 +85,10 @@ namespace GameMain.Runtime
                         if (Accessor.Condition.IsDashHolding)
                         {
                             EndActionAndRequestForChange(BattleCharacterMoveSprintActionData.Create());
+                        }
+                        else if (Accessor.Condition.IsWalk)
+                        {
+                            EndActionAndRequestForChange(BattleCharacterMoveWalkActionData.Create());
                         }
                     }
                     else

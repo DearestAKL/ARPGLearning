@@ -108,6 +108,7 @@ message GfAnimationStateMessage
 	float FrameRate = 7;
 	string ParameterName = 8;
 	bool isSyncBlend = 9;
+	string RootMotionPath = 10;
 }
 
 message GfAnimationAtoBMessage
@@ -116,5 +117,14 @@ message GfAnimationAtoBMessage
 	string nameB = 2;
 	int32 fadeType = 3;
 	float fadeTime = 4;
+}
+
+// ==========GfRootMotion==========
+message GfRootMotionMessage
+{
+    string clipName = 1;
+    GfFloat3Message defaultScale = 2;
+    repeated GfFloat3Message positions = 3;
+    repeated GfQuaternionMessage rotations = 4;
 }
 

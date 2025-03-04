@@ -106,7 +106,6 @@ namespace GameMain.Runtime
         public override void OnEnter(AGfFsmState prevAction, bool reenter)
         {
             //IsReadyToTransitionToInitiativeActions = false;
-            
             _effHandles.Clear();
         }
 
@@ -180,6 +179,10 @@ namespace GameMain.Runtime
                 if (ActionData.ActionType == (int)BattleCharacterActionType.Dash)
                 {
                     nextActionData = BattleCharacterMoveSprintActionData.Create();
+                }
+                else if (Accessor.Condition.IsWalk)
+                {
+                    nextActionData = BattleCharacterMoveWalkActionData.Create();
                 }
                 else
                 {

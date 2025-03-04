@@ -79,9 +79,21 @@ namespace GameMain.Runtime
 	        return Object.Instantiate(gameObject, parent);
         }
         
+        public async UniTask<GameObject> Instantiate(string location,Vector3 position,Quaternion rotation)
+        {
+	        var gameObject = await LoadAsset<GameObject>(location);
+	        return Object.Instantiate(gameObject,position,rotation);
+        }
+        
         public async UniTask<TComponent> Instantiate<TComponent>(string location, Transform parent = null) where TComponent : Component
         {
 	        var gameObject = await Instantiate(location,parent);
+	        return gameObject.GetComponent<TComponent>();
+        }
+        
+        public async UniTask<TComponent> Instantiate<TComponent>(string location, Vector3 position,Quaternion rotation) where TComponent : Component
+        {
+	        var gameObject = await Instantiate(location, position, rotation);
 	        return gameObject.GetComponent<TComponent>();
         }
 

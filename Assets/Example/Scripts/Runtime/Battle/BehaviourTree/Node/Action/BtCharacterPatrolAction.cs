@@ -64,9 +64,8 @@ namespace GameMain.Runtime
                     //等待结束 开始移动到下一个目标点
                     UpdateTargetPos();
                     
-                    var actionData = BattleCharacterMoveRunActionData.Create();
-                    SendRequest(actionData);
                     Accessor.Condition.IsMoving = true;
+                    Accessor.Condition.IsWalk = true;
                     
 #if UNITY_EDITOR
                     _gizmosData = GizmosData.CreateLineGizmosData(Accessor.Entity.Transform, _targetPos);

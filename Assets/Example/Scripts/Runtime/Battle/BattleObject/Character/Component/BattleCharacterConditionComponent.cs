@@ -49,6 +49,8 @@ namespace GameMain.Runtime
         public GfFloat2 MoveDirection;
         public GfFloat2 MouseDirection;
 
+        public bool IsWalk;
+
         public GameCharacterModel CharacterModel { get; private set; }
 
         public BattleCharacterConditionComponent(BattleCharacterType battleCharacterType,GameCharacterModel characterModel)

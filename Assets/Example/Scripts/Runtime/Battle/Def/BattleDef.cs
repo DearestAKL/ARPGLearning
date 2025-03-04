@@ -92,9 +92,9 @@ namespace GameMain.Runtime
     {
         Invalid = 0,
         Player = 1,
-        Npc = 2,
-        Enemy = 3,
-        Summoner = 4,
+        Enemy = 2,
+        Summoner = 3,
+        Npc = 4,
     }
 
     [Flags]

@@ -42,7 +42,7 @@ namespace GameMain.Runtime
                 Accessor.Condition.TeamId == TeamId.TeamA, isUserPlayer);
 
             // 将屏幕坐标转换为UI坐标
-            _statusPiece.UpdatePosition(UIHelper.WorldPositionToBattleUI(Accessor.Entity.Transform.Position.ToVector3(), new Vector2(0, 150F)));
+            _statusPiece.SetPosition(UIHelper.WorldPositionToBattleUI(Accessor.Entity.Transform.Position.ToVector3(), new Vector2(0, 150F)));
         }
 
         public override void OnEnd()
@@ -66,13 +66,13 @@ namespace GameMain.Runtime
 
             if (_unityView != null)
             {
-                _unityView.UpdateForward(Accessor.Condition.MouseDirection.ToVector2());
+                _unityView.UpdateMouseDirection(Accessor.Condition.MouseDirection.ToVector2());
             }
 
             if (_statusPiece != null && _statusPiece.IsVisibility)
             {
                 // 将屏幕坐标转换为UI坐标
-                _statusPiece.UpdatePosition(UIHelper.WorldPositionToBattleUI(Accessor.Entity.Transform.Position.ToVector3(), new Vector2(0, 150F)));
+                _statusPiece.SetPosition(UIHelper.WorldPositionToBattleUI(Accessor.Entity.Transform.Position.ToVector3(), new Vector2(0, 150F)));
                 _statusPiece.UpdatePoiseBar(Accessor.Condition.PoiseHandler.CurrentRatio,Accessor.Condition.PoiseHandler.IsFailure);
                 
                 if (Accessor.Condition.HpProperty.IsViewDirty)

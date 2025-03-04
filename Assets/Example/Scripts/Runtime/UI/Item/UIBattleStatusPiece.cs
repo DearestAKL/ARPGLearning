@@ -15,6 +15,7 @@ namespace GameMain.Runtime
         private float _elapsedTime;
         private bool _isUserPlayer;
         private bool _isVisibility;
+        private Vector3 _position;
         public bool IsVisibility => _isVisibility;
 
         private readonly Color _playerColor = new Color(55f/255f,158f/255f,13f/255f,1f);
@@ -45,9 +46,14 @@ namespace GameMain.Runtime
             hpHpBar.UpdateRatio(newHpRatio);
         }
 
-        public void UpdatePosition(Vector2 uiPosition)
+        public void SetPosition(Vector2 uiPosition)
         {
-            transform.localPosition = uiPosition;
+            _position = uiPosition;
+            float sqrDistance = (transform.localPosition - _position).sqrMagnitude;
+            if (sqrDistance > 50F * 50F)
+            {
+                transform.localPosition = _position;
+            }
         }
 
         public void UpdatePoiseBar(float newPoiseRatio,bool isFailure)
@@ -71,16 +77,16 @@ namespace GameMain.Runtime
                 return;
             }
 
-            if (poiseBar.IsFailure)
-            {
-                return;
-            }
-            
             _elapsedTime += Time.deltaTime;
             if (_elapsedTime > visibilitySpanTime)
             {
                 SetVisibility(false);
             }
+        }
+
+        private void LateUpdate()
+        {
+            transform.localPosition = Vector3.Lerp(transform.localPosition, _position, 0.25F);
         }
     }
 }

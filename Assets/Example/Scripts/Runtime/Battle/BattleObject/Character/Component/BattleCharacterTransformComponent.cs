@@ -18,7 +18,7 @@ namespace GameMain.Runtime
         {
             get
             {
-                return Entity.Transform.Rotation.Y <= 0.0001f;
+                return Entity.Transform.Position.Y <= 0.0001f;
             }
         }
         
@@ -41,19 +41,18 @@ namespace GameMain.Runtime
         public override void OnEndUpdate(float deltaTime)
         {
             base.OnEndUpdate(deltaTime);
-            Entity.Transform.UpdateTransform();
         }
 
         public void MovePosition(GfFloat3 diffPosition)
         {
-            View.UnityView?.CharacterController.Move(diffPosition.ToVector3());
+            Entity.Transform.Position += diffPosition;
         }
 
         public void SetTransform(GfFloat3 position ,GfQuaternion rotation)
         {
             Entity.Transform.Position = position;
             Entity.Transform.Rotation = rotation;
-            UnityEngine.Physics.SyncTransforms();
+            Entity.Request(new SetPositionAndRotationRequest(position, rotation));
         }
 
         public void RecordWorldPosition()
@@ -64,6 +63,18 @@ namespace GameMain.Runtime
         public void ResetToRecordWorldPosition()
         {
             SetTransform(_worldPositionCache,GfQuaternion.Euler(0, 180, 0));
+        }
+    }
+    
+    public readonly struct SetPositionAndRotationRequest : IGfRequest
+    {
+        public GfRunTimeTypeId RttId => GfRunTimeTypeOf<SetPositionAndRotationRequest>.Id;
+        public readonly GfFloat3 Position;
+        public readonly GfQuaternion Rotation;
+        public SetPositionAndRotationRequest(GfFloat3 position,GfQuaternion rotation)
+        {
+            Position     = position;
+            Rotation     = rotation;
         }
     }
 }

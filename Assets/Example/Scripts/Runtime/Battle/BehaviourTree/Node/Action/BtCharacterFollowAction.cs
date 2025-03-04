@@ -41,7 +41,6 @@ namespace GameMain.Runtime
             if (toTarget.Magnitude > _maxDistance)
             {
                 Accessor.Condition.IsMoving = true;
-                StartMove();
                 //靠近
                 var directionToTarget  = Director.Target.Entity.Transform.Position - Accessor.Entity.Transform.Position;
                 Accessor.Condition.MoveDirection = directionToTarget .ToXZFloat2().Normalized;
@@ -49,7 +48,6 @@ namespace GameMain.Runtime
             else if(toTarget.Magnitude < _minDistance)
             {
                 Accessor.Condition.IsMoving = true;
-                StartMove();
                 //远离
                 var directionToTarget  =  Accessor.Entity.Transform.Position - Director.Target.Entity.Transform.Position;
                 Accessor.Condition.MoveDirection = directionToTarget .ToXZFloat2().Normalized;
@@ -57,16 +55,6 @@ namespace GameMain.Runtime
             else
             {
                 Accessor.Condition.IsMoving = false;
-            }
-        }
-
-        private void StartMove()
-        {
-            //移动激活 且当前不属于移动状态 则请求切换为移动action1
-            if (Accessor.Condition.IsMoving && Accessor.Action.GetNowActionId() != (int)BattleCharacterActionType.MoveRun) 
-            {
-                var actionData = BattleCharacterMoveRunActionData.Create();
-                SendRequest(actionData);
             }
         }
 

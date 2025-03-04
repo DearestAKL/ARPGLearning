@@ -22,8 +22,10 @@ namespace GameMain.Runtime
             btnClose.onClick.AddListener(Close);
             
             CreatButton(SpawnEnemy,"生成Enemy");
+            CreatButton(SpawnNpc,"生成Npc");
             
             CreatToggle(GMConfig.SetIgnoreSkillCd, GMConfig.IgnoreSkillCd, "技能无Cd");
+            CreatToggle(GMConfig.SetApplyRootMotion, GMConfig.ApplyRootMotion, "开启RootMotion");
         }
 
         private void CreatButton(UnityAction action,string btnText)
@@ -51,6 +53,12 @@ namespace GameMain.Runtime
         {
             BattleAdmin.Factory.Character.CreateEnemyCharacter(
                 new GameCharacterModel(new EnemyData(2001,10)), GfFloat3.Zero, GfQuaternion.Identity, "enemyKey").ToCoroutine();
+        }
+
+        private void SpawnNpc()
+        {
+            BattleAdmin.Factory.Character.CreateNpcCharacter(
+                new GameCharacterModel(new NpcData(4001)), GfFloat3.Zero, GfQuaternion.Identity, "npcKey").ToCoroutine();
         }
     }
 }

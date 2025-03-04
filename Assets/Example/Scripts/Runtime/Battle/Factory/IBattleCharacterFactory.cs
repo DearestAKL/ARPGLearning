@@ -16,10 +16,16 @@ namespace GameMain.Runtime
              string enemyKey
         );
         
-        UniTask<GfEntity> CreateCharacterSummoner(GameCharacterModel gameCharacterModel,
+        UniTask<GfEntity> CreateSummonerCharacter(GameCharacterModel gameCharacterModel,
             GfFloat3 position,
             GfQuaternion rotation,
             string summonerKey
+        );
+        
+        UniTask<GfEntity> CreateNpcCharacter(GameCharacterModel gameCharacterModel,
+            GfFloat3 position,
+            GfQuaternion rotation,
+            string npcKey
         );
     }
 }

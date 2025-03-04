@@ -1,7 +1,7 @@
 ﻿using System;
 using Akari.GfCore;
 using Akari.GfUnity;
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,7 +9,7 @@ namespace GameMain.Runtime
 {
     public sealed class BattleMainCameraUnityView : MonoBehaviour
     {
-        [SerializeField] private CinemachineVirtualCamera virtualCamera;
+        [SerializeField] private CinemachineCamera cinemachineCamera;
         [SerializeField] private CinemachineImpulseSource impulseSource;
         private Camera _mainCamera;
         public Camera MainCamera
@@ -44,7 +44,7 @@ namespace GameMain.Runtime
         /// <param name="follow">跟随目标</param>
         public void SetFreeLookFollow(Transform follow)
         {
-            virtualCamera.Follow = follow;
+            cinemachineCamera.Follow = follow;
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace GameMain.Runtime
         /// <param name="lookAt">观察目标</param>
         public void SetFreeLookLookAt(Transform lookAt)
         {
-            virtualCamera.LookAt = lookAt;
+            cinemachineCamera.LookAt = lookAt;
         }
 
         public void ShakeCamera(BattleCameraShakeParam.ShakePower power, BattleCameraShakeParam.ShakeDirection direction)
@@ -85,7 +85,7 @@ namespace GameMain.Runtime
 
         private void OnChangeCharacterEvent(int lastCharacterId, int curCharacterId)
         {
-            var lookTransform = (BattleAdmin.Player.Entity.Transform as GfUnityTransform)?.GetUnityTransform();
+            var lookTransform = BattleAdmin.Player.Entity.GetComponent<BattleCharacterViewComponent>().UnityView.transform;
             SetFreeLookFollow(lookTransform);
             SetFreeLookLookAt(lookTransform);
         }

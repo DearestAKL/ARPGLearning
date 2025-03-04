@@ -132,9 +132,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ShowCursor",
+                    "name": "WalkSwitch",
                     "type": "Button",
-                    "id": "ddc0dff9-c94a-4788-8a34-e136dd8c9503",
+                    "id": "fd0a4d92-ef8a-4320-a42c-34dfb252255a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -573,12 +573,12 @@
                 },
                 {
                     "name": "",
-                    "id": "1ab22c06-5188-4b6e-8ec7-a235c8329259",
-                    "path": "<Keyboard>/leftAlt",
+                    "id": "d4019360-6da6-411c-b755-123215239259",
+                    "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ShowCursor",
+                    "action": "WalkSwitch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

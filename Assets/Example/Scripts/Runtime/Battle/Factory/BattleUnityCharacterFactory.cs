@@ -32,19 +32,91 @@ namespace GameMain.Runtime
         public async UniTask<GfEntity> CreateEnemyCharacter(GameCharacterModel gameCharacterModel, GfFloat3 position, GfQuaternion rotation, string enemyKey)
         {
             var entity = await CreateCharacterInternal(gameCharacterModel, BattleCharacterType.Enemy,position,rotation);
-
-            var actionComponent = entity.GetComponent<BattleObjectActionComponent>();
-            actionComponent.Add(BattleCharacterPlayAnimationStateAction.ActionType, new BattleCharacterPlayAnimationStateAction());
-            
             return entity;
         }
         
-        public async UniTask<GfEntity> CreateCharacterSummoner(GameCharacterModel gameCharacterModel,GfFloat3 position, GfQuaternion rotation,string summonerKey)
+        public async UniTask<GfEntity> CreateSummonerCharacter(GameCharacterModel gameCharacterModel,GfFloat3 position, GfQuaternion rotation,string summonerKey)
         {
             var entity = await CreateCharacterInternal(gameCharacterModel, BattleCharacterType.Summoner,position,rotation);
+            return entity;
+        }
+        
+        public async UniTask<GfEntity> CreateNpcCharacter(GameCharacterModel gameCharacterModel,GfFloat3 position, GfQuaternion rotation,string npcKey)
+        {
+            //var entity = await CreateCharacterInternal(gameCharacterModel, BattleCharacterType.Npc,position,rotation);
 
-            var actionComponent = entity.GetComponent<BattleObjectActionComponent>();
-            actionComponent.Add(BattleCharacterPlayAnimationStateAction.ActionType, new BattleCharacterPlayAnimationStateAction());
+            BattleCharacterType battleCharacterType = BattleCharacterType.Npc;
+            
+            var characterAssets = await BattleCharacterAssets.Create(gameCharacterModel);
+            var path = AssetPathHelper.GetCharacterPath(gameCharacterModel.CharacterAssetName);
+
+            BattleCharacterUnityView entityUnityView = await AssetManager.Instance.Instantiate<BattleCharacterUnityView>(path);
+            entityUnityView.transform.position = position.ToVector3();
+            entityUnityView.transform.rotation = rotation.ToQuaternion();
+            
+            var entity = BattleAdmin.EntityComponentSystem.Create(0, GfEntityGroupId.Character, gameCharacterModel.Id.ToString());
+            GfTransform entityTransform = new GfKinematicTransform(entityUnityView.transform, false);
+            
+            entityUnityView.Init(battleCharacterType, entity);
+            
+            //基础组件 Actor
+            entity.AddComponent(new GfActorComponent(entityTransform));
+
+            //基础组件 Transform
+            entity.AddComponent(new BattleCharacterTransformComponent());
+            
+            //动画组件 Animation 依赖于Action
+            var animationComponent = entity.AddComponent(new GfAnimationComponent());
+            animationComponent.HasRootMotionMoveAnimation = entityUnityView.Animation.HasRootMotionMoveAnimation;
+            
+            //行为组件Action 用来驱动Animation
+            var actionComponent = entity.AddComponent(new BattleObjectActionComponent(new BattleObjectActionContext(entity)));
+            
+            //状态组件 Condition 记录角色数据
+            entity.AddComponent(new BattleCharacterConditionComponent(battleCharacterType, gameCharacterModel));
+            
+            //访问器组件Accessor 组件引用的集合
+            var battleCharacterAccessorComponent = entity.AddComponent(new BattleCharacterAccessorComponent(entity));
+
+            //角色表现组件 CharacterView 
+            var viewComponent = entity.AddComponent(new BattleCharacterViewComponent(entityUnityView));
+            
+            //初始化动画组件
+            animationComponent.AddTrack(new GfAnimationEventTrack());
+            animationComponent.AddTrack(new GfRootMotionTrack());
+            animationComponent.AddTrack(new GfMultilayerAnimationTrack(entityUnityView.Animation, entityUnityView.Root));
+            
+#if UNITY_EDITOR
+            entityUnityView.gameObject.GetOrAddComponent<CharacterAnimationContainerView>().SetEntity(entity);
+#endif
+            
+            //为Action组件添加Action
+            actionComponent.Add(BattleCharacterIdleAction.ActionType, new BattleCharacterIdleAction());
+            
+            actionComponent.Add(BattleCharacterMoveWalkAction.ActionType, new BattleCharacterMoveWalkAction());
+            actionComponent.Add(BattleCharacterMoveRunAction.ActionType, new BattleCharacterMoveRunAction());
+            actionComponent.Add(BattleCharacterMoveSprintAction.ActionType, new BattleCharacterMoveSprintAction());
+
+            //Build AnimationContainer 传入动画数据
+            BuildAnimationContainer(entity, characterAssets);
+            
+            //设置攻击定义
+            if (characterAssets.AttackDefinitions != null)
+            {
+                entity.GetComponent<BattleCharacterAttackComponent>().DamageCauserHandler.AttackDefinitions = characterAssets.AttackDefinitions;
+            }
+            
+            //设置AI
+            if (characterAssets.AIResource != null) 
+            {
+                //添加AI组件 Director
+                entity.AddComponent(new BattleCharacterDirectorComponent(characterAssets.AIResource.CreateData()));
+                actionComponent.Add(BattleCharacterPlayAnimationStateAction.ActionType, new BattleCharacterPlayAnimationStateAction());
+            }
+            
+            //执行初始Action
+            actionComponent.ForceTransition(new GfFsmStateTransitionRequest(BattleCharacterIdleAction.ActionType, new BattleCharacterIdleActionData()));
+            
             return entity;
         }
 
@@ -58,17 +130,20 @@ namespace GameMain.Runtime
             BattleCharacterUnityView entityUnityView = isPooled
                 ? await AssetManager.Instance.InstantiateFormPool<BattleCharacterUnityView>(path)
                 : await AssetManager.Instance.Instantiate<BattleCharacterUnityView>(path);
-
+            entityUnityView.transform.position = position.ToVector3();
+            entityUnityView.transform.rotation = rotation.ToQuaternion();
+            
             var entity = BattleAdmin.EntityComponentSystem.Create(0, GfEntityGroupId.Character, gameCharacterModel.Id.ToString());
-            var entityTransform = entityUnityView.transform.CreateGfUnityTransform(isPooled);
+            GfTransform entityTransform = new GfKinematicTransform(entityUnityView.transform, isPooled);
+
             entityUnityView.Init(battleCharacterType, entity);
             
             //基础组件 Actor
             entity.AddComponent(new GfActorComponent(entityTransform));
+
             //基础组件 Transform
-            var transformComponent = entity.AddComponent(new BattleCharacterTransformComponent());
-            transformComponent.SetTransform(position,rotation);
-            
+            entity.AddComponent(new BattleCharacterTransformComponent());
+
             //攻击组件 Attack
             var attackComponent = entity.AddComponent(new BattleCharacterAttackComponent());
             //受击碰撞组件 Collider
@@ -76,7 +151,6 @@ namespace GameMain.Runtime
             
             //动画组件 Animation 依赖于Action
             var animationComponent = entity.AddComponent(new GfAnimationComponent());
-            
             animationComponent.HasRootMotionMoveAnimation = entityUnityView.Animation.HasRootMotionMoveAnimation;
             
             //行为组件Action 用来驱动Animation
@@ -133,6 +207,7 @@ namespace GameMain.Runtime
             
             //初始化动画组件
             animationComponent.AddTrack(new GfAnimationEventTrack());
+            animationComponent.AddTrack(new GfRootMotionTrack());
             animationComponent.AddTrack(new GfMultilayerAnimationTrack(entityUnityView.Animation, entityUnityView.Root));
             
 #if UNITY_EDITOR
@@ -166,6 +241,7 @@ namespace GameMain.Runtime
             {
                 //添加AI组件 Director
                 entity.AddComponent(new BattleCharacterDirectorComponent(characterAssets.AIResource.CreateData()));
+                actionComponent.Add(BattleCharacterPlayAnimationStateAction.ActionType, new BattleCharacterPlayAnimationStateAction());
             }
             
             //添加被动技能
@@ -218,22 +294,32 @@ namespace GameMain.Runtime
             }
             
 
-            // animationEventTrack 处理
+            // animationEventTrack 和 rootMotionTrack处理
             var animationEventTrack = animationComponent.GetTrack<GfAnimationEventTrack>();
+            var rootMotionTrack = animationComponent.GetTrack<GfRootMotionTrack>();
             animationEventTrack.PrepareMemory(stateNum);
+            rootMotionTrack.PrepareMemory(stateNum);
             for (int i = 0; i < stateNum; i++)
             {
                 var characterStateInfo = stateInfos[i];
-                if (string.IsNullOrEmpty(characterStateInfo.AnimationEventPath))
+                if (!string.IsNullOrEmpty(characterStateInfo.AnimationEventPath))
                 {
-                    continue;
+                    battleCharacterAssets.AnimationEventResources.TryGetValue(characterStateInfo.AnimationEventPath, out var animationEventResource);
+                    if (animationEventResource != null)
+                    {
+                        var animationEventData = animationEventResource.CreateData();
+                        animationEventTrack.Set(i, animationEventData, characterStateInfo.AnimationEventPath);
+                    }
                 }
-
-                battleCharacterAssets.AnimationEventResources.TryGetValue(characterStateInfo.AnimationEventPath, out var animationEventResource);
-                if (animationEventResource != null)
+                
+                if (characterStateInfo.RootMotionPath != null)
                 {
-                    var animationEventData = animationEventResource.CreateData();
-                    animationEventTrack.Set(i, animationEventData, characterStateInfo.AnimationEventPath);
+                    battleCharacterAssets.RootMotionResources.TryGetValue(characterStateInfo.RootMotionPath, out var rootMotionResource);
+                    if (rootMotionResource != null)
+                    {
+                        var rootMotionData = rootMotionResource.CreateData();
+                        rootMotionTrack.Set(i, rootMotionData);
+                    }
                 }
             }
 

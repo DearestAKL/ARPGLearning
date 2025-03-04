@@ -16,9 +16,6 @@ namespace GameMain.Runtime
 
         protected override void DoStart()
         {
-            var actionData = BattleCharacterMoveRunActionData.Create();
-            SendRequest(actionData);
-
             Accessor.Condition.IsMoving = true;
             OnUpdateTimer();
             
