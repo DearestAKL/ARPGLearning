@@ -23,6 +23,15 @@ namespace GameMain.Runtime
 
     public static class BattleComponentSystemSortingOrder 
     {
+        //越小优先级越高 默认优先级是10000
+        
+        
+        public const int ActionComponent = 20040;
+        
+        public const int GfAnimationComponent = 30010;
+        
+        public const int ConditionComponent = 40010;
+        
         public const int GfColliderComponent = 40022;
     }
     
@@ -174,6 +183,7 @@ namespace GameMain.Runtime
     {
         CharacterAttack = 1,
         Shell = 2,
+        Warning = 3,
     }
 
     public enum PassiveSkillEventType

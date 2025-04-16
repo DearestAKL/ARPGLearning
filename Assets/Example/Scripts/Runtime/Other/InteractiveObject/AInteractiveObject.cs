@@ -5,6 +5,8 @@ namespace GameMain.Runtime
     //TODO:待完善 一边添加 一边更新优化
     public abstract class AInteractiveObject : MonoBehaviour
     {
+        public virtual string InputName { get; }= Constant.InputDef.Interaction;
+        
         public abstract string InteractionTips { get; }
         
         protected bool IsInteracting;

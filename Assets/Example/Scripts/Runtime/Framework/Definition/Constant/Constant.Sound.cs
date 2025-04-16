@@ -32,9 +32,16 @@ namespace GameMain.Runtime
             public const string HitSound = "event:/3D/intro";
             public const string Dash_1 = "event:/3D/dash_1";
             public const string Dash_2 = "event:/3D/dash_2";
+            public const string Dash_Sp = "event:/3D/dash_sp";
+            
+            public const string Ding = "event:/3D/ding";
 
-            public static string GetRandomDashSound()
+            public static string GetDashSound(bool isSp = false)
             {
+                if (isSp)
+                {
+                    return Dash_Sp;
+                }
                 return (Random.Range(0, 2) > 0) ? Dash_1 : Dash_2;
             }
         }

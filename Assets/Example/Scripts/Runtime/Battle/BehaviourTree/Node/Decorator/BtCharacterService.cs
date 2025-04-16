@@ -77,21 +77,26 @@ namespace GameMain.Runtime
 
         private void ServiceMethod()
         {
+            var playerDistanceKey = CharacterBlackboardKey.PlayerDistance.GetString();
             if (Director.Target != null) 
             {
                 //与目标距离
-                var playerDistanceKey = CharacterBlackboardKey.PlayerDistance.GetString();
-                var playerWorldVectors = Director.Target.Entity.Transform.Position - CharacterBlackBoard.Accessor.Entity.Transform.Position;
-                Blackboard[playerDistanceKey] = playerWorldVectors.Magnitude;
-
-                if (playerWorldVectors.Magnitude > 20)
+                var targetDistance = GfFloat3.DistanceXZ(Director.Target.Entity.Transform.Position,CharacterBlackBoard.Accessor.Entity.Transform.Position);
+                Blackboard.SetFloat(playerDistanceKey,targetDistance);
+                
+                if (targetDistance > 20f)
                 {
                     Director.SetTarget(null);
                 }
             }
-            
+            else
+            {
+                //无限大
+                Blackboard.SetFloat(playerDistanceKey,100f);
+            }
+
             var hasTargetKey = CharacterBlackboardKey.HasTarget.GetString();
-            Blackboard[hasTargetKey] = Director.Target != null && Director.Target.IsAlive;
+            Blackboard.SetBool(hasTargetKey,Director.Target != null && Director.Target.IsAlive);
         }
     }
 }

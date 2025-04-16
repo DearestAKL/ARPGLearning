@@ -24,7 +24,12 @@ namespace GameMain.Runtime
         {
             return new AttackId(AttackType.Shell, shellId);
         }
-        
+
+        public static AttackId CreateForWarning(uint id)
+        {
+            return new AttackId(AttackType.Warning, id);
+        }
+
         public AttackId(AttackType attackType, uint generalId)
         {
             AttackType         = attackType;

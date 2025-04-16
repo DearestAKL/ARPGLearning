@@ -44,7 +44,12 @@ namespace GameMain.Runtime
 
             _notificatorList.Clear();
         }
-        
+
+        public void SetWarningFlag(BattleColliderDefendParameter defendParameter)
+        {
+            defendParameter.DamageReceiverHandler.SetWarningFlag(true);
+        }
+
         public bool IsCollisionTarget(BattleColliderAttackParameter attackParameter, BattleColliderDefendParameter defendParameter) 
         {
             var causerHandler = attackParameter.DamageCauserHandler;

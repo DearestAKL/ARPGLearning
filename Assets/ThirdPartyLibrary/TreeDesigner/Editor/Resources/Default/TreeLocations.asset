@@ -26,11 +26,6 @@ MonoBehaviour:
   - path: Assets/Example/EditorRes/BehaviourTree
     expanded: 1
   TreeInfos:
-  - guid: a726d712a2d0c41458d4dcee806bee8a
-    path: Assets/Example/EditorRes/BehaviourTree/LucyShadow.asset
-    name: LucyShadow
-    type: BaseTree
-    locked: 0
   - guid: feff37f2f49c1c243b61d4e8d017ba02
     path: Assets/Example/EditorRes/BehaviourTree/Cat.asset
     name: Cat
@@ -39,5 +34,10 @@ MonoBehaviour:
   - guid: 2f0a5511624fc1446b8c0a60e5fc434d
     path: Assets/Example/EditorRes/BehaviourTree/Npc4001.asset
     name: Npc4001
+    type: BaseTree
+    locked: 0
+  - guid: 939e4e4dbc265f747bd358c122f84e93
+    path: Assets/Example/EditorRes/BehaviourTree/LucyShadow.asset
+    name: LucyShadow
     type: BaseTree
     locked: 0

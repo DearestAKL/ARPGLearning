@@ -50,17 +50,17 @@
         protected override void DoStart()
         {
             float seconds = this.seconds;
-            if (seconds < 0)
-            {
-                if (this.blackboardKey != null)
-                {
-                    seconds = Blackboard.Get<float>(this.blackboardKey);
-                }
-                else if (this.function != null)
-                {
-                    seconds = this.function();
-                }
-            }
+            // if (seconds < 0)
+            // {
+            //     if (this.blackboardKey != null)
+            //     {
+            //         seconds = Blackboard.Get<float>(this.blackboardKey);
+            //     }
+            //     else if (this.function != null)
+            //     {
+            //         seconds = this.function();
+            //     }
+            // }
 //            UnityEngine.Assertions.Assert.IsTrue(seconds >= 0);
             if (seconds < 0)
             {

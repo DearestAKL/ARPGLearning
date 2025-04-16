@@ -81,5 +81,44 @@ namespace GameMain.Runtime
             effectGroupIds |= 1UL << (int)EffectGroup.Shell;
             VfxManager.ForceRemoveTargetGroup(effectGroupIds);
         }
+
+        public void StartWitchTime(GfEntity triggerEntity)
+        {
+            foreach (var entity in EntityComponentSystem.EntityManager.EntityHandleManager.Buffers)
+            {
+                if (!entity.IsValid())
+                {
+                    continue;
+                }
+
+                var time = entity.Tag == triggerEntity.Tag ? 0.3f : 3f;
+
+                entity.Request(new GfChangeSpeedMagnificationRequest(9001,
+                    0.1F,
+                    time,
+                    true));
+            }
+        }
+
+        public void ResetWitchTimeSpeed(GfEntity triggerEntity)
+        {
+            foreach (var entity in EntityComponentSystem.EntityManager.EntityHandleManager.Buffers)
+            {
+                if (!entity.IsValid())
+                {
+                    continue;
+                }
+
+                if (entity.Tag == triggerEntity.Tag)
+                {
+                    entity.ResetSpeedMagnification();
+                }
+            }
+        }
+
+        public void ChangeRenderToWitchTime(float time = 3f)
+        {
+            RenderManager.Instance?.StartWitchTime(time);
+        }
     }
 }

@@ -12,12 +12,13 @@ namespace GameMain.Runtime
         [SerializeField] private MultilayerAnimation multilayerAnimation = null;
         [SerializeField] private GfBoneComponentView boneComponentView = default;
         [SerializeField] private CharacterDamageBlinkingView damageBlinkingView  = default;
-        [SerializeField] private MyCharacterController characterController  = default;
+        [SerializeField] private AkariCharacterController characterController  = default;
         [SerializeField] private List<GfSimpleAnimationTrackView> subsidiaryAnimationTrackViews  = default;
         public Transform Root => root;
         public MultilayerAnimation Animation => multilayerAnimation;
         public GfBoneComponentView Bone => boneComponentView;
         public CharacterDamageBlinkingView DamageBlinkingView => damageBlinkingView;
+        public AkariCharacterController CharacterController => characterController;
         public List<GfSimpleAnimationTrackView> SubsidiaryAnimationTrackViews => subsidiaryAnimationTrackViews;
         
         private GameObject _forward;
@@ -48,32 +49,14 @@ namespace GameMain.Runtime
 
         public async void Init(BattleCharacterType battleCharacterType,GfEntity entity)
         {
-            characterController?.SetGfEntity(entity);
-            
-            if (battleCharacterType == BattleCharacterType.Player)
+            if (characterController != null)
             {
-                gameObject.layer = LayerMask.NameToLayer(Constant.Layer.Player);
+                characterController.Init(entity);
             }
-            else if (battleCharacterType == BattleCharacterType.Summoner)
-            {
-                gameObject.layer = LayerMask.NameToLayer(Constant.Layer.Summoner);
-            }
-            else if (battleCharacterType == BattleCharacterType.Enemy)
-            {
-                gameObject.layer = LayerMask.NameToLayer(Constant.Layer.Enemy);
-            }
-            else if (battleCharacterType == BattleCharacterType.Npc)
-            {
-                
-            }
-            else
-            {
-                
-            }
-            
-            gameObject.layer = LayerMask.NameToLayer(battleCharacterType == BattleCharacterType.Player
+
+            SetLayer(battleCharacterType == BattleCharacterType.Player
                 ? Constant.Layer.Player
-                : Constant.Layer.Summoner);
+                : Constant.Layer.Character);
             
             if (battleCharacterType == BattleCharacterType.Player)
             {
@@ -103,6 +86,12 @@ namespace GameMain.Runtime
                 }
                 _forward = null;
             }
+        }
+
+        private void SetLayer(string layerName)
+        {
+            gameObject.layer = LayerMask.NameToLayer(layerName);
+            CharacterController?.UpdateCollidableLayer();
         }
     }
 }

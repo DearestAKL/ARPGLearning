@@ -4964,7 +4964,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   motor: {fileID: 1460620831803550834}
-  Gravity: {x: 0, y: -30, z: 0}
 --- !u!1 &8187748735443800700
 GameObject:
   m_ObjectHideFlags: 0

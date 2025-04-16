@@ -35,5 +35,10 @@ namespace GameMain.Runtime
         {
             throw new System.NotImplementedException();
         }
+
+        public void SetWarningFlag(bool enable)
+        {
+
+        }
     }
 }

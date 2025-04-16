@@ -41,34 +41,15 @@ namespace GameMain.Runtime
 
         protected override void DoStart()
         {
-            if (!string.IsNullOrEmpty(BlackboardKey))
-            {
-                var data = Blackboard.Get<BtStringPropertyData>(BlackboardKey);
-                UnityEngine.Debug.Log(data.Content);
-            }
-            else
+            // if (!string.IsNullOrEmpty(BlackboardKey))
+            // {
+            //     var data = Blackboard.Get<BtStringPropertyData>(BlackboardKey);
+            //     UnityEngine.Debug.Log(data.Content);
+            // }
+            // else
             {
                 UnityEngine.Debug.Log(Message);
             }
-
-            Stopped(true);
-        }
-    }
-
-    public class Property : Task
-    {
-        private string _key;
-        private object _value;
-        
-        public Property(string key,object value) : base("Property")
-        {
-            _key = key;
-            _value = value;
-        }
-        
-        protected override void DoStart()
-        {
-            Blackboard.Set(_key, _value);
 
             Stopped(true);
         }

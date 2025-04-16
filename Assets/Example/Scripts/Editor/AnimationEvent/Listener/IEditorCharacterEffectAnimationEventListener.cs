@@ -22,7 +22,7 @@ namespace GameMain.Editor
         [InvokeTrigger(InvokeTriggerType.Edge)]
         [Skippable(false)]
         [UnityOnly]
-        void RegisterEffectAttach(AnimationEventParameterEffectPlay param);
+        void RegisterEffectAttach(EditorAnimationEventParameterEffectPlay param);
         
         [Unique(GfListenerMethodId.RegisterEffectDetach)]
         [InvokeTrigger(InvokeTriggerType.Edge)]

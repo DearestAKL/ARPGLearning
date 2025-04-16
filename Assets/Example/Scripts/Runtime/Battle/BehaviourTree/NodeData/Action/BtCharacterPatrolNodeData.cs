@@ -16,17 +16,17 @@ namespace GameMain.Runtime
             return new BtCharacterPatrolAction();
         }
     }
-    
+
     public sealed class BtCharacterPatrolNodeFactory : IGfPbFactory
     {
         public IMessage CreateMessage()
         {
-            return new BtCharacterPatrolMessage();
+            return new BtCharacterNullMessage();
         }
 
         public object CreateInstance(IMessage message)
         {
-            var m = (BtCharacterPatrolMessage)message;
+            var m = (BtCharacterNullMessage)message;
             return new BtCharacterPatrolNodeData();
         }
     }

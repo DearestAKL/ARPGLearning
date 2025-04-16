@@ -11,6 +11,7 @@ namespace GameMain.Runtime
     {
         [SerializeField] private CinemachineCamera cinemachineCamera;
         [SerializeField] private CinemachineImpulseSource impulseSource;
+        [SerializeField] private CinemachineConfiner3D cinemachineConfiner;
         private Camera _mainCamera;
         public Camera MainCamera
         {
@@ -54,6 +55,11 @@ namespace GameMain.Runtime
         public void SetFreeLookLookAt(Transform lookAt)
         {
             cinemachineCamera.LookAt = lookAt;
+        }
+
+        public void SetCinemachineConfinerBoundingVolume(Collider collider)
+        {
+            cinemachineConfiner.BoundingVolume = collider;
         }
 
         public void ShakeCamera(BattleCameraShakeParam.ShakePower power, BattleCameraShakeParam.ShakeDirection direction)

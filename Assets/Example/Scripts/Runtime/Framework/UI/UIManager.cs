@@ -39,9 +39,9 @@ namespace GameMain.Runtime
 
         public async UniTask Init()
         {
-            var cameraRender = await AssetManager.Instance.Instantiate(AssetPathHelper.GetOtherPath("CameraRender"), _root);
-            _uiCamera = cameraRender.transform.Find("UI Camera").GetComponent<Camera>();
-            _mainCamera = cameraRender.transform.Find("Main Camera").GetComponent<Camera>();
+            var cameras = await AssetManager.Instance.Instantiate(AssetPathHelper.GetOtherPath("Cameras"), _root);
+            _uiCamera = cameras.transform.Find("UI Camera").GetComponent<Camera>();
+            _mainCamera = cameras.transform.Find("Main Camera").GetComponent<Camera>();
             
             InitCanvas();
             InitUITypeMap();

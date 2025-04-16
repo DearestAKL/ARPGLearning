@@ -17,7 +17,7 @@ namespace TreeDesigner
         private CharacterBlackboardKey key;
         [SerializeField,ShowInPanel("BoolValue")]
         private bool boolValue;
-        
+
         public override int GetPbTypeId()
         {
             return GameMain.Runtime.RyPbTypes.BtNodeBoolCondition;

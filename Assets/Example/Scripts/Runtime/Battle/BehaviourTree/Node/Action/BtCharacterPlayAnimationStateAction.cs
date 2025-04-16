@@ -1,3 +1,5 @@
+using Akari.GfCore;
+
 namespace GameMain.Runtime
 {
     public class BtCharacterPlayAnimationStateAction : ABtCharacterAction
@@ -15,11 +17,17 @@ namespace GameMain.Runtime
             SendRequest(actionData);
 
             Clock.AddTimer(0.1f, 0f, -1, OnUpdateTimer);
+            
+            GfLog.Debug("PlayAnimationState开始");
         }
 
         protected override void DoStop()
         {
-            StopAndCleanUp(false);
+            Clock.RemoveTimer(OnUpdateTimer);
+            
+            Stopped(true);
+            
+            GfLog.Debug("PlayAnimationState结束");
         }
         
         private void OnUpdateTimer()
@@ -27,14 +35,8 @@ namespace GameMain.Runtime
             //if (Accessor.Action.GetNowActionId() != (int)BattleCharacterActionType.PlayAnimationState)
             if (Accessor.Condition.Frame.CanAttack.Current)
             {
-                StopAndCleanUp(true);
+                Stop();
             }
-        }
-
-        private void StopAndCleanUp(bool result)
-        {
-            Clock.RemoveTimer(OnUpdateTimer);
-            Stopped(result);
         }
     }
 }

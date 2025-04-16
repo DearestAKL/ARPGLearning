@@ -41,6 +41,10 @@ namespace GameMain.Runtime
             {
                 DrawLine(data.Transform.position, data.TargetPos, data.Color);
             }
+            else if(data.Type == GizmosData.ShapeType.Lines)
+            {
+                DrawLines(data.Points, data.Color);
+            }
         }
 
         private static void DrawLine(Vector3 position, Vector3 targetPosition,Color color)
@@ -49,6 +53,17 @@ namespace GameMain.Runtime
             Gizmos.DrawLine(position, targetPosition);
         }
         
+        private static void DrawLines(Vector3[] points,Color color)
+        {
+            if (points == null || points.Length < 2)
+                return;
+            Gizmos.color = color;
+            for (int i = 0; i < points.Length - 1; i++)
+            {
+                Gizmos.DrawLine(points[i], points[i + 1]);
+            }
+        }
+
         private static void DrawBox(Vector3 position, Quaternion rotation, float x, float y, Color color)
         {
             Gizmos.color = color;
@@ -74,8 +89,8 @@ namespace GameMain.Runtime
                         
             float deltaTheta = (2f * Mathf.PI) / vertexCount;
             float theta = 0f;
-            
-            Vector3 center = new Vector3(position.x, 0.1f, position.y);
+
+            Vector3 center = new Vector3(position.x, position.y + 0.1F, position.z);
             Vector3 oldPos = center; 
 
             for (int i = 0; i < vertexCount+1; i++)

@@ -42,23 +42,24 @@ namespace GameMain.Runtime {
             "IAEoCCIjChNHZkJ0UHJvcGVydHlNZXNzYWdlEgwKBHR5cGUYASABKAUiOQoN",
             "QnRXYWl0TWVzc2FnZRIQCghkdXJhdGlvbhgBIAEoAhIWCg5yYW5kb21WYXJp",
             "YW5jZRgCIAEoAiIhCg5CdERlYnVnTWVzc2FnZRIPCgdtZXNzYWdlGAEgASgJ",
-            "IhgKFkJ0Q2hhcmFjdGVySWRsZU1lc3NhZ2UiGAoWQnRDaGFyYWN0ZXJNb3Zl",
-            "TWVzc2FnZSIaChhCdENoYXJhY3RlclBhdHJvbE1lc3NhZ2UiOQokQnRDaGFy",
-            "YWN0ZXJQbGF5QW5pbWF0aW9uU3RhdGVNZXNzYWdlEhEKCXN0YXRlTmFtZRgB",
-            "IAEoCSJEChhCdENoYXJhY3RlckZvbGxvd01lc3NhZ2USEwoLbWluRGlzdGFu",
-            "Y2UYASABKAUSEwoLbWF4RGlzdGFuY2UYAiABKAUiMgoUQnRQcm9wZXJ0eUlu",
-            "dE1lc3NhZ2USCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgFIjcKF0J0UHJv",
-            "cGVydHlTdHJpbmdNZXNzYWdlEgsKA2tleRgBIAEoCRIPCgdjb250ZW50GAIg",
-            "ASgJIlUKFkJ0QmFzZUNvbmRpdGlvbk1lc3NhZ2USDQoFY2hpbGQYASABKAUS",
-            "EAoIb3BlcmF0b3IYAiABKAUSDQoFc3RvcHMYAyABKAUSCwoDa2V5GAQgASgJ",
-            "Il0KF0J0RmxvYXRDb25kaXRpb25NZXNzYWdlEi4KBGJhc2UYASABKAsyIC5H",
-            "YW1lTWFpbi5CdEJhc2VDb25kaXRpb25NZXNzYWdlEhIKCmZsb2F0VmFsdWUY",
-            "AiABKAIiWwoWQnRCb29sQ29uZGl0aW9uTWVzc2FnZRIuCgRiYXNlGAEgASgL",
-            "MiAuR2FtZU1haW4uQnRCYXNlQ29uZGl0aW9uTWVzc2FnZRIRCglib29sVmFs",
-            "dWUYAiABKAgiPAoZQnRDaGFyYWN0ZXJTZXJ2aWNlTWVzc2FnZRINCgVjaGls",
-            "ZBgBIAEoBRIQCghpbnRlcnZhbBgCIAEoAiI3ChZCdENoYXJhY3RlclNlZWtN",
-            "ZXNzYWdlEg4KBnJhZGl1cxgBIAEoAhINCgVhbmdsZRgCIAEoBUITqgIQR2Ft",
-            "ZU1haW4uUnVudGltZWIGcHJvdG8z"));
+            "IhgKFkJ0Q2hhcmFjdGVyTnVsbE1lc3NhZ2UiOQokQnRDaGFyYWN0ZXJQbGF5",
+            "QW5pbWF0aW9uU3RhdGVNZXNzYWdlEhEKCXN0YXRlTmFtZRgBIAEoCSJEChhC",
+            "dENoYXJhY3RlckZvbGxvd01lc3NhZ2USEwoLbWluRGlzdGFuY2UYASABKAUS",
+            "EwoLbWF4RGlzdGFuY2UYAiABKAUiMgoUQnRQcm9wZXJ0eUludE1lc3NhZ2US",
+            "CwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgFIjcKF0J0UHJvcGVydHlTdHJp",
+            "bmdNZXNzYWdlEgsKA2tleRgBIAEoCRIPCgdjb250ZW50GAIgASgJIjQKFkJ0",
+            "UHJvcGVydHlGbG9hdE1lc3NhZ2USCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIg",
+            "ASgCIjMKFUJ0UHJvcGVydHlCb29sTWVzc2FnZRILCgNrZXkYASABKAkSDQoF",
+            "dmFsdWUYAiABKAgiVQoWQnRCYXNlQ29uZGl0aW9uTWVzc2FnZRINCgVjaGls",
+            "ZBgBIAEoBRIQCghvcGVyYXRvchgCIAEoBRINCgVzdG9wcxgDIAEoBRILCgNr",
+            "ZXkYBCABKAkiXQoXQnRGbG9hdENvbmRpdGlvbk1lc3NhZ2USLgoEYmFzZRgB",
+            "IAEoCzIgLkdhbWVNYWluLkJ0QmFzZUNvbmRpdGlvbk1lc3NhZ2USEgoKZmxv",
+            "YXRWYWx1ZRgCIAEoAiJbChZCdEJvb2xDb25kaXRpb25NZXNzYWdlEi4KBGJh",
+            "c2UYASABKAsyIC5HYW1lTWFpbi5CdEJhc2VDb25kaXRpb25NZXNzYWdlEhEK",
+            "CWJvb2xWYWx1ZRgCIAEoCCI8ChlCdENoYXJhY3RlclNlcnZpY2VNZXNzYWdl",
+            "Eg0KBWNoaWxkGAEgASgFEhAKCGludGVydmFsGAIgASgCIjcKFkJ0Q2hhcmFj",
+            "dGVyU2Vla01lc3NhZ2USDgoGcmFkaXVzGAEgASgCEg0KBWFuZ2xlGAIgASgF",
+            "QhOqAhBHYW1lTWFpbi5SdW50aW1lYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -73,13 +74,13 @@ namespace GameMain.Runtime {
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.GfBtPropertyMessage), global::GameMain.Runtime.GfBtPropertyMessage.Parser, new[]{ "Type" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtWaitMessage), global::GameMain.Runtime.BtWaitMessage.Parser, new[]{ "Duration", "RandomVariance" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtDebugMessage), global::GameMain.Runtime.BtDebugMessage.Parser, new[]{ "Message" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtCharacterIdleMessage), global::GameMain.Runtime.BtCharacterIdleMessage.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtCharacterMoveMessage), global::GameMain.Runtime.BtCharacterMoveMessage.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtCharacterPatrolMessage), global::GameMain.Runtime.BtCharacterPatrolMessage.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtCharacterNullMessage), global::GameMain.Runtime.BtCharacterNullMessage.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtCharacterPlayAnimationStateMessage), global::GameMain.Runtime.BtCharacterPlayAnimationStateMessage.Parser, new[]{ "StateName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtCharacterFollowMessage), global::GameMain.Runtime.BtCharacterFollowMessage.Parser, new[]{ "MinDistance", "MaxDistance" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtPropertyIntMessage), global::GameMain.Runtime.BtPropertyIntMessage.Parser, new[]{ "Key", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtPropertyStringMessage), global::GameMain.Runtime.BtPropertyStringMessage.Parser, new[]{ "Key", "Content" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtPropertyFloatMessage), global::GameMain.Runtime.BtPropertyFloatMessage.Parser, new[]{ "Key", "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtPropertyBoolMessage), global::GameMain.Runtime.BtPropertyBoolMessage.Parser, new[]{ "Key", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtBaseConditionMessage), global::GameMain.Runtime.BtBaseConditionMessage.Parser, new[]{ "Child", "Operator", "Stops", "Key" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtFloatConditionMessage), global::GameMain.Runtime.BtFloatConditionMessage.Parser, new[]{ "Base", "FloatValue" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameMain.Runtime.BtBoolConditionMessage), global::GameMain.Runtime.BtBoolConditionMessage.Parser, new[]{ "Base", "BoolValue" }, null, null, null, null),
@@ -1766,11 +1767,11 @@ namespace GameMain.Runtime {
 
   }
 
-  public sealed partial class BtCharacterIdleMessage : pb::IMessage<BtCharacterIdleMessage> {
-    private static readonly pb::MessageParser<BtCharacterIdleMessage> _parser = new pb::MessageParser<BtCharacterIdleMessage>(() => new BtCharacterIdleMessage());
+  public sealed partial class BtCharacterNullMessage : pb::IMessage<BtCharacterNullMessage> {
+    private static readonly pb::MessageParser<BtCharacterNullMessage> _parser = new pb::MessageParser<BtCharacterNullMessage>(() => new BtCharacterNullMessage());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<BtCharacterIdleMessage> Parser { get { return _parser; } }
+    public static pb::MessageParser<BtCharacterNullMessage> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -1783,29 +1784,29 @@ namespace GameMain.Runtime {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BtCharacterIdleMessage() {
+    public BtCharacterNullMessage() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BtCharacterIdleMessage(BtCharacterIdleMessage other) : this() {
+    public BtCharacterNullMessage(BtCharacterNullMessage other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BtCharacterIdleMessage Clone() {
-      return new BtCharacterIdleMessage(this);
+    public BtCharacterNullMessage Clone() {
+      return new BtCharacterNullMessage(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as BtCharacterIdleMessage);
+      return Equals(other as BtCharacterNullMessage);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(BtCharacterIdleMessage other) {
+    public bool Equals(BtCharacterNullMessage other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1846,209 +1847,7 @@ namespace GameMain.Runtime {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(BtCharacterIdleMessage other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class BtCharacterMoveMessage : pb::IMessage<BtCharacterMoveMessage> {
-    private static readonly pb::MessageParser<BtCharacterMoveMessage> _parser = new pb::MessageParser<BtCharacterMoveMessage>(() => new BtCharacterMoveMessage());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<BtCharacterMoveMessage> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[12]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BtCharacterMoveMessage() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BtCharacterMoveMessage(BtCharacterMoveMessage other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BtCharacterMoveMessage Clone() {
-      return new BtCharacterMoveMessage(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as BtCharacterMoveMessage);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(BtCharacterMoveMessage other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(BtCharacterMoveMessage other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class BtCharacterPatrolMessage : pb::IMessage<BtCharacterPatrolMessage> {
-    private static readonly pb::MessageParser<BtCharacterPatrolMessage> _parser = new pb::MessageParser<BtCharacterPatrolMessage>(() => new BtCharacterPatrolMessage());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<BtCharacterPatrolMessage> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[13]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BtCharacterPatrolMessage() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BtCharacterPatrolMessage(BtCharacterPatrolMessage other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BtCharacterPatrolMessage Clone() {
-      return new BtCharacterPatrolMessage(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as BtCharacterPatrolMessage);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(BtCharacterPatrolMessage other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(BtCharacterPatrolMessage other) {
+    public void MergeFrom(BtCharacterNullMessage other) {
       if (other == null) {
         return;
       }
@@ -2077,7 +1876,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[14]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2206,7 +2005,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[15]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2366,7 +2165,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[16]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2523,7 +2322,7 @@ namespace GameMain.Runtime {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[17]; }
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2664,6 +2463,320 @@ namespace GameMain.Runtime {
           }
           case 18: {
             Content = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class BtPropertyFloatMessage : pb::IMessage<BtPropertyFloatMessage> {
+    private static readonly pb::MessageParser<BtPropertyFloatMessage> _parser = new pb::MessageParser<BtPropertyFloatMessage>(() => new BtPropertyFloatMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BtPropertyFloatMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[16]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BtPropertyFloatMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BtPropertyFloatMessage(BtPropertyFloatMessage other) : this() {
+      key_ = other.key_;
+      value_ = other.value_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BtPropertyFloatMessage Clone() {
+      return new BtPropertyFloatMessage(this);
+    }
+
+    /// <summary>Field number for the "key" field.</summary>
+    public const int KeyFieldNumber = 1;
+    private string key_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Key {
+      get { return key_; }
+      set {
+        key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 2;
+    private float value_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Value {
+      get { return value_; }
+      set {
+        value_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BtPropertyFloatMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BtPropertyFloatMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Key != other.Key) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Value, other.Value)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Key.Length != 0) hash ^= Key.GetHashCode();
+      if (Value != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Value);
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Key.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Key);
+      }
+      if (Value != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(Value);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Key.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
+      }
+      if (Value != 0F) {
+        size += 1 + 4;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BtPropertyFloatMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Key.Length != 0) {
+        Key = other.Key;
+      }
+      if (other.Value != 0F) {
+        Value = other.Value;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Key = input.ReadString();
+            break;
+          }
+          case 21: {
+            Value = input.ReadFloat();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class BtPropertyBoolMessage : pb::IMessage<BtPropertyBoolMessage> {
+    private static readonly pb::MessageParser<BtPropertyBoolMessage> _parser = new pb::MessageParser<BtPropertyBoolMessage>(() => new BtPropertyBoolMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BtPropertyBoolMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GameMain.Runtime.BehaviourTreeProtocolReflection.Descriptor.MessageTypes[17]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BtPropertyBoolMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BtPropertyBoolMessage(BtPropertyBoolMessage other) : this() {
+      key_ = other.key_;
+      value_ = other.value_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BtPropertyBoolMessage Clone() {
+      return new BtPropertyBoolMessage(this);
+    }
+
+    /// <summary>Field number for the "key" field.</summary>
+    public const int KeyFieldNumber = 1;
+    private string key_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Key {
+      get { return key_; }
+      set {
+        key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 2;
+    private bool value_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Value {
+      get { return value_; }
+      set {
+        value_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BtPropertyBoolMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BtPropertyBoolMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Key != other.Key) return false;
+      if (Value != other.Value) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Key.Length != 0) hash ^= Key.GetHashCode();
+      if (Value != false) hash ^= Value.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Key.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Key);
+      }
+      if (Value != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(Value);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Key.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
+      }
+      if (Value != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BtPropertyBoolMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Key.Length != 0) {
+        Key = other.Key;
+      }
+      if (other.Value != false) {
+        Value = other.Value;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Key = input.ReadString();
+            break;
+          }
+          case 16: {
+            Value = input.ReadBool();
             break;
           }
         }

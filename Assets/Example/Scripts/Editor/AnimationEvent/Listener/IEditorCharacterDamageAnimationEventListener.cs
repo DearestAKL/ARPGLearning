@@ -10,6 +10,16 @@ namespace GameMain.Editor
         [InvokeTrigger(InvokeTriggerType.Level)]
         [Skippable(true)]
         void RegisterAttack(EditorAnimationEventParameterAttackId param);
+        
+        [Unique(GfListenerMethodId.RegisterAttackWarning)]
+        [InvokeTrigger(InvokeTriggerType.Level)]
+        [Skippable(true)]
+        void RegisterAttackWarning(EditorAnimationEventParameterAttackId param);
+        
+        [Unique(GfListenerMethodId.RegisterCustomWarning)]
+        [InvokeTrigger(InvokeTriggerType.Level)]
+        [Skippable(true)]
+        void RegisterCustomWarning(EditorAnimationEventParameterAttackId param);
 
     }
 }

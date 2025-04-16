@@ -97,7 +97,7 @@ namespace GameMain.Runtime
                     LoopRemainedTime -= deltaTime;
                     if (LoopRemainedTime <= 0)
                     {
-                        Accessor?.Condition.Frame.CanMove.SetBuffer(true, true);
+                        //Accessor?.Condition.Frame.CanMove.SetBuffer(true, true);
                         NextStatus();
                     }
                     else

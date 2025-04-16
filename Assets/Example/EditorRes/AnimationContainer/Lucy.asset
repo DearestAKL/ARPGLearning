@@ -24,7 +24,7 @@ MonoBehaviour:
     ParameterName: 
     Foldings: 1
   - LayerNo: 0
-    Name: WalkStart
+    Name: WalkStartF
     Clips:
     - {fileID: 7400000, guid: 2bb6a51e898924742b592e6c6c8fe868, type: 2}
     AnimationEvent: {fileID: 4900000, guid: 76d26ebac855c1a4a82bfa0e29bbd177, type: 3}
@@ -34,7 +34,7 @@ MonoBehaviour:
     ParameterName: 
     Foldings: 1
   - LayerNo: 0
-    Name: WalkLoop
+    Name: WalkLoopF
     Clips:
     - {fileID: 7400000, guid: bf0b2935e553b484cb46931485ed5d4e, type: 2}
     AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
@@ -44,7 +44,7 @@ MonoBehaviour:
     ParameterName: 
     Foldings: 1
   - LayerNo: 0
-    Name: WalkEnd
+    Name: WalkEndF
     Clips:
     - {fileID: 7400000, guid: c2bcba33490307b408002db562a832f5, type: 2}
     AnimationEvent: {fileID: 4900000, guid: fb8c60db79a5cb548a7ee0093bc38fee, type: 3}
@@ -54,7 +54,7 @@ MonoBehaviour:
     ParameterName: 
     Foldings: 1
   - LayerNo: 0
-    Name: RunStart
+    Name: RunStartF
     Clips:
     - {fileID: 7400000, guid: bf049b3ad2cc6b94f8365e917d6c6a15, type: 2}
     AnimationEvent: {fileID: 4900000, guid: ebf1b9a7c35da174b8e12e2d4e103a46, type: 3}
@@ -64,7 +64,7 @@ MonoBehaviour:
     ParameterName: 
     Foldings: 1
   - LayerNo: 0
-    Name: RunLoop
+    Name: RunLoopF
     Clips:
     - {fileID: 7400000, guid: 58ff0fb10d3ce9943859f311d98380dc, type: 2}
     AnimationEvent: {fileID: 4900000, guid: d22cb9e9af4461d4b8e3a6d7afa37266, type: 3}
@@ -74,7 +74,7 @@ MonoBehaviour:
     ParameterName: 
     Foldings: 1
   - LayerNo: 0
-    Name: RunEnd
+    Name: RunEndF
     Clips:
     - {fileID: 7400000, guid: ded6b850e526a3848b513f00e0b62d76, type: 2}
     AnimationEvent: {fileID: 4900000, guid: a48256b21c516dd4cbfd406253736174, type: 3}
@@ -273,6 +273,86 @@ MonoBehaviour:
     IsSyncBlend: 0
     ParameterName: 
     Foldings: 1
+  - LayerNo: 0
+    Name: Jump
+    Clips:
+    - {fileID: 7400000, guid: ebc202f6dc6bfee48967053ab1e3c36a, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 17dbf305defcbf14aa7b1e987dcab3b7, type: 3}
+    RootMotion: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: Fall
+    Clips:
+    - {fileID: 7400000, guid: 5c93701aee0944d48af86a98695707ee, type: 2}
+    AnimationEvent: {fileID: 0}
+    RootMotion: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: Land
+    Clips:
+    - {fileID: 7400000, guid: ca22919a4483d0a46acd46bea96d7cc8, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: e1c6904346cc0364d9aacd75323e4fba, type: 3}
+    RootMotion: {fileID: 0}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: DashBack
+    Clips:
+    - {fileID: 7400000, guid: 79a0226cb8853b94083f0128dde44127, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 7d72b1dd164658343bef7ec9a30bb5e6, type: 3}
+    RootMotion: {fileID: 4900000, guid: 472d3c66819eaa1439e893f250957720, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: TurnL90
+    Clips:
+    - {fileID: 7400000, guid: 7465237e3a8fbfd4a938ba81bf64f267, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: b5b1c4979dec55b4c8fea988cbddd608, type: 3}
+    RootMotion: {fileID: 4900000, guid: 29cbfb4fc53846045b83901ffd1da635, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: TurnL180
+    Clips:
+    - {fileID: 7400000, guid: f5b9d7259ba15db45861beb864b05698, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 30f1f358529708f43ab3acee2e76860c, type: 3}
+    RootMotion: {fileID: 4900000, guid: 4e40aa35ea6ab844ab175b409da09185, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: TurnR90
+    Clips:
+    - {fileID: 7400000, guid: e66146ac34779304bbdbbc130f6cb0d8, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: b85730e6e5eb2df49be268dd890ee736, type: 3}
+    RootMotion: {fileID: 4900000, guid: c3ee4825d82ae924cac42ce54f19c2d6, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: TurnR180
+    Clips:
+    - {fileID: 7400000, guid: 529d94edcf62d2c4fa7a4ae4f7f1b5e5, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: a5212ac33b1b2e9449152e98d3514af1, type: 3}
+    RootMotion: {fileID: 4900000, guid: 17dc27581deb9df4cb9cf30b073e9d29, type: 3}
+    IsRepeat: 0
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
   LayerInfos:
   - LayerNo: 0
     LayerWeight: 1
@@ -291,5 +371,17 @@ MonoBehaviour:
     FadeTime: 0
   - NameA: WalkStart
     NameB: WalkLoop
+    FadeType: 0
+    FadeTime: 0
+  - NameA: Jump
+    NameB: Land
+    FadeType: 0
+    FadeTime: 0
+  - NameA: Jump
+    NameB: Fall
+    FadeType: 0
+    FadeTime: 0
+  - NameA: Fall
+    NameB: Land
     FadeType: 0
     FadeTime: 0

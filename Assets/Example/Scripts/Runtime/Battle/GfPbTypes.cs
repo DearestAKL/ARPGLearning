@@ -21,9 +21,13 @@ namespace GameMain.Runtime
         
         public const int BtPropertyInt = GfPbTypeId.BehaviourTree + 1;
         public const int BtPropertyString = GfPbTypeId.BehaviourTree + 2;
+        public const int BtPropertyFloat = GfPbTypeId.BehaviourTree + 3;
+        public const int BtPropertyBool = GfPbTypeId.BehaviourTree + 4;
         
         public const int BtNodeSetPropertyInt        = BtPropertyInt + GfPbTypeId.SetProperty;
         public const int BtNodeSetPropertyString     = BtPropertyString + GfPbTypeId.SetProperty;
+        public const int BtNodeSetPropertyFloat     = BtPropertyFloat + GfPbTypeId.SetProperty;
+        public const int BtNodeSetPropertyBool     = BtPropertyBool + GfPbTypeId.SetProperty;
 
         public const int BtNodeStart           = GfPbTypeId.BehaviourTree + 200;
         public const int BtNodeSelector        = GfPbTypeId.BehaviourTree + 201;
@@ -33,12 +37,11 @@ namespace GameMain.Runtime
         public const int BtNodeWaitAction = GfPbTypeId.BehaviourTree + 301;
         public const int BtNodeDebugAction = GfPbTypeId.BehaviourTree + 302;
         
-        public const int BtNodeCharacterIdleAction = GfPbTypeId.BehaviourTree + 303;
-        public const int BtNodeCharacterMoveAction = GfPbTypeId.BehaviourTree + 304;
         public const int BtNodeCharacterPlayAnimationStateAction = GfPbTypeId.BehaviourTree + 305;
-        public const int BtNodeCharacterSeekAction = GfPbTypeId.BehaviourTree + 306;
         public const int BtNodeCharacterPatrolAction = GfPbTypeId.BehaviourTree + 307;
         public const int BtNodeCharacterFollowAction = GfPbTypeId.BehaviourTree + 308;
+        public const int BtNodeCharacterChaseAction = GfPbTypeId.BehaviourTree + 309;
+        public const int BtNodeCharacterConfrontAction = GfPbTypeId.BehaviourTree + 310;
         
         public const int BtNodeCharacterService = GfPbTypeId.BehaviourTree + 402;
         public const int BtNodeBoolCondition = GfPbTypeId.BehaviourTree + 403;

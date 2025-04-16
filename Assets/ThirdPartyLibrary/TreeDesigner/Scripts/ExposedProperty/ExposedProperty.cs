@@ -72,6 +72,16 @@ namespace TreeDesigner
     public class BoolExposedProperty : BaseExposedProperty<bool>
     {
         public BoolExposedProperty() { }
+        
+        public override int GetPbTypeId() => GameMain.Runtime.RyPbTypes.BtPropertyBool;
+        public override Google.Protobuf.IMessage Serialize()
+        {
+            return new GameMain.Runtime.BtPropertyBoolMessage
+            {
+                Key = Name,
+                Value = Value
+            };
+        }
     }
 
     [Serializable]
@@ -95,6 +105,16 @@ namespace TreeDesigner
     public class FloatExposedProperty : BaseExposedProperty<float>
     {
         public FloatExposedProperty() { }
+        
+        public override int GetPbTypeId() => GameMain.Runtime.RyPbTypes.BtPropertyFloat;
+        public override Google.Protobuf.IMessage Serialize()
+        {
+            return new GameMain.Runtime.BtPropertyFloatMessage
+            {
+                Key = Name,
+                Value = Value
+            };
+        }
     }
 
     [Serializable]

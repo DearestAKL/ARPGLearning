@@ -38,13 +38,13 @@ namespace GameMain.Runtime
 
             //todo:if hitstop 没有开启则返回
             
-            var attackerHitStopSpan = JudgeHitStopSpan(3);
+            var attackerHitStopSpan = JudgeHitStopSpan(infoData.AttackerHitStopLevel);
             if (attackerHitStopSpan > 0.01f)
             {
                 damageResult.AttackerHitStopSpan = attackerHitStopSpan;
             }
             
-            var defenderHitStopSpan = JudgeHitStopSpan(3);
+            var defenderHitStopSpan = JudgeHitStopSpan(infoData.DefenderHitStopLevel);
             if (defenderHitStopSpan > 0.01f)
             {
                 damageResult.DefenderHitStopSpan = defenderHitStopSpan;
@@ -70,6 +70,7 @@ namespace GameMain.Runtime
                     break;
             }
 
+            //return hitStopSpan * 10;
             return hitStopSpan;
         }
     }

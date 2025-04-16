@@ -16,10 +16,10 @@ TagManager:
   - Ground
   - Interactive
   - Player
-  - Enemy
   - Wall
   - Shell
-  - Summoner
+  - Edge
+  - 
   - 
   - 
   - 

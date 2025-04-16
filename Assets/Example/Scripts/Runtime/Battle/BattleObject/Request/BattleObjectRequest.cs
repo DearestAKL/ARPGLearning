@@ -27,7 +27,42 @@ namespace GameMain.Runtime
             AttackId = attackId;
         }
     }
-    
+
+    public readonly struct BattleRegisterColliderWarningRequest : IGfRequest
+    {
+        public          GfRunTimeTypeId RttId => GfRunTimeTypeOf<BattleRegisterColliderWarningRequest>.Id;
+        public readonly bool IsOn;
+        public readonly AttackId AttackId;
+
+        public readonly bool IsCustom;
+        public readonly GfFloat2 Offset;
+        public readonly GfFloat2 Extents;
+
+        public BattleRegisterColliderWarningRequest(
+            bool isOn,
+            in AttackId attackId)
+        {
+            IsOn     = isOn;
+            AttackId = attackId;
+
+            IsCustom = false;
+            Offset = default;
+            Extents = default;
+        }
+        
+        public BattleRegisterColliderWarningRequest(
+            bool isOn,
+            in AttackId attackId,in GfFloat2 offset,in GfFloat2 extents)
+        {
+            IsOn     = isOn;
+            AttackId = attackId;
+
+            IsCustom = true;
+            Offset = offset;
+            Extents = extents;
+        }
+    }
+
     public readonly struct BattleCurHpChangeRequest : IGfRequest
     {
         public          GfRunTimeTypeId RttId => GfRunTimeTypeOf<BattleCurHpChangeRequest>.Id;
@@ -113,4 +148,16 @@ namespace GameMain.Runtime
     {
         public GfRunTimeTypeId RttId => GfRunTimeTypeOf<CurHpMakeZeroRequest>.Id;
     }
+    
+    public readonly struct SetJumpToEnableRequest : IGfRequest
+    {
+        public GfRunTimeTypeId RttId => GfRunTimeTypeOf<SetJumpToEnableRequest>.Id;
+        public readonly bool IsEnable;
+
+        public SetJumpToEnableRequest(bool isEnable)
+        {
+            IsEnable     = isEnable;
+        }
+    }
+
 }

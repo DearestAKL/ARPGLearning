@@ -43,10 +43,11 @@ namespace GameMain.Runtime
         public BufferHandlerSingle<bool> CanMove { get; } = new BufferHandlerSingle<bool>();
         public BufferHandlerSingle<bool> CanAttack { get; } = new BufferHandlerSingle<bool>();
         public BufferHandlerSingle<bool> CanDash { get; } = new BufferHandlerSingle<bool>();
-        
+
         public BufferHandlerSingle<bool> IsDamageImmunity { get; } = new BufferHandlerSingle<bool>();//无敌
         public BufferHandlerSingle<bool> IsSuperArmor { get; } = new BufferHandlerSingle<bool>();//霸体
         public BufferHandlerSingle<bool> IsDodge { get; } = new BufferHandlerSingle<bool>();//躲闪
+        public BufferHandlerSingle<bool> IsJump { get; } = new BufferHandlerSingle<bool>();//跳跃中
 
         public void OnUpdate() 
         {
@@ -56,6 +57,7 @@ namespace GameMain.Runtime
             IsDamageImmunity.OnUpdate();
             IsSuperArmor.OnUpdate();
             IsDodge.OnUpdate();
+            IsJump.OnUpdate();
         }
     }
 }

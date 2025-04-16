@@ -32,6 +32,7 @@ namespace GameMain.Runtime
             Entity.On<BattlePlayDamageEffectAndUIRequest>(OnBattlePlayDamageEffectAndUIRequest);
             Entity.On<GfActiveChangedRequest>(OnGfActiveChangedRequest);
             Entity.On<ChangeAnimationRequest>(OnChangeAnimationRequest);
+            Entity.On<SetJumpToEnableRequest>(OnSetJumpToEnableRequest);
         }
 
         public override async void OnStart()
@@ -156,8 +157,32 @@ namespace GameMain.Runtime
 
         private void OnGfActiveChangedRequest(in GfActiveChangedRequest request)
         {
+            if (!_statusPiece.IsUserPlayer && request.Enable)
+            {
+                //非主角重新激活不会显示状态ui
+                return;
+            }
             _statusPiece.SetVisibility(request.Enable);
         }
+
+        private void OnSetJumpToEnableRequest(in SetJumpToEnableRequest request)
+        {
+            //jump to时隐藏血条ui 将边缘碰撞器忽略
+            _statusPiece.SetVisibility(!request.IsEnable);
+
+            if (_unityView != null && _unityView.CharacterController != null)
+            {
+                if (request.IsEnable)
+                {
+                    _unityView.CharacterController.RemoveCollidableLayer(Constant.Layer.Edge);
+                }
+                else
+                {
+                    _unityView.CharacterController.AddCollidableLayer(Constant.Layer.Edge);
+                }
+            }
+        }
+
         private void OnChangeAnimationRequest(in ChangeAnimationRequest request)
         {
             if (_subsidiaryList == null || _subsidiaryList.Count <= 0)

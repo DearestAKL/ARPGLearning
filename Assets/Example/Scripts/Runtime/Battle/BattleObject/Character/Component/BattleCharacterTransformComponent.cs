@@ -1,6 +1,5 @@
 ﻿using Akari.GfCore;
 using Akari.GfGame;
-using Akari.GfUnity;
 
 namespace GameMain.Runtime
 {
@@ -10,15 +9,14 @@ namespace GameMain.Runtime
 
         private BattleCharacterViewComponent View => Entity.GetComponent(ref _viewCache);
         
-        private float _curYSpeed;
-
+        private float _verticalVelocity;
         private GfFloat3 _worldPositionCache;
 
         public bool IsGrounded
         {
             get
             {
-                return Entity.Transform.Position.Y <= 0.0001f;
+                return View.UnityView.CharacterController.IsStableOnGround;
             }
         }
         
@@ -37,6 +35,11 @@ namespace GameMain.Runtime
         {
             base.OnBeginUpdate(deltaTime);
         }
+        
+        public override void OnUpdate(float deltaTime)
+        {
+            base.OnUpdate(deltaTime);
+        }
 
         public override void OnEndUpdate(float deltaTime)
         {
@@ -53,6 +56,10 @@ namespace GameMain.Runtime
             Entity.Transform.Position = position;
             Entity.Transform.Rotation = rotation;
             Entity.Request(new SetPositionAndRotationRequest(position, rotation));
+            
+            //动画也需要切换为idle
+            // var actionData = BattleCharacterIdleActionData.Create();
+            // Entity.Request(new GfChangeActionRequest<BattleObjectActionComponent>(actionData.ActionType, actionData, actionData.Priority));
         }
 
         public void RecordWorldPosition()

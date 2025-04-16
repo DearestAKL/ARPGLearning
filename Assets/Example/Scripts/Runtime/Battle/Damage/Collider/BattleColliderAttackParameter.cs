@@ -17,6 +17,7 @@ namespace GameMain.Runtime
         public IBattleObjectDamageCauserHandler DamageCauserHandler { get; }
 
         public SingleAttackModel SingleAttackModel { get; }
+        
 
         public BattleColliderAttackParameter(
             GfHandle thisHandle,

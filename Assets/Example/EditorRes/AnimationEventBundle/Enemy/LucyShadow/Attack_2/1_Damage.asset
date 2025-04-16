@@ -22,7 +22,7 @@ MonoBehaviour:
     ListenerTypeName: IEditorCharacterDamageAnimationEventListener
     MethodName: RegisterAttack
     ParamList: []
-    KeyFrames: 090000000a0000000b000000
+    KeyFrames: 270000002800000029000000
     IsBroken: 0
   ParameterHeaderList:
   - trackID: 10001

@@ -4,6 +4,8 @@ namespace GameMain.Editor
     {
         public const int RegisterTestLogDisplay = 100001;
         public const int RegisterAttack = 100002;
+        public const int RegisterAttackWarning = 100003;
+        public const int RegisterCustomWarning = 100004;
         
         public const int RegisterCanMove = 100201;
         public const int RegisterCanAttack = 100202;
@@ -11,6 +13,7 @@ namespace GameMain.Editor
         public const int RegisterIsDamageImmunity = 100204;
         public const int RegisterIsSuperArmor = 100205;
         public const int RegisterIsDodge = 100206;
+        public const int RegisterIsJump = 100207;
 
         public const int RegisterTriggerPassiveSkillEvent = 100301;
 

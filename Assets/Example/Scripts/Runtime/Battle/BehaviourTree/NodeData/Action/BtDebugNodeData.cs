@@ -17,10 +17,6 @@ namespace GameMain.Runtime
 
         public override Node CreateNode()
         {
-            if (!string.IsNullOrEmpty(PropertyKey))
-            {
-                return DebugLog.CreatDebugLogByPropertyKey(PropertyKey);
-            }
             return DebugLog.CreatDebugLogByMessage(Message);
         }
     }

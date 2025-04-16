@@ -13,346 +13,308 @@ MonoBehaviour:
   m_Name: LucyShadow
   m_EditorClassIdentifier: 
   m_Nodes:
-  - rid: 3582606103650238465
-  - rid: 3582606103650238466
-  - rid: 3582606103650238467
-  - rid: 3582606103650238468
-  - rid: 3582606103650238469
-  - rid: 3582606103650238471
-  - rid: 3582606103650238472
-  - rid: 3582606103650238473
-  - rid: 3582606103650238474
-  - rid: 3582606103650238475
-  - rid: 3582606103650238476
-  - rid: 3582606103650238478
-  - rid: 3582606103650238479
-  - rid: 3582606103650238480
-  - rid: 3582606103650238481
-  - rid: 919764686235500544
-  - rid: 1482356537062850621
-  - rid: 1482356537062850622
+  - rid: 1482356608526450749
+  - rid: 1482356608526450750
+  - rid: 1482356608526450751
+  - rid: 7708305743156084929
+  - rid: 7708305743156084930
+  - rid: 7708305743156084931
+  - rid: 7708305743156084932
+  - rid: 7708305743156084933
+  - rid: 7708305743156084934
+  - rid: 7708305743156084935
+  - rid: 7708305743156084937
+  - rid: 7708305743156084938
+  - rid: 7708305743156084939
+  - rid: 7708305774722940928
+  - rid: 7708305774722940930
   m_Edges:
-  - m_GUID: 8b3f9109-cc54-45dd-b6c0-ab1210b274d5
-    m_StartNodeGUID: 015132fc-285e-4277-bfaf-1782d68cb4eb
-    m_EndNodeGUID: 61d17911-5e09-4b1c-bc7b-7c8b63a72530
+  - m_GUID: 1984ca4c-f705-48e6-b679-d717ad2dcf53
+    m_StartNodeGUID: f74bcc60-0e56-4019-be18-b01e7bfaf831
+    m_EndNodeGUID: f591893c-19de-4fde-8fcc-105a78d43b95
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: b904d0fd-3685-42a4-8dfd-c70d898ddac9
-    m_StartNodeGUID: 61d17911-5e09-4b1c-bc7b-7c8b63a72530
-    m_EndNodeGUID: 3dbd21d5-dcf7-461a-becb-e996fc3b5839
+  - m_GUID: 76f638c9-86df-40d1-8303-01a34aed739c
+    m_StartNodeGUID: 66e02248-77b0-4cae-8aa3-7894cd6e2fdd
+    m_EndNodeGUID: f74bcc60-0e56-4019-be18-b01e7bfaf831
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: c6e17cc0-bdba-44b1-b684-1a7813a6c35f
-    m_StartNodeGUID: 3dbd21d5-dcf7-461a-becb-e996fc3b5839
-    m_EndNodeGUID: 96d594fc-a33a-43c5-83bb-a797cb2f7160
+  - m_GUID: b14d48bb-ac0a-4dc8-9693-3bfe511fb89d
+    m_StartNodeGUID: f591893c-19de-4fde-8fcc-105a78d43b95
+    m_EndNodeGUID: 2cc2809f-f89a-42c4-b905-9c8fd82d16b2
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: 632e8c02-a78f-4293-a818-d483d8403f0d
-    m_StartNodeGUID: 3dbd21d5-dcf7-461a-becb-e996fc3b5839
-    m_EndNodeGUID: bd658347-d7d1-4398-93b7-475de981912c
+  - m_GUID: 97da5786-7fac-4766-bc84-f8c4bba513bf
+    m_StartNodeGUID: f591893c-19de-4fde-8fcc-105a78d43b95
+    m_EndNodeGUID: ae429802-7883-48ab-b91f-ea871f3cdd23
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: ecbe2a2f-9868-4b79-b9ad-d55adece7f28
-    m_StartNodeGUID: 66ed4e96-5089-478d-8171-5dde799c97f2
-    m_EndNodeGUID: a5fa3950-9656-435b-907e-62afb779561b
+  - m_GUID: 49ce5dce-67da-44fe-9c17-f66aa648eb29
+    m_StartNodeGUID: f591893c-19de-4fde-8fcc-105a78d43b95
+    m_EndNodeGUID: 9e55dff1-1597-40a4-9e18-162698339a8d
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: 6e610d7d-3e58-4ee3-a36b-493463947920
-    m_StartNodeGUID: 66ed4e96-5089-478d-8171-5dde799c97f2
-    m_EndNodeGUID: 34a463bf-8c62-4931-b762-9bd841a3847a
+  - m_GUID: e1cf259a-9e94-4272-a2ed-76f3b55550c9
+    m_StartNodeGUID: ae429802-7883-48ab-b91f-ea871f3cdd23
+    m_EndNodeGUID: ef576054-cd89-4c02-9eef-bc81246e342f
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: 49293f5b-91c3-4852-b971-50a96b4b99c8
-    m_StartNodeGUID: a5fa3950-9656-435b-907e-62afb779561b
-    m_EndNodeGUID: c53daeea-2596-41c0-9143-5ede1e917a61
+  - m_GUID: 7197d85b-16c5-4062-8f89-797c794c8322
+    m_StartNodeGUID: 3871568f-efd2-4e80-a90a-5d3ee2f0281d
+    m_EndNodeGUID: 5444c727-5074-46ca-b304-93636ff7f0db
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: 84814f3c-55c1-4593-ac4b-6769d81eeb48
-    m_StartNodeGUID: c53daeea-2596-41c0-9143-5ede1e917a61
-    m_EndNodeGUID: bf71d951-fde9-45d6-9ce2-c530fe416042
+  - m_GUID: c86c077b-8ae8-4655-bb94-04ca65c9d5a7
+    m_StartNodeGUID: 3871568f-efd2-4e80-a90a-5d3ee2f0281d
+    m_EndNodeGUID: f402a823-468d-4af3-ad5f-dbc5b4da578c
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: b4cd8d38-ab44-4be4-abf0-044fb317a84a
-    m_StartNodeGUID: c53daeea-2596-41c0-9143-5ede1e917a61
-    m_EndNodeGUID: b3732a16-4646-45c5-9ade-3b8f9373e58a
+  - m_GUID: 8593d10e-7f18-47c6-a237-e4cc0a81574c
+    m_StartNodeGUID: 82f4992f-9e59-46cf-9390-09aa7f3bf4a3
+    m_EndNodeGUID: 3871568f-efd2-4e80-a90a-5d3ee2f0281d
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: bdeb5fc8-93e7-4298-bed5-7c533c724706
-    m_StartNodeGUID: c53daeea-2596-41c0-9143-5ede1e917a61
-    m_EndNodeGUID: 6b6554c7-a088-45fe-bc7f-63d383fb97bb
+  - m_GUID: e02c088b-b294-4ec3-a1da-b3f897f480c9
+    m_StartNodeGUID: 2cc2809f-f89a-42c4-b905-9c8fd82d16b2
+    m_EndNodeGUID: 8b909601-70ce-4787-9118-085868b1905d
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: c6bc9c47-d402-4503-af2d-5c6db7ddf56f
-    m_StartNodeGUID: 34a463bf-8c62-4931-b762-9bd841a3847a
-    m_EndNodeGUID: 7e424561-2974-4eef-904b-94a19ea9cf63
+  - m_GUID: 10a60052-4804-4419-a27a-aeaca393905b
+    m_StartNodeGUID: 8b909601-70ce-4787-9118-085868b1905d
+    m_EndNodeGUID: 82f4992f-9e59-46cf-9390-09aa7f3bf4a3
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: 358f1083-6f23-4632-a0b6-836868a94d6e
-    m_StartNodeGUID: 96d594fc-a33a-43c5-83bb-a797cb2f7160
-    m_EndNodeGUID: 66ed4e96-5089-478d-8171-5dde799c97f2
+  - m_GUID: 44264f4c-dd51-4710-8911-ca1673a45b3c
+    m_StartNodeGUID: 2aba5b16-4a88-4aab-b034-13c867ae8059
+    m_EndNodeGUID: 5a5f67ef-8d1b-4937-af49-aa3c5eb9b178
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: f0c81c45-7c41-4ca4-8034-6a9a1acb23fc
-    m_StartNodeGUID: bd658347-d7d1-4398-93b7-475de981912c
-    m_EndNodeGUID: 17d475bd-7eab-4dd8-99e7-dd880839b60a
+  - m_GUID: 77b8a841-e38b-4c2f-8a20-a078cc2fac90
+    m_StartNodeGUID: 2aba5b16-4a88-4aab-b034-13c867ae8059
+    m_EndNodeGUID: 8b8cd39d-e1d9-452b-9f03-2ae98c24207c
     m_StartPortName: Output
     m_EndPortName: Input
-  - m_GUID: d786ea32-2f4b-4ae2-b49d-ed177b5c89b4
-    m_StartNodeGUID: b3732a16-4646-45c5-9ade-3b8f9373e58a
-    m_EndNodeGUID: ca0bc65f-fdf1-438c-81a4-c9838415be7c
-    m_StartPortName: Output
-    m_EndPortName: Input
-  - m_GUID: dd8db55a-4c9e-4630-b97b-c6739a885f00
-    m_StartNodeGUID: b3732a16-4646-45c5-9ade-3b8f9373e58a
-    m_EndNodeGUID: 271b494f-2812-4cd9-952f-62af52f391c4
-    m_StartPortName: Output
-    m_EndPortName: Input
-  - m_GUID: 1f58f264-9dec-49e6-8a05-aa65a1789342
-    m_StartNodeGUID: 271b494f-2812-4cd9-952f-62af52f391c4
-    m_EndNodeGUID: 4d28ccfe-4ef4-490a-b5cb-52962a7a56ae
-    m_StartPortName: Output
-    m_EndPortName: Input
-  - m_GUID: 328eab74-06ba-45a5-ab63-a3076f2e3104
-    m_StartNodeGUID: 271b494f-2812-4cd9-952f-62af52f391c4
-    m_EndNodeGUID: 563167f6-160c-41fa-9013-bf84ecca825b
+  - m_GUID: 23a570e8-b028-42dc-ac8a-1487c7ebe266
+    m_StartNodeGUID: 8b909601-70ce-4787-9118-085868b1905d
+    m_EndNodeGUID: 2aba5b16-4a88-4aab-b034-13c867ae8059
     m_StartPortName: Output
     m_EndPortName: Input
   m_PropertyEdges: []
-  m_ExposedProperties: []
-  m_RootGUID: 015132fc-285e-4277-bfaf-1782d68cb4eb
+  m_ExposedProperties:
+  - rid: 7708305743156084928
+  m_RootGUID: 66e02248-77b0-4cae-8aa3-7894cd6e2fdd
   m_Description: 
-  m_NodeGroups:
-  - m_Title: Attack
-    m_Position: {x: 2446.0005, y: -682.25006}
-    m_NodeGUIDs:
-    - 4d28ccfe-4ef4-490a-b5cb-52962a7a56ae
-    - 563167f6-160c-41fa-9013-bf84ecca825b
-    m_StackGUIDs: []
+  m_NodeGroups: []
   m_StackNodes:
-  - m_GUID: bdcaf9ba-ffc7-4818-bf8f-9f8cb95649ca
-    m_Position: {x: 770, y: -39}
+  - m_GUID: 15d10a82-9b26-40af-a5ac-a95c51c18d0a
+    m_Position: {x: 920, y: -94}
     m_NodeGUIDs:
-    - 96d594fc-a33a-43c5-83bb-a797cb2f7160
-    - bd658347-d7d1-4398-93b7-475de981912c
-  - m_GUID: 8b0b286d-1c05-4ac1-9bfb-cdcbc8c59e0e
-    m_Position: {x: 1326, y: -334}
+    - 2cc2809f-f89a-42c4-b905-9c8fd82d16b2
+    - ae429802-7883-48ab-b91f-ea871f3cdd23
+    - 9e55dff1-1597-40a4-9e18-162698339a8d
+  - m_GUID: 2daed605-623a-4078-893c-9f52fcd1ca10
+    m_Position: {x: 1690, y: -30}
     m_NodeGUIDs:
-    - a5fa3950-9656-435b-907e-62afb779561b
-    - 34a463bf-8c62-4931-b762-9bd841a3847a
-  - m_GUID: 6a846555-76c1-4657-8978-1f693b6df14f
-    m_Position: {x: 1901, y: -619}
+    - 5a5f67ef-8d1b-4937-af49-aa3c5eb9b178
+    - 8b8cd39d-e1d9-452b-9f03-2ae98c24207c
+  - m_GUID: 05e0e54b-5392-48b4-ab80-dd1f9c65e5c6
+    m_Position: {x: 1925, y: -295}
     m_NodeGUIDs:
-    - bf71d951-fde9-45d6-9ce2-c530fe416042
-    - b3732a16-4646-45c5-9ade-3b8f9373e58a
-    - 6b6554c7-a088-45fe-bc7f-63d383fb97bb
+    - 5444c727-5074-46ca-b304-93636ff7f0db
+    - f402a823-468d-4af3-ad5f-dbc5b4da578c
   references:
     version: 2
     RefIds:
-    - rid: 919764686235500544
-      type: {class: CharacterSeekNode, ns: TreeDesigner, asm: Assembly-CSharp}
-      data:
-        m_GUID: 17d475bd-7eab-4dd8-99e7-dd880839b60a
-        m_Expanded: 1
-        m_ShowPanel: 1
-        m_Position: {x: 1029, y: 92}
-        m_InputEdgeGUID: f0c81c45-7c41-4ca4-8034-6a9a1acb23fc
-        radius: 15
-        angle: 360
-    - rid: 1482356537062850621
-      type: {class: CharacterPlayAnimationStateNode, ns: TreeDesigner, asm: Assembly-CSharp}
-      data:
-        m_GUID: ca0bc65f-fdf1-438c-81a4-c9838415be7c
-        m_Expanded: 1
-        m_ShowPanel: 1
-        m_Position: {x: 2146.7002, y: -258.5}
-        m_InputEdgeGUID: d786ea32-2f4b-4ae2-b49d-ed177b5c89b4
-        stateName: Attack_3
-    - rid: 1482356537062850622
-      type: {class: SequenceNode, ns: TreeDesigner, asm: Assembly-CSharp}
-      data:
-        m_GUID: 271b494f-2812-4cd9-952f-62af52f391c4
-        m_Expanded: 1
-        m_ShowPanel: 0
-        m_Position: {x: 2212, y: -603}
-        m_InputEdgeGUID: dd8db55a-4c9e-4630-b97b-c6739a885f00
-        m_OutputEdgeGUIDs:
-        - 1f58f264-9dec-49e6-8a05-aa65a1789342
-        - 328eab74-06ba-45a5-ab63-a3076f2e3104
-        m_IsRandom: 0
-    - rid: 3582606103650238465
+    - rid: 1482356608526450749
       type: {class: RootNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
-        m_GUID: 015132fc-285e-4277-bfaf-1782d68cb4eb
+        m_GUID: 66e02248-77b0-4cae-8aa3-7894cd6e2fdd
         m_Expanded: 1
         m_ShowPanel: 0
         m_Position: {x: 0, y: 0}
-        m_OutputEdgeGUID: 8b3f9109-cc54-45dd-b6c0-ab1210b274d5
-    - rid: 3582606103650238466
+        m_OutputEdgeGUID: 76f638c9-86df-40d1-8303-01a34aed739c
+    - rid: 1482356608526450750
       type: {class: CharacterServiceNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
-        m_GUID: 61d17911-5e09-4b1c-bc7b-7c8b63a72530
+        m_GUID: f74bcc60-0e56-4019-be18-b01e7bfaf831
         m_Expanded: 1
         m_ShowPanel: 1
-        m_Position: {x: 175, y: 0}
-        m_InputEdgeGUID: 8b3f9109-cc54-45dd-b6c0-ab1210b274d5
-        m_OutputEdgeGUID: b904d0fd-3685-42a4-8dfd-c70d898ddac9
+        m_Position: {x: 152, y: 0}
+        m_InputEdgeGUID: 76f638c9-86df-40d1-8303-01a34aed739c
+        m_OutputEdgeGUID: 1984ca4c-f705-48e6-b679-d717ad2dcf53
         interval: 0.125
-    - rid: 3582606103650238467
+    - rid: 1482356608526450751
       type: {class: SelectorNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
-        m_GUID: 3dbd21d5-dcf7-461a-becb-e996fc3b5839
+        m_GUID: f591893c-19de-4fde-8fcc-105a78d43b95
         m_Expanded: 1
         m_ShowPanel: 0
-        m_Position: {x: 525, y: 0}
-        m_InputEdgeGUID: b904d0fd-3685-42a4-8dfd-c70d898ddac9
+        m_Position: {x: 502, y: 0}
+        m_InputEdgeGUID: 1984ca4c-f705-48e6-b679-d717ad2dcf53
         m_OutputEdgeGUIDs:
-        - c6e17cc0-bdba-44b1-b684-1a7813a6c35f
-        - 632e8c02-a78f-4293-a818-d483d8403f0d
+        - b14d48bb-ac0a-4dc8-9693-3bfe511fb89d
+        - 97da5786-7fac-4766-bc84-f8c4bba513bf
+        - 49ce5dce-67da-44fe-9c17-f66aa648eb29
         m_IsRandom: 0
-    - rid: 3582606103650238468
+    - rid: 7708305743156084928
+      type: {class: BoolExposedProperty, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: 82be470f-b5a7-46d8-82c7-d8ede02b13b4
+        m_Name: CanAttack
+        m_Index: 0
+        m_Expanded: 1
+        m_Internal: 0
+        m_ShowOutside: 0
+        m_Value: 1
+    - rid: 7708305743156084929
+      type: {class: CharacterPatrolNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: 9e55dff1-1597-40a4-9e18-162698339a8d
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 932, y: 37}
+        m_InputEdgeGUID: 49ce5dce-67da-44fe-9c17-f66aa648eb29
+    - rid: 7708305743156084930
+      type: {class: FloatConditionNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: ae429802-7883-48ab-b91f-ea871f3cdd23
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 932, y: -30}
+        m_InputEdgeGUID: 97da5786-7fac-4766-bc84-f8c4bba513bf
+        m_OutputEdgeGUID: e1cf259a-9e94-4272-a2ed-76f3b55550c9
+        operatorValue: 7
+        stopsValue: 2
+        key: 0
+        floatValue: 10
+    - rid: 7708305743156084931
+      type: {class: FloatConditionNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: 2cc2809f-f89a-42c4-b905-9c8fd82d16b2
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 932, y: -92}
+        m_InputEdgeGUID: b14d48bb-ac0a-4dc8-9693-3bfe511fb89d
+        m_OutputEdgeGUID: e02c088b-b294-4ec3-a1da-b3f897f480c9
+        operatorValue: 7
+        stopsValue: 2
+        key: 0
+        floatValue: 3
+    - rid: 7708305743156084932
+      type: {class: CharacterChaseNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: ef576054-cd89-4c02-9eef-bc81246e342f
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 1194, y: -11}
+        m_InputEdgeGUID: e1cf259a-9e94-4272-a2ed-76f3b55550c9
+    - rid: 7708305743156084933
       type: {class: BoolConditionNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
-        m_GUID: 96d594fc-a33a-43c5-83bb-a797cb2f7160
+        m_GUID: 82f4992f-9e59-46cf-9390-09aa7f3bf4a3
         m_Expanded: 1
         m_ShowPanel: 0
-        m_Position: {x: 782, y: -32}
-        m_InputEdgeGUID: c6e17cc0-bdba-44b1-b684-1a7813a6c35f
-        m_OutputEdgeGUID: 358f1083-6f23-4632-a0b6-836868a94d6e
+        m_Position: {x: 1381, y: -237}
+        m_InputEdgeGUID: 10a60052-4804-4419-a27a-aeaca393905b
+        m_OutputEdgeGUID: 8593d10e-7f18-47c6-a237-e4cc0a81574c
         operatorValue: 2
-        stopsValue: 3
-        key: 1
+        stopsValue: 2
+        key: 2
         boolValue: 1
-    - rid: 3582606103650238469
-      type: {class: BoolConditionNode, ns: TreeDesigner, asm: Assembly-CSharp}
-      data:
-        m_GUID: bd658347-d7d1-4398-93b7-475de981912c
-        m_Expanded: 1
-        m_ShowPanel: 0
-        m_Position: {x: 782, y: 35}
-        m_InputEdgeGUID: 632e8c02-a78f-4293-a818-d483d8403f0d
-        m_OutputEdgeGUID: f0c81c45-7c41-4ca4-8034-6a9a1acb23fc
-        operatorValue: 2
-        stopsValue: 3
-        key: 1
-        boolValue: 0
-    - rid: 3582606103650238471
-      type: {class: SelectorNode, ns: TreeDesigner, asm: Assembly-CSharp}
-      data:
-        m_GUID: 66ed4e96-5089-478d-8171-5dde799c97f2
-        m_Expanded: 1
-        m_ShowPanel: 0
-        m_Position: {x: 1084, y: -274}
-        m_InputEdgeGUID: 358f1083-6f23-4632-a0b6-836868a94d6e
-        m_OutputEdgeGUIDs:
-        - ecbe2a2f-9868-4b79-b9ad-d55adece7f28
-        - 6e610d7d-3e58-4ee3-a36b-493463947920
-        m_IsRandom: 0
-    - rid: 3582606103650238472
-      type: {class: FloatConditionNode, ns: TreeDesigner, asm: Assembly-CSharp}
-      data:
-        m_GUID: 34a463bf-8c62-4931-b762-9bd841a3847a
-        m_Expanded: 1
-        m_ShowPanel: 0
-        m_Position: {x: 1338, y: -260}
-        m_InputEdgeGUID: 6e610d7d-3e58-4ee3-a36b-493463947920
-        m_OutputEdgeGUID: c6bc9c47-d402-4503-af2d-5c6db7ddf56f
-        operatorValue: 5
-        stopsValue: 3
-        key: 0
-        floatValue: 2.5
-    - rid: 3582606103650238473
-      type: {class: FloatConditionNode, ns: TreeDesigner, asm: Assembly-CSharp}
-      data:
-        m_GUID: a5fa3950-9656-435b-907e-62afb779561b
-        m_Expanded: 1
-        m_ShowPanel: 0
-        m_Position: {x: 1338, y: -327}
-        m_InputEdgeGUID: ecbe2a2f-9868-4b79-b9ad-d55adece7f28
-        m_OutputEdgeGUID: 49293f5b-91c3-4852-b971-50a96b4b99c8
-        operatorValue: 6
-        stopsValue: 3
-        key: 0
-        floatValue: 2.5
-    - rid: 3582606103650238474
-      type: {class: SelectorNode, ns: TreeDesigner, asm: Assembly-CSharp}
-      data:
-        m_GUID: b3732a16-4646-45c5-9ade-3b8f9373e58a
-        m_Expanded: 1
-        m_ShowPanel: 1
-        m_Position: {x: 1913, y: -520}
-        m_InputEdgeGUID: b4cd8d38-ab44-4be4-abf0-044fb317a84a
-        m_OutputEdgeGUIDs:
-        - dd8db55a-4c9e-4630-b97b-c6739a885f00
-        - d786ea32-2f4b-4ae2-b49d-ed177b5c89b4
-        m_IsRandom: 1
-    - rid: 3582606103650238475
+    - rid: 7708305743156084934
       type: {class: CharacterPlayAnimationStateNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
-        m_GUID: 4d28ccfe-4ef4-490a-b5cb-52962a7a56ae
+        m_GUID: 5444c727-5074-46ca-b304-93636ff7f0db
         m_Expanded: 1
         m_ShowPanel: 1
-        m_Position: {x: 2471, y: -632}
-        m_InputEdgeGUID: 1f58f264-9dec-49e6-8a05-aa65a1789342
+        m_Position: {x: 1937, y: -288}
+        m_InputEdgeGUID: 7197d85b-16c5-4062-8f89-797c794c8322
         stateName: Attack_1
-    - rid: 3582606103650238476
-      type: {class: CharacterPlayAnimationStateNode, ns: TreeDesigner, asm: Assembly-CSharp}
+    - rid: 7708305743156084935
+      type: {class: ExposedPropertyNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
-        m_GUID: 563167f6-160c-41fa-9013-bf84ecca825b
-        m_Expanded: 1
-        m_ShowPanel: 1
-        m_Position: {x: 2471, y: -546}
-        m_InputEdgeGUID: 328eab74-06ba-45a5-ab63-a3076f2e3104
-        stateName: Attack_2
-    - rid: 3582606103650238478
-      type: {class: WaitNode, ns: TreeDesigner, asm: Assembly-CSharp}
-      data:
-        m_GUID: bf71d951-fde9-45d6-9ce2-c530fe416042
+        m_GUID: f402a823-468d-4af3-ad5f-dbc5b4da578c
         m_Expanded: 1
         m_ShowPanel: 0
-        m_Position: {x: 1913, y: -612}
-        m_InputEdgeGUID: 84814f3c-55c1-4593-ac4b-6769d81eeb48
-        m_Time:
-          m_Name: m_Time
-          m_Direction: 0
-          m_InputEdgeGUID: 
-          m_OutputEdgeGUIDs: []
-          m_Index: 0
-          m_Expanded: 0
-          m_Value: 0.5
-    - rid: 3582606103650238479
-      type: {class: WaitNode, ns: TreeDesigner, asm: Assembly-CSharp}
+        m_Position: {x: 1937, y: -221}
+        m_NodeType: 1
+        m_Value:
+          rid: 7708305743156084936
+        m_InputEdgeGUID: c86c077b-8ae8-4655-bb94-04ca65c9d5a7
+        m_ExposedPropertyGUID: 82be470f-b5a7-46d8-82c7-d8ede02b13b4
+    - rid: 7708305743156084936
+      type: {class: BoolPropertyPort, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
-        m_GUID: 6b6554c7-a088-45fe-bc7f-63d383fb97bb
-        m_Expanded: 1
-        m_ShowPanel: 0
-        m_Position: {x: 1913, y: -453}
-        m_InputEdgeGUID: bdeb5fc8-93e7-4298-bed5-7c533c724706
-        m_Time:
-          m_Name: m_Time
-          m_Direction: 0
-          m_InputEdgeGUID: 
-          m_OutputEdgeGUIDs: []
-          m_Index: 0
-          m_Expanded: 0
-          m_Value: 3
-    - rid: 3582606103650238480
+        m_Name: m_Value
+        m_Direction: 0
+        m_InputEdgeGUID: 
+        m_OutputEdgeGUIDs: []
+        m_Index: -1
+        m_Expanded: 0
+        m_Value: 0
+    - rid: 7708305743156084937
       type: {class: SequenceNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
-        m_GUID: c53daeea-2596-41c0-9143-5ede1e917a61
+        m_GUID: 3871568f-efd2-4e80-a90a-5d3ee2f0281d
         m_Expanded: 1
         m_ShowPanel: 0
-        m_Position: {x: 1607, y: -514}
-        m_InputEdgeGUID: 49293f5b-91c3-4852-b971-50a96b4b99c8
+        m_Position: {x: 1690, y: -237}
+        m_InputEdgeGUID: 8593d10e-7f18-47c6-a237-e4cc0a81574c
         m_OutputEdgeGUIDs:
-        - 84814f3c-55c1-4593-ac4b-6769d81eeb48
-        - b4cd8d38-ab44-4be4-abf0-044fb317a84a
-        - bdeb5fc8-93e7-4298-bed5-7c533c724706
+        - 7197d85b-16c5-4062-8f89-797c794c8322
+        - c86c077b-8ae8-4655-bb94-04ca65c9d5a7
         m_IsRandom: 0
-    - rid: 3582606103650238481
-      type: {class: CharacterMoveNode, ns: TreeDesigner, asm: Assembly-CSharp}
+    - rid: 7708305743156084938
+      type: {class: SelectorNode, ns: TreeDesigner, asm: Assembly-CSharp}
       data:
-        m_GUID: 7e424561-2974-4eef-904b-94a19ea9cf63
+        m_GUID: 8b909601-70ce-4787-9118-085868b1905d
         m_Expanded: 1
         m_ShowPanel: 0
-        m_Position: {x: 1607, y: -173}
-        m_InputEdgeGUID: c6bc9c47-d402-4503-af2d-5c6db7ddf56f
+        m_Position: {x: 1194, y: -155}
+        m_InputEdgeGUID: e02c088b-b294-4ec3-a1da-b3f897f480c9
+        m_OutputEdgeGUIDs:
+        - 10a60052-4804-4419-a27a-aeaca393905b
+        - 23a570e8-b028-42dc-ac8a-1487c7ebe266
+        m_IsRandom: 0
+    - rid: 7708305743156084939
+      type: {class: CharacterConfrontNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: 5a5f67ef-8d1b-4937-af49-aa3c5eb9b178
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 1702, y: -23}
+        m_InputEdgeGUID: 44264f4c-dd51-4710-8911-ca1673a45b3c
+    - rid: 7708305774722940928
+      type: {class: ExposedPropertyNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: 8b8cd39d-e1d9-452b-9f03-2ae98c24207c
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 1702, y: 44}
+        m_NodeType: 1
+        m_Value:
+          rid: 7708305774722940929
+        m_InputEdgeGUID: 77b8a841-e38b-4c2f-8a20-a078cc2fac90
+        m_ExposedPropertyGUID: 82be470f-b5a7-46d8-82c7-d8ede02b13b4
+    - rid: 7708305774722940929
+      type: {class: BoolPropertyPort, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_Name: m_Value
+        m_Direction: 0
+        m_InputEdgeGUID: 
+        m_OutputEdgeGUIDs: []
+        m_Index: -1
+        m_Expanded: 0
+        m_Value: 1
+    - rid: 7708305774722940930
+      type: {class: SequenceNode, ns: TreeDesigner, asm: Assembly-CSharp}
+      data:
+        m_GUID: 2aba5b16-4a88-4aab-b034-13c867ae8059
+        m_Expanded: 1
+        m_ShowPanel: 0
+        m_Position: {x: 1409, y: 18}
+        m_InputEdgeGUID: 23a570e8-b028-42dc-ac8a-1487c7ebe266
+        m_OutputEdgeGUIDs:
+        - 44264f4c-dd51-4710-8911-ca1673a45b3c
+        - 77b8a841-e38b-4c2f-8a20-a078cc2fac90
+        m_IsRandom: 0

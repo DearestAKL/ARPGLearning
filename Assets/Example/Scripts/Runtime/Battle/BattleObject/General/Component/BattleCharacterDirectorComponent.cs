@@ -59,7 +59,18 @@ namespace GameMain.Runtime
             for (int i = 0; i < _gfBtData.PropertyDatas.Length; i++)
             {
                 var propertyData = _gfBtData.PropertyDatas[i];
-                _ownBlackboard.Set(propertyData.Key, propertyData);
+                if (propertyData is BtIntPropertyData intPropertyData)
+                {
+                    _ownBlackboard.SetInt(propertyData.Key, intPropertyData.Value);
+                }
+                else if(propertyData is BtBoolPropertyData boolPropertyData)
+                {
+                    _ownBlackboard.SetBool(propertyData.Key, boolPropertyData.Value);
+                }
+                else if(propertyData is BtFloatPropertyData floatPropertyData)
+                {
+                    _ownBlackboard.SetFloat(propertyData.Key, floatPropertyData.Value);
+                }
             }
             return _gfBtData.GetStartNodeData().CreateRoot(_ownBlackboard, _clock);
         }

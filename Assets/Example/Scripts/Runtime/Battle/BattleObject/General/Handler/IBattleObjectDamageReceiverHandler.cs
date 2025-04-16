@@ -11,5 +11,6 @@ namespace GameMain.Runtime
         bool CanReceiveKnockUp();
         float GetDefense();
         float GetDamageReduction();
+        void SetWarningFlag(bool enable);
     }
 }

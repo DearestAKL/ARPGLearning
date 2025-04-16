@@ -129,9 +129,9 @@ namespace GameMain.Runtime
                         deleteMode,
                         priority);
                     
-                    var unityView = owner?.GetComponent<BattleCharacterViewComponent>();
+                    var unityView = owner.GetComponent<BattleCharacterViewComponent>();
                     var component = unityView.BoneComponent;
-                    component.Attach(new GfBoneAdapterForVfx(BattleAdmin.VfxManager, handle, false),
+                    component?.Attach(new GfBoneAdapterForVfx(BattleAdmin.VfxManager, handle, false),
                         "root",
                         offsetPosition,
                         offsetRotation.ToEulerAngles());

@@ -118,7 +118,7 @@ namespace GameMain.Runtime
             //BehaviourTree AI
             if (!string.IsNullOrEmpty(gameCharacterModel.AiAssetName))
             {
-                var ai = await AssetManager.Instance.LoadAsset<TextAsset>(AssetPathHelper.GetBehaviourTreePath(gameCharacterModel.AiAssetName));
+                TextAsset ai = await AssetManager.Instance.LoadAsset<TextAsset>(AssetPathHelper.GetBehaviourTreePath(gameCharacterModel.AiAssetName));
                 if (ai != null) 
                 {
                     var stream = new MemoryStream(ai.bytes);

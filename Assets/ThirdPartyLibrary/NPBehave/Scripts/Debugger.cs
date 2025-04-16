@@ -32,42 +32,5 @@ namespace NPBehave
                 return _customStats;
             }
         }
-
-        public void DebugCounterInc(string key)
-        {
-            if (!CustomStats.Isset(key))
-            {
-                CustomStats[key] = 0;
-            }
-            CustomStats[key] = CustomStats.Get<int>(key) + 1;
-        }
-
-        public void DebugCounterDec(string key)
-        {
-            if (!CustomStats.Isset(key))
-            {
-                CustomStats[key] = 0;
-            }
-            CustomStats[key] = CustomStats.Get<int>(key) - 1;
-        }
-
-        public static void GlobalDebugCounterInc(string key)
-        {
-            if (!CustomGlobalStats.Isset(key))
-            {
-                CustomGlobalStats[key] = 0;
-            }
-            CustomGlobalStats[key] = CustomGlobalStats.Get<int>(key) + 1;
-        }
-
-        public static void GlobalDebugCounterDec(string key)
-        {
-            if (!CustomGlobalStats.Isset(key))
-            {
-                CustomGlobalStats[key] = 0;
-            }
-            CustomGlobalStats[key] = CustomGlobalStats.Get<int>(key) - 1;
-        }
-
     }
 }

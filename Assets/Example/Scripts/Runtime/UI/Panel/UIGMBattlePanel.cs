@@ -1,4 +1,5 @@
 using Akari.GfCore;
+using Akari.GfGame;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -23,7 +24,8 @@ namespace GameMain.Runtime
             
             CreatButton(SpawnEnemy,"生成Enemy");
             CreatButton(SpawnNpc,"生成Npc");
-            
+            CreatButton(WitchTime,"WitchTime");
+
             CreatToggle(GMConfig.SetIgnoreSkillCd, GMConfig.IgnoreSkillCd, "技能无Cd");
             CreatToggle(GMConfig.SetApplyRootMotion, GMConfig.ApplyRootMotion, "开启RootMotion");
         }
@@ -51,14 +53,33 @@ namespace GameMain.Runtime
 
         private void SpawnEnemy()
         {
+            var pos = BattleAdmin.Player.Entity.Transform.Position + GfFloat3.Forward;
+            
             BattleAdmin.Factory.Character.CreateEnemyCharacter(
-                new GameCharacterModel(new EnemyData(2001,10)), GfFloat3.Zero, GfQuaternion.Identity, "enemyKey").ToCoroutine();
+                new GameCharacterModel(new EnemyData(2001,10)), pos, GfQuaternion.Identity, "enemyKey").ToCoroutine();
         }
 
         private void SpawnNpc()
         {
+            var pos = BattleAdmin.Player.Entity.Transform.Position + GfFloat3.Forward;
             BattleAdmin.Factory.Character.CreateNpcCharacter(
-                new GameCharacterModel(new NpcData(4001)), GfFloat3.Zero, GfQuaternion.Identity, "npcKey").ToCoroutine();
+                new GameCharacterModel(new NpcData(4001)), pos, GfQuaternion.Identity, "npcKey").ToCoroutine();
+        }
+
+        private void WitchTime()
+        {
+            foreach (var entity in BattleAdmin.EntityComponentSystem.EntityManager.EntityHandleManager.Buffers)
+            {
+                if (!entity.IsValid() || entity.Tag == GfEntityTagId.TeamA)
+                {
+                    continue;
+                }
+                
+                entity.Request(new GfChangeSpeedMagnificationRequest(9001,
+                    0.1F,
+                    3f,
+                    true));
+            }
         }
     }
 }

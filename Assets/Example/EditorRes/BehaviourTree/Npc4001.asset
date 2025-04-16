@@ -48,7 +48,7 @@ MonoBehaviour:
         m_GUID: c6bdb294-61a0-49b8-b40f-99b09bdca1f2
         m_Expanded: 1
         m_ShowPanel: 0
-        m_Position: {x: 767, y: 0}
+        m_Position: {x: 757, y: -28}
         m_InputEdgeGUID: ef5f099e-ac86-489d-ae75-d568134cd855
     - rid: 3582606103650238465
       type: {class: RootNode, ns: TreeDesigner, asm: Assembly-CSharp}
@@ -74,7 +74,7 @@ MonoBehaviour:
         m_GUID: 3dbd21d5-dcf7-461a-becb-e996fc3b5839
         m_Expanded: 1
         m_ShowPanel: 0
-        m_Position: {x: 525, y: 0}
+        m_Position: {x: 538, y: 0}
         m_InputEdgeGUID: b904d0fd-3685-42a4-8dfd-c70d898ddac9
         m_OutputEdgeGUIDs:
         - ef5f099e-ac86-489d-ae75-d568134cd855

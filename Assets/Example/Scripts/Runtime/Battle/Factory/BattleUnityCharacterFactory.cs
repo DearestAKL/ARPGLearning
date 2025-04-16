@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Akari.GfCore;
@@ -25,13 +26,16 @@ namespace GameMain.Runtime
             actionComponent.Add(BattleCharacterChargeAttackAction.ActionType, new BattleCharacterChargeAttackAction());
             actionComponent.Add(BattleCharacterSpecialAttackAction.ActionType, new BattleCharacterSpecialAttackAction());
             actionComponent.Add(BattleCharacterUltimateAction.ActionType, new BattleCharacterUltimateAction());
-            
+            actionComponent.Add(BattleCharacterJumpToAction.ActionType, new BattleCharacterJumpToAction());
             return entity;
         }
 
         public async UniTask<GfEntity> CreateEnemyCharacter(GameCharacterModel gameCharacterModel, GfFloat3 position, GfQuaternion rotation, string enemyKey)
         {
             var entity = await CreateCharacterInternal(gameCharacterModel, BattleCharacterType.Enemy,position,rotation);
+            
+            var actionComponent = entity.GetComponent<BattleObjectActionComponent>();
+            actionComponent.Add(BattleCharacterMoveMixedTreeAction.ActionType, new BattleCharacterMoveMixedTreeAction());
             return entity;
         }
         
@@ -51,19 +55,17 @@ namespace GameMain.Runtime
             var path = AssetPathHelper.GetCharacterPath(gameCharacterModel.CharacterAssetName);
 
             BattleCharacterUnityView entityUnityView = await AssetManager.Instance.Instantiate<BattleCharacterUnityView>(path);
-            entityUnityView.transform.position = position.ToVector3();
-            entityUnityView.transform.rotation = rotation.ToQuaternion();
-            
-            var entity = BattleAdmin.EntityComponentSystem.Create(0, GfEntityGroupId.Character, gameCharacterModel.Id.ToString());
-            GfTransform entityTransform = new GfKinematicTransform(entityUnityView.transform, false);
-            
+
+            var entity = BattleAdmin.EntityComponentSystem.Create(GetGfEntityTagId(battleCharacterType), GfEntityGroupId.Character, gameCharacterModel.Id.ToString());
             entityUnityView.Init(battleCharacterType, entity);
-            
+            GfTransform entityTransform = new GfKinematicTransform(entityUnityView.transform);
+
             //基础组件 Actor
             entity.AddComponent(new GfActorComponent(entityTransform));
 
             //基础组件 Transform
-            entity.AddComponent(new BattleCharacterTransformComponent());
+            var transformComponent = entity.AddComponent(new BattleCharacterTransformComponent());
+            transformComponent.SetTransform(position, rotation);
             
             //动画组件 Animation 依赖于Action
             var animationComponent = entity.AddComponent(new GfAnimationComponent());
@@ -112,6 +114,8 @@ namespace GameMain.Runtime
                 //添加AI组件 Director
                 entity.AddComponent(new BattleCharacterDirectorComponent(characterAssets.AIResource.CreateData()));
                 actionComponent.Add(BattleCharacterPlayAnimationStateAction.ActionType, new BattleCharacterPlayAnimationStateAction());
+                //添加寻路组件NavMesh
+                entity.AddComponent(new BattleCharacterNavMeshComponent());
             }
             
             //执行初始Action
@@ -133,22 +137,23 @@ namespace GameMain.Runtime
             entityUnityView.transform.position = position.ToVector3();
             entityUnityView.transform.rotation = rotation.ToQuaternion();
             
-            var entity = BattleAdmin.EntityComponentSystem.Create(0, GfEntityGroupId.Character, gameCharacterModel.Id.ToString());
+            
+            var entity = BattleAdmin.EntityComponentSystem.Create(GetGfEntityTagId(battleCharacterType), GfEntityGroupId.Character, gameCharacterModel.Id.ToString());
+            entityUnityView.Init(battleCharacterType, entity);
             GfTransform entityTransform = new GfKinematicTransform(entityUnityView.transform, isPooled);
 
-            entityUnityView.Init(battleCharacterType, entity);
-            
             //基础组件 Actor
             entity.AddComponent(new GfActorComponent(entityTransform));
 
             //基础组件 Transform
-            entity.AddComponent(new BattleCharacterTransformComponent());
-
+            var transformComponent = entity.AddComponent(new BattleCharacterTransformComponent());
+            transformComponent.SetTransform(position, rotation);
+            
             //攻击组件 Attack
             var attackComponent = entity.AddComponent(new BattleCharacterAttackComponent());
             //受击碰撞组件 Collider
             var colliderComponent = entity.AddComponent(new GfColliderComponent2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter>());
-            
+
             //动画组件 Animation 依赖于Action
             var animationComponent = entity.AddComponent(new GfAnimationComponent());
             animationComponent.HasRootMotionMoveAnimation = entityUnityView.Animation.HasRootMotionMoveAnimation;
@@ -171,7 +176,7 @@ namespace GameMain.Runtime
             var viewComponent = entity.AddComponent(new BattleCharacterViewComponent(entityUnityView));
             
             //角色表现组件 伤害预警 DamageWarning
-            entity.AddComponent(new BattleDamageWarningComponent());
+            entity.AddComponent(new BattleDamageRangeComponent());
             //角色表现组件 特效速度控制 VfxSpeedAffect
             entity.AddComponent(new GfVfxSpeedAffectComponent(BattleAdmin.VfxManager));
             //角色表现组件 骨骼组件 应用于特效Attach，也就是跟随相关逻辑
@@ -188,8 +193,16 @@ namespace GameMain.Runtime
             }
             
             //初始化Attack组件
-            attackComponent.Initialize(new BattleCharacterDamageCauserHandler(battleCharacterAccessorComponent));
+            var damageCauserHandler = new BattleCharacterDamageCauserHandler(battleCharacterAccessorComponent);
+            attackComponent.Initialize(damageCauserHandler);
                 
+            if (battleCharacterType == BattleCharacterType.Enemy)
+            {
+                //攻击预警组件 Warning
+                var warningComponent = entity.AddComponent(new BattleCharacterWarningComponent());
+                warningComponent.SetDamageCauserHandler(damageCauserHandler);
+            }
+            
             //初始化Collider组件
             colliderComponent.Add(BattleColliderGroupName.Defend,
                 new GfColliderGroup2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter>(
@@ -242,6 +255,8 @@ namespace GameMain.Runtime
                 //添加AI组件 Director
                 entity.AddComponent(new BattleCharacterDirectorComponent(characterAssets.AIResource.CreateData()));
                 actionComponent.Add(BattleCharacterPlayAnimationStateAction.ActionType, new BattleCharacterPlayAnimationStateAction());
+                //添加寻路组件NavMesh
+                entity.AddComponent(new BattleCharacterNavMeshComponent());
             }
             
             //添加被动技能
@@ -249,13 +264,12 @@ namespace GameMain.Runtime
             
             //执行初始Action
             actionComponent.ForceTransition(new GfFsmStateTransitionRequest(BattleCharacterIdleAction.ActionType, new BattleCharacterIdleActionData()));
-            
             return entity;
         }
 
         private GfEntity CreateCharacterSubsidiary(GfSimpleAnimationTrackView simpleAnimationView)
         {
-            var entity = BattleAdmin.EntityComponentSystem.Create(0, GfEntityGroupId.Character, "Subsidiary");
+            var entity = BattleAdmin.EntityComponentSystem.Create(GfEntityTagId.None, GfEntityGroupId.Character, "Subsidiary");
 
             entity.AddComponent(new GfActorComponent(simpleAnimationView.transform.CreateGfUnityTransform()));
             
@@ -417,6 +431,20 @@ namespace GameMain.Runtime
             animationComponent.Play("Idle");
 
             //multilayerAnimationTrack.SetParameter("testParameter", 1);
+        }
+
+        private int GetGfEntityTagId(BattleCharacterType characterType)
+        {
+            switch (characterType)
+            {
+                case BattleCharacterType.Player:
+                case BattleCharacterType.Summoner:
+                    return GfEntityTagId.TeamA;
+                case BattleCharacterType.Enemy:
+                    return GfEntityTagId.TeamB;
+                default:
+                    return GfEntityTagId.None;
+            }
         }
     }
 }

@@ -14,6 +14,8 @@ namespace GameMain.Runtime
         private AInteractiveObject _curInteractiveObject;
 
         public GfEntity Entity { get; private set; }
+        private GfComponentCache<BattleCharacterAccessorComponent> _accessorCache;
+        public BattleCharacterAccessorComponent Accessor => Entity.GetComponent(ref _accessorCache);
 
         private void OnDestroy()
         {
@@ -23,8 +25,9 @@ namespace GameMain.Runtime
         public void SetEntity(GfEntity entity)
         {
             Entity = entity;
-            
+
             BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.Interaction].started += OnInteractionStarted;
+            BattleUnityAdmin.PlayerInput.actions[Constant.InputDef.Jump].started += OnJumpStarted;
         }
 
         public void AddInteractiveObject(AInteractiveObject interactiveObject)
@@ -67,7 +70,7 @@ namespace GameMain.Runtime
             if (_curInteractiveObject != null)
             {
                 _tips.gameObject.SetActive(true);
-                _tips.UpdateView(_curInteractiveObject.InteractionTips);
+                _tips.UpdateView(_curInteractiveObject.InteractionTips, _curInteractiveObject.InputName);
                 float xOffset = _tips.GetComponent<RectTransform>().sizeDelta.x / 2 + 50f;
                 _tips.transform.localPosition = UIHelper.WorldPositionToBattleUI(transform.position, new Vector2(xOffset, 0f));
             }
@@ -81,7 +84,21 @@ namespace GameMain.Runtime
         {
             if (_curInteractiveObject != null)
             {
-                _curInteractiveObject.Check(this);
+                if (_curInteractiveObject.InputName == Constant.InputDef.Interaction)
+                {
+                    _curInteractiveObject.Check(this);
+                }
+            }
+        }
+        
+        private void OnJumpStarted(InputAction.CallbackContext context)
+        {
+            if (_curInteractiveObject != null)
+            {
+                if (_curInteractiveObject.InputName == Constant.InputDef.Jump)
+                {
+                    _curInteractiveObject.Check(this);
+                }
             }
         }
     }

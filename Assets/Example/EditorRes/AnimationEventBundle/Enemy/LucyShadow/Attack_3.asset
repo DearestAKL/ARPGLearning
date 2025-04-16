@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4f4738209fa41e4873a97923373ec2, type: 3}
   m_Name: Attack_3
   m_EditorClassIdentifier: 
-  TargetAnimationEventClip: {fileID: -2234462554416917508, guid: 07c84be7e9d52cf4994234c6ce0d6f78,
-    type: 3}
+  TargetAnimationEventClip: {fileID: 7400000, guid: ed375152fa79e264f9115b404a190e50,
+    type: 2}
   GroupInfoList:
   - {fileID: 11400000, guid: b018884cce5431340819b9dbc78296eb, type: 2}
   - {fileID: 11400000, guid: 21019fa59e339fd48b4cdec3408fb444, type: 2}
   - {fileID: 11400000, guid: f9006213fcf42ac46a8b25f5cebbb724, type: 2}
+  - {fileID: 11400000, guid: 41a24d05561e04c49bd436b0cb9bfee7, type: 2}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Akari.GfCore;
 using Akari.GfUnity;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GameMain.Runtime
 {
@@ -13,7 +14,8 @@ namespace GameMain.Runtime
         {
             Line,
             Box,
-            Circle
+            Circle,
+            Lines,
         }
 
         public ShapeType Type;
@@ -26,10 +28,43 @@ namespace GameMain.Runtime
         public float Angle;
         public float Radius;
         
-        private Vector3 targetPos;
+        public Vector3[] Points;
         
+        private Vector3 targetPos;
+
         public Transform TargetTransform;
         public bool HasTargetTransform;
+
+        private bool _isValid = true;
+        public bool IsValid
+        {
+            get
+            {
+                if (!_isValid)
+                {
+                    return _isValid;
+                }
+                
+                if (Type == ShapeType.Lines)
+                {
+                    return Transform != null && Transform.gameObject.activeSelf && !Points.IsEmpty();
+                }
+                else if (Type == ShapeType.Line)
+                {
+                    return Transform != null && Transform.gameObject.activeSelf && (!HasTargetTransform || TargetTransform != null);
+                }
+                else
+                {
+                    return Transform != null && Transform.gameObject.activeSelf;
+                }
+            }
+        }
+
+        public void SetValid(bool isValid)
+        {
+            _isValid = isValid;
+        }
+
         public Vector3 TargetPos
         {
             get
@@ -43,12 +78,13 @@ namespace GameMain.Runtime
             }
             private set => targetPos = value;
         }
-
+        
         public static GizmosData CreateLineGizmosData(Transform transform, Vector3 targetPos)
         {
             var data = new GizmosData();
             data.Transform = transform;
             data.TargetPos = targetPos;
+            data.Type = ShapeType.Line;
             return data;
         }
         
@@ -58,6 +94,7 @@ namespace GameMain.Runtime
             data.Transform = transform;
             data.TargetTransform = target;
             data.HasTargetTransform = true;
+            data.Type = ShapeType.Line;
             return data;
         }
         
@@ -81,11 +118,21 @@ namespace GameMain.Runtime
             return data;
         }
 
+        public static GizmosData CreateLinesGizmosData(GfTransform transform,Vector3[] points)
+        {
+            var data = new GizmosData();
+            data.Transform = GetUnityTransform(transform);
+            data.Points = points;
+            data.Type = ShapeType.Lines;
+            return data;
+        }
+        
         public static GizmosData CreateLineGizmosData(GfTransform transform, GfFloat3 targetPos)
         {
             var data = new GizmosData();
             data.Transform = GetUnityTransform(transform);
             data.TargetPos = targetPos.ToVector3();
+            data.Type = ShapeType.Line;
             return data;
         }
 
@@ -94,8 +141,8 @@ namespace GameMain.Runtime
             var data = new GizmosData();
             data.Transform = GetUnityTransform(transform);
             data.TargetTransform = GetUnityTransform(target);
-
             data.HasTargetTransform = true;
+            data.Type = ShapeType.Line;
             return data;
         }
         
@@ -155,14 +202,6 @@ namespace GameMain.Runtime
                 gizmosDataList.Add(gizmosData);
             }
         }
-        
-        public void RemoveGizmosData(GizmosData gizmosData)
-        {
-            if (gizmosDataList.Contains(gizmosData))
-            {
-                gizmosDataList.Remove(gizmosData);
-            }
-        }
 
         private void Awake()
         {
@@ -187,10 +226,7 @@ namespace GameMain.Runtime
             //定期回收
             foreach (var gizmosData in gizmosDataList)
             {
-                if (gizmosData.Transform == null || 
-                    !gizmosData.Transform.gameObject.activeSelf  || 
-                    (gizmosData.HasTargetTransform && gizmosData.TargetTransform == null)
-                    )
+                if (!gizmosData.IsValid)
                 {
                     _removes.Add(gizmosData);
                 }
@@ -207,7 +243,7 @@ namespace GameMain.Runtime
         {
             foreach (var gizmosData in gizmosDataList)
             {
-                if (gizmosData.Transform == null)
+                if (gizmosData.Transform == null && gizmosData.Points.IsEmpty())
                 {
                     return;
                 }

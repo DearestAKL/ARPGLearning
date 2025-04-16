@@ -1,9 +1,19 @@
+using System;
+using System.Collections.Generic;
+using Akari.GfCore;
+using Akari.GfGame;
 using UnityEngine;
 
 namespace GameMain.Runtime
 {
     public class World : MonoBehaviour
     {
+        public Collider cinemachineConfinerBoundingVolume;
+        public TransitionPoint defaultStartPoint;
+        public List<TransitionPoint> transitionPoints;
+
+        private List<GfEntity> _worldGfEntities = new List<GfEntity>();
+        
         private float _elapsedTime;
         public bool CheckTime(float deltaTime)
         {
@@ -16,16 +26,46 @@ namespace GameMain.Runtime
             return true;
         }
 
-        public void SetActive(bool active)
+        public void Enter(int transitionPointId = 0)
         {
-            gameObject.SetActive(active);
-            _elapsedTime = 0f;
-
-            if (active)
+            BattleUnityAdmin.BattleMainCameraView.SetCinemachineConfinerBoundingVolume(
+                cinemachineConfinerBoundingVolume);
+            
+            gameObject.SetActive(true);
+            if (transitionPointId == 0)
             {
-                //激活
-                //定位角色位置
+                defaultStartPoint.Enter();
             }
+            else
+            {
+                for (int i = 0; i < transitionPoints.Count; i++)
+                {
+                    if (transitionPoints[i].pointId == transitionPointId)
+                    {
+                        transitionPoints[i].Enter();
+                    }
+                }
+            }
+
+            foreach (var entity in _worldGfEntities)
+            {
+                entity.SetActive(true);
+            }
+        }
+
+        public void Exit()
+        {
+            gameObject.SetActive(false);
+            
+            foreach (var entity in _worldGfEntities)
+            {
+                entity.SetActive(false);
+            }
+        }
+
+        public void AddGfEntity(GfEntity entity)
+        {
+            _worldGfEntities.Add(entity);
         }
     }
 }

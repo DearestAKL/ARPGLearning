@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using Akari.GfCore;
+﻿using Akari.GfCore;
 using Akari.GfGame;
-using cfg;
-using UnityEngine;
 
 namespace GameMain.Runtime
 {
@@ -42,14 +39,18 @@ namespace GameMain.Runtime
         public bool IsDamageImmunity => Frame.IsDamageImmunity.Current;//伤害免疫，不受伤害
         public bool IsSuperArmor => Frame.IsSuperArmor.Current;//霸体，不会被攻击和控制打断动作
         public bool IsDodge => Frame.IsDodge.Current;//躲闪，不会被攻击命中
+
+        public bool IsWarning;
         
         public bool IsDashHolding;
         public bool IsFireHolding;
         public bool IsMoving;
         public GfFloat2 MoveDirection;
         public GfFloat2 MouseDirection;
+        public GfFloat2 CharacterDirection = GfFloat2.Zero;
 
         public bool IsWalk;
+        public bool HasLockTarget;
 
         public GameCharacterModel CharacterModel { get; private set; }
 
@@ -104,6 +105,12 @@ namespace GameMain.Runtime
             Entity.On<UpdatePropertyRequest>(OnUpdatePropertyRequest);
         }
 
+        public override void OnBeginUpdate(float deltaTime)
+        {
+            base.OnBeginUpdate(deltaTime);
+            IsWarning = false;
+        }
+        
         public override void OnUpdate(float deltaTime)
         {
             Frame.OnUpdate();
@@ -117,8 +124,6 @@ namespace GameMain.Runtime
             }
 
             PoiseHandler.OnUpdate(deltaTime);
-            
-            //GfLog.Debug($"伤害免疫:{IsDamageImmunity}=====霸体：{IsSuperArmor}");
         }
 
         public void SetTargetAccessor(IBattleCharacterAccessorComponent accessor)

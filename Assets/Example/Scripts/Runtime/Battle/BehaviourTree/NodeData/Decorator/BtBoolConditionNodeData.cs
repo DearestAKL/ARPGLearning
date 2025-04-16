@@ -18,25 +18,25 @@ namespace GameMain.Runtime
             Key = key;
         }
         
-        protected Node CreateConditionNode(object value)
+        protected virtual Node CreateConditionNode(object value)
         {
-            return new BlackboardCondition(Key, Operator, value, Stops, CreateChild());
+            return null;
         }
     }
 
     public class BtBoolConditionNodeData : AConditionNodeData
     {
-        public bool BoolValue;
+        public bool Value;
         
         public BtBoolConditionNodeData(int childIndex, int operatorValue, int stopsValue, string key, bool boolValue)
             : base(childIndex, operatorValue, stopsValue, key)
         {
-            BoolValue = boolValue;
+            Value = boolValue;
         }
         
         public override Node CreateNode()
         {
-            return CreateConditionNode(BoolValue);
+            return new BlackboardConditionBool(Key, Operator, Value, Stops, CreateChild());
         }
     }
     

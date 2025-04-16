@@ -35,7 +35,7 @@ namespace GameMain.Runtime
             var collisions = shellDefinitionMessage.AttackDefinitionInfo.Collisions;
             var extent = collisions.Count > 0 ? collisions[0].Extents.ToGfFloat2() : GfFloat2.One;
             
-            Accessor.Entity.Request(new CreatDamageWarningRequest(1f, basePosition.ToXZFloat2(), extent, GfQuaternion.LookRotation(direction)));
+            Accessor.Entity.Request(new CreateDamageRangeShowRequest(shellDefinitionMessage.Id,1f, basePosition, extent, GfQuaternion.LookRotation(direction)));
         }
 
         private async void CreateShell(int shellId, GfFloat3 position, GfFloat3 direction)

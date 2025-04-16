@@ -215,18 +215,18 @@ namespace GameMain.Runtime
                 //如果竖直速度数值 <= 0 (即方向为Y轴向下)，则需考虑重力加速度
                 //竖直速度 > 0:竖直速度=(竖直初速度的1/3次方 - 2.5*时间)的三次方
                 //竖直速度 <= 0:竖直速度=(竖直初速度的1/3次方 - 2.5*时间)的三次方 + 实际重力加速度*时间
-                //这套减速太慢了
-                //var verticalVelocity = GfMathf.Pow(GfMathf.Pow(mActionData.HorizontalVelocity, 1f / 3f) - 2.5f * mElapsedTime * FixedDeltaTime, 3);
-                // if (verticalVelocity <= 0F)
-                // {
-                //     mGravityElapsedTime++;
-                //     verticalVelocity = BattleDef.Gravity * mElapsedTime * FixedDeltaTime;
-                // }
-                
-                //暂时不使用上面那套
-                var verticalVelocity = GfMathf.Pow(GfMathf.Pow(_actionData.HorizontalVelocity, 1f / 3f) + BattleDef.Gravity * _elapsedTime, 3);
+ 
 
-                VerticalMove(deltaTime, verticalVelocity);
+                //Y轴变化先屏蔽了 因为在俯身视角下不太适合
+                // var verticalVelocity = GfMathf.Pow(GfMathf.Pow(_actionData.VerticalVelocity, 1f / 3f) - 2.5f * _elapsedTime, 3);
+                // if (verticalVelocity <= 0f)
+                // {
+                //     _hasVerticalVelocity = false;
+                // }
+                // else
+                // {
+                //     VerticalMove(deltaTime, verticalVelocity);
+                // }
             }
         }
     }

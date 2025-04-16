@@ -91,6 +91,8 @@ namespace GameMain.Runtime
             
             _playerInput.actions[Constant.InputDef.WalkSwitch].started += OnWalkSwitchStarted;
             
+            //_playerInput.actions[Constant.InputDef.Jump].started += OnJumpStarted;
+            
             _moveInputAction = _playerInput.actions[Constant.InputDef.Move];
             _layerMask = LayerMask.GetMask(Constant.Layer.Ground);
         }
@@ -383,6 +385,16 @@ namespace GameMain.Runtime
             PlayerAccessor.Condition.IsWalk = !PlayerAccessor.Condition.IsWalk;
             GfLog.Debug("OnWalkSwitchStarted");
         }
+        
+        // private void OnJumpStarted(InputAction.CallbackContext context)
+        // {
+        //     if (DisableBattleInput) { return; }
+        //
+        //     var nextActionData = BattleCharacterJumpToActionData.Create(PlayerAccessor.Entity.Transform.Position + PlayerAccessor.Entity.Transform.Forward * 2f);
+        //     RequestForChangeAction(nextActionData);
+        //     
+        //     GfLog.Debug("OnJumpStarted");
+        // }
 
         private void RequestForChangeAction(ABattleCharacterActionData actionData)
         {

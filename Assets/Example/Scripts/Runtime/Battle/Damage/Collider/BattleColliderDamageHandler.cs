@@ -22,6 +22,11 @@ namespace GameMain.Runtime
             }
         }
 
+        public void SetWarningFlag(GfColliderGroup2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter> defendColliderGroup)
+        {
+            _damageHandler.SetWarningFlag(defendColliderGroup.DefendParameter);
+        }
+        
         public bool IsCollisionTarget(GfColliderGroup2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter> attackColliderGroup, GfColliderGroup2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter> defendColliderGroup)
         {
             return _damageHandler.IsCollisionTarget(attackColliderGroup.AttackParameter, defendColliderGroup.DefendParameter);

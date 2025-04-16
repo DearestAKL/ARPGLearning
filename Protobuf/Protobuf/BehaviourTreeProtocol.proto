@@ -72,15 +72,7 @@ message BtDebugMessage
 	string message = 1;
 }
 
-message BtCharacterIdleMessage
-{
-}
-
-message BtCharacterMoveMessage
-{
-}
-
-message BtCharacterPatrolMessage
+message BtCharacterNullMessage
 {
 }
 
@@ -106,6 +98,18 @@ message BtPropertyStringMessage
 {
 	string key = 1;
 	string content = 2; 
+}
+
+message BtPropertyFloatMessage
+{
+	string key = 1;
+	float value = 2;
+}
+
+message BtPropertyBoolMessage
+{
+	string key = 1;
+	bool value = 2;
 }
 
 //==========Decorator==========

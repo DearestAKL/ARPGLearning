@@ -8,6 +8,7 @@ namespace GameMain.Runtime
         public GfHandle                     OwnerHandle            { get; }
         public TeamId                       TeamId                 { get; }
         public GfEntity                     ThisEntity             { get; private set; }
+        public int OwnerEntityTagId => _ownerAccessor.Entity.Tag;
 
         private readonly BattleCharacterAccessorComponent _ownerAccessor;
 
@@ -26,14 +27,6 @@ namespace GameMain.Runtime
             }
         }
 
-        public BattleShellDamageCauserHandler(GfEntity owner, TeamId teamId,AttackDefinitionInfoData[] attackDefinitions)
-        {
-            OwnerHandle = owner.ThisHandle;
-            TeamId = teamId;
-            AttackDefinitions = attackDefinitions;
-            _ownerAccessor = owner.GetComponent<BattleCharacterAccessorComponent>();
-        }
-        
         public BattleShellDamageCauserHandler(GfEntity owner, TeamId teamId,AttackDefinitionInfoData attackDefinition)
         {
             OwnerHandle = owner.ThisHandle;

@@ -9,6 +9,7 @@ namespace GameMain.Runtime
     public class TrainingDummy : MonoBehaviour
     {
         private BattleCharacterAccessorComponent _accessor;
+        
         private void Start()
         {
             Init();
@@ -18,7 +19,7 @@ namespace GameMain.Runtime
         {
             GameCharacterModel gameCharacterModel = new GameCharacterModel(100, 0, 0, 10);
             
-            var entity = BattleAdmin.EntityComponentSystem.Create(0, GfEntityGroupId.Character, "TrainingDummy");
+            var entity = BattleAdmin.EntityComponentSystem.Create(GfEntityTagId.TeamB, GfEntityGroupId.Gimmick, "TrainingDummy");
             var entityTransform = transform.CreateGfUnityTransform();
             
             entity.AddComponent(new GfActorComponent(entityTransform));
@@ -26,10 +27,11 @@ namespace GameMain.Runtime
             
             var colliderComponent = entity.AddComponent(new GfColliderComponent2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter>());
             
-            var transformComponent = entity.AddComponent(new BattleCharacterTransformComponent());
-            var viewComponent = entity.AddComponent(new BattleCharacterViewComponent());
+            entity.AddComponent(new BattleCharacterViewComponent());
             
             _accessor = entity.AddComponent(new BattleCharacterAccessorComponent(entity));
+            //角色表现组件 特效速度控制 VfxSpeedAffect
+            entity.AddComponent(new GfVfxSpeedAffectComponent(BattleAdmin.VfxManager));
             
             colliderComponent.Add(BattleColliderGroupName.Defend,
                 new GfColliderGroup2D<BattleColliderGroupId, BattleColliderAttackParameter, BattleColliderDefendParameter>(
@@ -46,6 +48,8 @@ namespace GameMain.Runtime
             _accessor.SetDamageNotificator(damageNotificator); 
             
             entity.On<CurHpMakeZeroRequest>(OnCurHpMakeZeroRequest);
+
+            WorldManager.Instance.CurWorld?.AddGfEntity(entity);
         }
 
         private void OnCurHpMakeZeroRequest(in CurHpMakeZeroRequest request)

@@ -47,6 +47,12 @@ namespace GameMain.Runtime
         public override void OnUpdate(float deltaTime)
         {
             base.OnUpdate(deltaTime);
+            // if (Accessor.Condition.IsMoving &&
+            //     GfFloat2.Dot(Accessor.Entity.Transform.Forward.ToXZFloat2(), Accessor.Condition.MoveDirection) > GfMathf.Cos(30f * GfMathf.Deg2Rad)) 
+            // {
+            //     var turnActionData = BattleCharacterTurnActionData.Create();
+            //     EndActionAndRequestForChange(turnActionData);
+            // }
             EndActionCheck();
         }
 

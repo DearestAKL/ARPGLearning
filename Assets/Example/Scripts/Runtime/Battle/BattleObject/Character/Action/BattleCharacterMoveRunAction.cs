@@ -35,9 +35,9 @@ namespace GameMain.Runtime
         public override ABattleCharacterActionData ActionData => _actionData;
         public const int ActionType = (int)BattleCharacterActionType.MoveRun;
         
-        private static readonly string RunStartAnimationName = "RunStart";
-        private static readonly string RunLoopAnimationName = "RunLoop";
-        private static readonly string RunEndAnimationName = "RunEnd";
+        private static readonly string RunStartAnimationName = "RunStartF";
+        private static readonly string RunLoopAnimationName = "RunLoopF";
+        private static readonly string RunEndAnimationName = "RunEndF";
 
         private Status _status;
 
@@ -67,7 +67,7 @@ namespace GameMain.Runtime
                 case Status.Start:
                     if (Accessor.Condition.IsMoving)
                     {
-                        Rotate(Accessor.Condition.MoveDirection);
+                        UpdateMoveRotate();
                         if (!Animation.IsThatPlaying(AnimationClipIndex))
                         {
                             ChangeStatus(Status.Loop);
@@ -81,7 +81,7 @@ namespace GameMain.Runtime
                 case Status.Loop:
                     if (Accessor.Condition.IsMoving)
                     {
-                        Rotate(Accessor.Condition.MoveDirection);
+                        UpdateMoveRotate();
                         if (Accessor.Condition.IsDashHolding)
                         {
                             EndActionAndRequestForChange(BattleCharacterMoveSprintActionData.Create());

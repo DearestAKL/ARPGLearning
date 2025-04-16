@@ -92,7 +92,7 @@ namespace GameMain.Runtime
         {
             foreach (var entity in EntityComponentSystem.EntityManager.EntityHandleManager.Buffers)
             {
-                if (!IsPauseTarget(entity))
+                if (!entity.IsValid() || entity.GroupId == GfEntityGroupId.Camera)
                 {
                     continue;
                 }
@@ -111,23 +111,13 @@ namespace GameMain.Runtime
         {
             foreach (var entity in EntityComponentSystem.EntityManager.EntityHandleManager.Buffers)
             {
-                if (!IsPauseTarget(entity))
+                if (!entity.IsValid() || entity.GroupId == GfEntityGroupId.Camera)
                 {
                     continue;
                 }
                 
                 entity.SetPause(false);
             }
-        }
-
-        private bool IsPauseTarget(GfEntity entity)
-        {
-            if (entity == null || !entity.IsActive)
-            {
-                return false;
-            }
-
-            return true;
         }
     }
 }

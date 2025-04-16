@@ -1,4 +1,3 @@
-﻿using UnityEngine;
 using System.Collections.Generic;
 
 namespace NPBehave
@@ -11,335 +10,247 @@ namespace NPBehave
             REMOVE,
             CHANGE
         }
-        private struct Notification
-        {
-            public string key;
-            public Type type;
-            public object value;
-            public Notification(string key, Type type, object value)
-            {
-                this.key = key;
-                this.type = type;
-                this.value = value;
-            }
-        }
 
-        private Clock clock;
-        private Dictionary<string, object> data = new Dictionary<string, object>();
-        private Dictionary<string, List<System.Action<Type, object>>> observers = new Dictionary<string, List<System.Action<Type, object>>>();
-        private bool isNotifiyng = false;
-        private Dictionary<string, List<System.Action<Type, object>>> addObservers = new Dictionary<string, List<System.Action<Type, object>>>();
-        private Dictionary<string, List<System.Action<Type, object>>> removeObservers = new Dictionary<string, List<System.Action<Type, object>>>();
-        private List<Notification> notifications = new List<Notification>();
-        private List<Notification> notificationsDispatch = new List<Notification>();
-        private Blackboard parentBlackboard;
-        private HashSet<Blackboard> children = new HashSet<Blackboard>();
 
-        public Blackboard(Blackboard parent, Clock clock)
+        private BlackboardPart<int> intPart;
+        private BlackboardPart<bool> boolPart;
+        private BlackboardPart<float> floatPart;
+        private BlackboardPart<object> objectPart;
+        
+        public Clock clock;
+        
+        public Blackboard(Blackboard parent, NPBehave.Clock clock)
         {
             this.clock = clock;
-            this.parentBlackboard = parent;
+
+            intPart = new BlackboardPart<int>(parent.intPart,this);
+            boolPart = new BlackboardPart<bool>(parent.boolPart,this);
+            floatPart = new BlackboardPart<float>(parent.floatPart,this);
+            objectPart = new BlackboardPart<object>(parent.objectPart,this);
         }
-        public Blackboard(Clock clock)
+        public Blackboard(NPBehave.Clock clock)
         {
-            this.parentBlackboard = null;
             this.clock = clock;
+            
+            intPart = new BlackboardPart<int>(this);
+            boolPart = new BlackboardPart<bool>(this);
+            floatPart = new BlackboardPart<float>(this);
+            objectPart = new BlackboardPart<object>(this);
         }
 
         public void Enable()
         {
-            if (this.parentBlackboard != null)
-            {
-                this.parentBlackboard.children.Add(this);
-            }
+            intPart.Enable();
+            boolPart.Enable();
+            floatPart.Enable();
+            objectPart.Enable();
         }
 
         public void Disable()
         {
-            if (this.parentBlackboard != null)
-            {
-                this.parentBlackboard.children.Remove(this);
-            }
-            if (this.clock != null)
-            {
-                this.clock.RemoveTimer(this.NotifiyObservers);
-            }
-        }
-
-        public object this[string key]
-        {
-            get
-            {
-                return Get(key);
-            }
-            set
-            {
-                Set(key, value);
-            }
-        }
-
-        public void Set(string key)
-        {
-            if (!Isset(key))
-            {
-                Set(key, null);
-            }
-        }
-
-        public void Set(string key, object value)
-        {
-            if (this.parentBlackboard != null && this.parentBlackboard.Isset(key))
-            {
-                this.parentBlackboard.Set(key, value);
-            }
-            else
-            {
-                if (!this.data.ContainsKey(key))
-                {
-                    this.data[key] = value;
-                    this.notifications.Add(new Notification(key, Type.ADD, value));
-                    this.clock.AddTimer(0f, 0, NotifiyObservers);
-                }
-                else
-                {
-                    if ((this.data[key] == null && value != null) || (this.data[key] != null && !this.data[key].Equals(value)))
-                    {
-                        this.data[key] = value;
-                        this.notifications.Add(new Notification(key, Type.CHANGE, value));
-                        this.clock.AddTimer(0f, 0, NotifiyObservers);
-                    }
-                }
-            }
-        }
-
-        public void Unset(string key)
-        {
-            if (this.data.ContainsKey(key))
-            {
-                this.data.Remove(key);
-                this.notifications.Add(new Notification(key, Type.REMOVE, null));
-                this.clock.AddTimer(0f, 0, NotifiyObservers);
-            }
-        }
-
-        [System.Obsolete("Use Get<T> instead")]
-        public bool GetBool(string key)
-        {
-            return Get<bool>(key);
-        }
-
-        [System.Obsolete("Use Get<T> instead - WARNING: return value for non-existant key will be 0.0f instead of float.NaN")]
-        public float GetFloat(string key)
-        {
-            object result = Get(key);
-            if (result == null)
-            {
-                return float.NaN;
-            }
-            return (float)Get(key);
-        }
-
-        [System.Obsolete("Use Get<T> instead")]
-        public Vector3 GetVector3(string key)
-        {
-            return Get<Vector3>(key);
-        }
-
-        [System.Obsolete("Use Get<T> instead")]
-        public int GetInt(string key)
-        {
-            return Get<int>(key);
-        }
-
-        public T Get<T>(string key)
-        {
-            object result = Get(key);
-            if (result == null)
-            {
-                return default(T);
-            }
-            return (T)result;
+            intPart.Disable();
+            boolPart.Disable();
+            floatPart.Disable();
+            objectPart.Disable();
         }
 
         public object Get(string key)
         {
-            if (this.data.ContainsKey(key))
+            if (objectPart.IsSet(key))
             {
-                return data[key];
+                return GetObject(key);
             }
-            else if (this.parentBlackboard != null)
+            else if (intPart.IsSet(key))
             {
-                return this.parentBlackboard.Get(key);
+                return GetInt(key);
             }
-            else
+            else if (boolPart.IsSet(key))
             {
-                return null;
+                return GetBool(key);
             }
-        }
-
-        public bool Isset(string key)
-        {
-            return this.data.ContainsKey(key) || (this.parentBlackboard != null && this.parentBlackboard.Isset(key));
-        }
-
-        public void AddObserver(string key, System.Action<Type, object> observer)
-        {
-            List<System.Action<Type, object>> observers = GetObserverList(this.observers, key);
-            if (!isNotifiyng)
+            else if (floatPart.IsSet(key))
             {
-                if (!observers.Contains(observer))
-                {
-                    observers.Add(observer);
-                }
+                return GetFloat(key);
             }
             else
             {
-                if (!observers.Contains(observer))
-                {
-                    List<System.Action<Type, object>> addObservers = GetObserverList(this.addObservers, key);
-                    if (!addObservers.Contains(observer))
-                    {
-                        addObservers.Add(observer);
-                    }
-                }
-
-                List<System.Action<Type, object>> removeObservers = GetObserverList(this.removeObservers, key);
-                if (removeObservers.Contains(observer))
-                {
-                    removeObservers.Remove(observer);
-                }
+                return default;
             }
         }
 
-        public void RemoveObserver(string key, System.Action<Type, object> observer)
+
+        public void SetInt(string key, int value)
         {
-            List<System.Action<Type, object>> observers = GetObserverList(this.observers, key);
-            if (!isNotifiyng)
+            intPart.Set(key,value);
+        }
+
+        public void UnsetInt(string key)
+        {
+            intPart.Unset(key);
+        }
+
+        public int GetInt(string key)
+        {
+            if (IsSetInt(key))
             {
-                if (observers.Contains(observer))
-                {
-                    observers.Remove(observer);
-                }
+                return intPart.Get(key);
             }
             else
             {
-                List<System.Action<Type, object>> removeObservers = GetObserverList(this.removeObservers, key);
-                if (!removeObservers.Contains(observer))
-                {
-                    if (observers.Contains(observer))
-                    {
-                        removeObservers.Add(observer);
-                    }
-                }
+                return default;
+            }
+        }
+        
+        public void SetBool(string key, bool value)
+        {
+            boolPart.Set(key,value);
+        }
 
-                List<System.Action<Type, object>> addObservers = GetObserverList(this.addObservers, key);
-                if (addObservers.Contains(observer))
-                {
-                    addObservers.Remove(observer);
-                }
+        public void UnsetBool(string key)
+        {
+            boolPart.Unset(key);
+        }
+        
+        public bool GetBool(string key)
+        {
+            if (IsSetBool(key))
+            {
+                return boolPart.Get(key);
+            }
+            else
+            {
+                return default;
             }
         }
 
+        public void SetFloat(string key, float value)
+        {
+            floatPart.Set(key,value);
+        }
+        
+        public void UnsetFloat(string key)
+        {
+            floatPart.Unset(key);
+        }
+
+        public float GetFloat(string key)
+        {
+            if (IsSetFloat(key))
+            {
+                return floatPart.Get(key);
+            }
+            else
+            {
+                return default;
+            }
+        }
+
+        public void SetObject(string key, float value)
+        {
+            objectPart.Set(key,value);
+        }
+        
+        public void UnsetObject(string key)
+        {
+            objectPart.Unset(key);
+        }
+        
+        public object GetObject(string key)
+        {
+            if (IsSetObject(key))
+            {
+                return objectPart.Get(key);
+            }
+            else
+            {
+                return default;
+            }
+        }
+
+        public bool IsSetInt(string key)
+        {
+            return intPart.IsSet(key);
+        }
+        
+        public bool IsSetBool(string key)
+        {
+            return boolPart.IsSet(key);
+        }
+        
+        public bool IsSetFloat(string key)
+        {
+            return floatPart.IsSet(key);
+        }
+        
+        public bool IsSetObject(string key)
+        {
+            return objectPart.IsSet(key);
+        }
+
+        public void AddObserverInt(string key, System.Action<Type, int> observer)
+        {
+            intPart.AddObserver(key, observer);
+        }
+
+        public void RemoveObserverInt(string key, System.Action<Type, int> observer)
+        {
+            intPart.RemoveObserver(key,observer);
+        }
+        
+        public void AddObserverBool(string key, System.Action<Type, bool> observer)
+        {
+            boolPart.AddObserver(key, observer);
+        }
+        public void RemoveObserverBool(string key, System.Action<Type, bool> observer)
+        {
+            boolPart.RemoveObserver(key,observer);
+        }
+        
+        public void AddObserverFloat(string key, System.Action<Type, float> observer)
+        {
+            floatPart.AddObserver(key, observer);
+        }
+        public void RemoveObserverFloat(string key, System.Action<Type, float> observer)
+        {
+            floatPart.RemoveObserver(key,observer);
+        }
+        
+        public void AddObserverObject(string key, System.Action<Type, object> observer)
+        {
+            objectPart.AddObserver(key, observer);
+        }
+        public void RemoveObserverObject(string key, System.Action<Type, object> observer)
+        {
+            objectPart.RemoveObserver(key,observer);
+        }
+        
 
 #if UNITY_EDITOR
         public List<string> Keys
         {
             get
             {
-                if (this.parentBlackboard != null)
-                {
-                    List<string> keys = this.parentBlackboard.Keys;
-                    keys.AddRange(data.Keys);
-                    return keys;
-                }
-                else
-                {
-                    return new List<string>(data.Keys);
-                }
+                List<string> keys = new List<string>();
+                keys.AddRange(intPart.Keys);
+                keys.AddRange(boolPart.Keys);
+                keys.AddRange(floatPart.Keys);
+                keys.AddRange(objectPart.Keys);
+                return keys;
             }
         }
-
+        
         public int NumObservers
         {
             get
             {
                 int count = 0;
-                foreach (string key in observers.Keys)
-                {
-                    count += observers[key].Count;
-                }
+                count += intPart.NumObservers;
+                count += boolPart.NumObservers;
+                count += floatPart.NumObservers;
+                count += objectPart.NumObservers;
                 return count;
             }
         }
 #endif
-
-
-        private void NotifiyObservers()
-        {
-            if (notifications.Count == 0)
-            {
-                return;
-            }
-
-            notificationsDispatch.Clear();
-            notificationsDispatch.AddRange(notifications);
-            foreach (Blackboard child in children)
-            {
-                child.notifications.AddRange(notifications);
-                child.clock.AddTimer(0f, 0, child.NotifiyObservers);
-            }
-            notifications.Clear();
-
-            isNotifiyng = true;
-            foreach (Notification notification in notificationsDispatch)
-            {
-                if (!this.observers.ContainsKey(notification.key))
-                {
-                    //                Debug.Log("1 do not notify for key:" + notification.key + " value: " + notification.value);
-                    continue;
-                }
-
-                List<System.Action<Type, object>> observers = GetObserverList(this.observers, notification.key);
-                foreach (System.Action<Type, object> observer in observers)
-                {
-                    if (this.removeObservers.ContainsKey(notification.key) && this.removeObservers[notification.key].Contains(observer))
-                    {
-                        continue;
-                    }
-                    observer(notification.type, notification.value);
-                }
-            }
-
-            foreach (string key in this.addObservers.Keys)
-            {
-                GetObserverList(this.observers, key).AddRange(this.addObservers[key]);
-            }
-            foreach (string key in this.removeObservers.Keys)
-            {
-                foreach (System.Action<Type, object> action in removeObservers[key])
-                {
-                    GetObserverList(this.observers, key).Remove(action);
-                }
-            }
-            this.addObservers.Clear();
-            this.removeObservers.Clear();
-
-            isNotifiyng = false;
-        }
-
-        private List<System.Action<Type, object>> GetObserverList(Dictionary<string, List<System.Action<Type, object>>> target, string key)
-        {
-            List<System.Action<Type, object>> observers;
-            if (target.ContainsKey(key))
-            {
-                observers = target[key];
-            }
-            else
-            {
-                observers = new List<System.Action<Type, object>>();
-                target[key] = observers;
-            }
-            return observers;
-        }
     }
 }

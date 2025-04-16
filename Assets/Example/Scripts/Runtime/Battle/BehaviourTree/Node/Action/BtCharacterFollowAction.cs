@@ -10,7 +10,9 @@ namespace GameMain.Runtime
     {
         private float _minDistance;
         private float _maxDistance;
-        
+
+        private GfFloat3 _curTargetPos;
+
         public BtCharacterFollowAction(float minDistance,float maxDistance) : base("BtCharacterFollowAction")
         {
             _minDistance = minDistance;
@@ -19,52 +21,59 @@ namespace GameMain.Runtime
 
         protected override void DoStart()
         {
-            OnUpdateTimer();
-            Clock.AddTimer(0.2f, 0f, -1, OnUpdateTimer);
+            Clock.AddTimer(0.1f, 0f, -1, OnUpdateTimer);
         }
 
         protected override void DoStop()
         {
-            StopAndCleanUp(false);
+            Clock.RemoveTimer(OnUpdateTimer);
+            
+            Accessor.Condition.IsMoving = false;
+            Accessor.Condition.MoveDirection = GfFloat2.Zero;
+            
+            Stopped(false);
         }
 
         private void OnUpdateTimer()
         {
-            //先默认跟随主角
-            if (BattleAdmin.Player == null)
+            if (Director.Target == null)
             {
                 return;
             }
-            Director.SetTarget(BattleAdmin.Player);
 
-            var toTarget = Director.Target.Entity.Transform.Position - Accessor.Entity.Transform.Position;
-            if (toTarget.Magnitude > _maxDistance)
+            GfFloat3 newTargetPos = GfFloat3.Zero;
+            var curDistance = GfFloat3.DistanceXZ(Director.Target.Entity.Transform.Position, Accessor.Entity.Transform.Position);
+            if (curDistance > _maxDistance)
             {
                 Accessor.Condition.IsMoving = true;
                 //靠近
-                var directionToTarget  = Director.Target.Entity.Transform.Position - Accessor.Entity.Transform.Position;
-                Accessor.Condition.MoveDirection = directionToTarget .ToXZFloat2().Normalized;
+                newTargetPos = Director.Target.Entity.Transform.Position;
             }
-            else if(toTarget.Magnitude < _minDistance)
+            else if(curDistance < _minDistance)
             {
                 Accessor.Condition.IsMoving = true;
                 //远离
-                var directionToTarget  =  Accessor.Entity.Transform.Position - Director.Target.Entity.Transform.Position;
-                Accessor.Condition.MoveDirection = directionToTarget .ToXZFloat2().Normalized;
+                var toTarget = Director.Target.Entity.Transform.Position - Accessor.Entity.Transform.Position;
+                newTargetPos = Accessor.Entity.Transform.Position - toTarget.ToXZFloat2().Normalized * (_maxDistance - curDistance);
             }
             else
             {
                 Accessor.Condition.IsMoving = false;
             }
-        }
 
-        private void StopAndCleanUp(bool result)
-        {
-            Accessor.Condition.IsMoving = false;
-            Accessor.Condition.MoveDirection = GfFloat2.Zero;
-            
-            Clock.RemoveTimer(OnUpdateTimer);
-            Stopped(result);
+            if (Accessor.Condition.IsMoving)
+            {
+                if (GfFloat3.DistanceXZ(_curTargetPos, newTargetPos) >_maxDistance - _minDistance)
+                {
+                    //目标点变化幅度大于0.1 则重新发送请求更新目标点
+                    _curTargetPos = newTargetPos;
+                    
+                    if (NavMesh != null) 
+                    {
+                        NavMesh.SetTargetPos(_curTargetPos);
+                    }
+                }
+            }
         }
     }
 }

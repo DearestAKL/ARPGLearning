@@ -24,16 +24,6 @@ MonoBehaviour:
     ParameterName: 
     Foldings: 1
   - LayerNo: 0
-    Name: RunLoop
-    Clips:
-    - {fileID: 7400000, guid: 95a2a301a915dcc44bdd1da5f4576339, type: 2}
-    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
-    RootMotion: {fileID: 4900000, guid: 0ae798869dcf7704fa22b72b18f5f83e, type: 3}
-    IsRepeat: 1
-    IsSyncBlend: 0
-    ParameterName: 
-    Foldings: 1
-  - LayerNo: 0
     Name: GetHitSmall
     Clips:
     - {fileID: 7400000, guid: c9ee79cba8b79424f956674281b553c0, type: 2}
@@ -143,6 +133,86 @@ MonoBehaviour:
     IsSyncBlend: 0
     ParameterName: 
     Foldings: 1
+  - LayerNo: 0
+    Name: WalkLoopF
+    Clips:
+    - {fileID: 7400000, guid: 95a2a301a915dcc44bdd1da5f4576339, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
+    RootMotion: {fileID: 4900000, guid: 0ae798869dcf7704fa22b72b18f5f83e, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 1
+  - LayerNo: 0
+    Name: WalkLoopB
+    Clips:
+    - {fileID: 7400000, guid: 6ef8887e06a069e4bba98ce68361daf3, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
+    RootMotion: {fileID: 4900000, guid: 00bb7b6e2cc6b474b966f6726ac4c60f, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: WalkLoopL
+    Clips:
+    - {fileID: 7400000, guid: 90e7938db64a216469f5b99d6c5b267b, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
+    RootMotion: {fileID: 4900000, guid: a55e1311dd145f64dac1e4a1c1e10c5d, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: WalkLoopR
+    Clips:
+    - {fileID: 7400000, guid: 50589babe8bd102469d85812a0c30eec, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
+    RootMotion: {fileID: 4900000, guid: 91df16a5932e6fe43b4d6ae860172b89, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: WalkLoopFL
+    Clips:
+    - {fileID: 7400000, guid: bd61d04d4622e0740813bd8dfd9df84a, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
+    RootMotion: {fileID: 4900000, guid: 57d54bbfba677da4c8e053b6b7e63e34, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: WalkLoopFR
+    Clips:
+    - {fileID: 7400000, guid: 63f5d7a6eaca46e4cb028f8f99c69964, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
+    RootMotion: {fileID: 4900000, guid: f90c12217b4bf8a4a9c7bb263375b066, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: WalkLoopBL
+    Clips:
+    - {fileID: 7400000, guid: 47c56cbdc44b6624f95c4a350c3c7132, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
+    RootMotion: {fileID: 4900000, guid: ebc1b7e4c9d522a46834f733da30d1f6, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
+  - LayerNo: 0
+    Name: WalkLoopBR
+    Clips:
+    - {fileID: 7400000, guid: 8829abb2ed25b994ab21fc0f18ac4ae2, type: 2}
+    AnimationEvent: {fileID: 4900000, guid: 73c4138401ec38449bbac41cc393a245, type: 3}
+    RootMotion: {fileID: 4900000, guid: 14157ae7ca0f2ae488e12a8d8a07fabd, type: 3}
+    IsRepeat: 1
+    IsSyncBlend: 0
+    ParameterName: 
+    Foldings: 0
   LayerInfos:
   - LayerNo: 0
     LayerWeight: 1

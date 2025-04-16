@@ -5,7 +5,6 @@ using Cysharp.Threading.Tasks;
 using Ryu.InGame.Unity;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Interactions;
 using Random = UnityEngine.Random;
 
 namespace GameMain.Runtime
@@ -50,6 +49,9 @@ namespace GameMain.Runtime
             await CheckYooAssetsInit();
             await ManagerHelper.InitCommonManager(true);
 
+            RenderManager.CreateInstance();
+            await RenderManager.Instance.Init();
+            
             WorldManager.CreateInstance();
             
             //跳转场景时清空除system外的所有ui栈
@@ -157,24 +159,24 @@ namespace GameMain.Runtime
             BattleAdmin.PlayerEntity = entity;
             CreatBattleCamera();
             
-            await WorldManager.Instance.ChangeWorld("World_1");
+            await WorldManager.Instance.ChangeWorld(101);
 
             await UIManager.Instance.OpenUIPanel(UIType.UIBattlePanel);
             
             //AudioManager.Instance.PlayBgm(Constant.Sound.BgmFondness);
 
             //召唤物伙伴
-            var summonerData = new SummonerData(3001,10);
-            await BattleAdmin.Factory.Character.CreateSummonerCharacter(new GameCharacterModel(summonerData),
-                GfFloat3.Right * 2,
-                GfQuaternion.Identity,"summonerKey");
+            // var summonerData = new SummonerData(3001,10);
+            // await BattleAdmin.Factory.Character.CreateSummonerCharacter(new GameCharacterModel(summonerData),
+            //     GfFloat3.Right * 2,
+            //     GfQuaternion.Identity,"summonerKey");
 
             UIHelper.EndLoading();
         }
 
         private GfEntity CreatBattleCamera()
         {
-            var entity = BattleAdmin.EntityComponentSystem.Create(0, GfEntityGroupId.Camera, camera.name);
+            var entity = BattleAdmin.EntityComponentSystem.Create(GfEntityTagId.None, GfEntityGroupId.Camera, camera.name);
             entity.AddComponent(new GfActorComponent(camera.transform.CreateGfUnityTransform()));
 
             var cameraActionComponent = new BattleMainCameraActionComponent(new BattleMainCameraActionContext(entity));

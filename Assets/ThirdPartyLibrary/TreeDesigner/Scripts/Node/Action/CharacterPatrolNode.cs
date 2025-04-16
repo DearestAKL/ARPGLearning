@@ -15,7 +15,7 @@ namespace TreeDesigner
 
         public override Google.Protobuf.IMessage Serialize()
         {
-            var message = new GameMain.Runtime.BtCharacterPatrolMessage()
+            var message = new GameMain.Runtime.BtCharacterNullMessage()
             {
             };
             return message;

@@ -35,5 +35,10 @@ namespace GameMain.Editor
         [InvokeTrigger(InvokeTriggerType.Level)]
         [Skippable(true)]
         void RegisterIsDodge(EditorAnimationEventParameterNull param);
+        
+        [Unique(GfListenerMethodId.RegisterIsJump)]
+        [InvokeTrigger(InvokeTriggerType.Level)]
+        [Skippable(true)]
+        void RegisterIsJump(EditorAnimationEventParameterNull param);
     }
 }

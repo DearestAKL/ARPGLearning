@@ -11,6 +11,8 @@ namespace GameMain.Runtime
         void RegisterIsDamageImmunity(AnimationEventParameterNull param, GfAnimationEventCallInfo info);
         void RegisterIsSuperArmor(AnimationEventParameterNull param, GfAnimationEventCallInfo info);
         void RegisterIsDodge(AnimationEventParameterNull param, GfAnimationEventCallInfo info);
+        
+        void RegisterIsJump(AnimationEventParameterNull param, GfAnimationEventCallInfo info);
     }
 
     public sealed class CharacterActionCancelAnimationEventListener : ACharacterAnimationEventListener, ICharacterActionCancelAnimationEventListener
@@ -39,7 +41,7 @@ namespace GameMain.Runtime
         {
             Accessor?.Condition.Frame.CanDash.SetBuffer(info.Reason.ToIsOn(), info.Reason.ToIsOn());
         }
-        
+
         public void RegisterIsDamageImmunity(AnimationEventParameterNull param, GfAnimationEventCallInfo info)
         {
             Accessor?.Condition.Frame.IsDamageImmunity.SetBuffer(info.Reason.ToIsOn(), info.Reason.ToIsOn());
@@ -53,6 +55,11 @@ namespace GameMain.Runtime
         public void RegisterIsDodge(AnimationEventParameterNull param, GfAnimationEventCallInfo info)
         {
             Accessor?.Condition.Frame.IsDodge.SetBuffer(info.Reason.ToIsOn(), info.Reason.ToIsOn());
+        }
+
+        public void RegisterIsJump(AnimationEventParameterNull param, GfAnimationEventCallInfo info)
+        {
+            Accessor?.Condition.Frame.IsJump.SetBuffer(info.Reason.ToIsOn(), info.Reason.ToIsOn());
         }
     }
 }

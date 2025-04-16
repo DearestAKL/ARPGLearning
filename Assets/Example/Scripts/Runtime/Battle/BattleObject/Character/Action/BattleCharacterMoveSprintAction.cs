@@ -30,12 +30,12 @@ namespace GameMain.Runtime
             End
         }
 
-        private BattleCharacterMoveSprintActionData mActionData;
+        private BattleCharacterMoveSprintActionData _actionData;
         
         private float _elapsedTime;
         private float _durationTime;
 
-        public override ABattleCharacterActionData ActionData => mActionData;
+        public override ABattleCharacterActionData ActionData => _actionData;
         public const int ActionType = (int)BattleCharacterActionType.MoveSprint;
 
         private static readonly string SprintLoopAnimationName = "SprintLoop";
@@ -47,12 +47,12 @@ namespace GameMain.Runtime
         {
             base.OnEnter(prevAction, reenter);
 
-            mActionData = GetActionData<BattleCharacterMoveSprintActionData>();
+            _actionData = GetActionData<BattleCharacterMoveSprintActionData>();
             
             _status = Status.Loop;
 
             _elapsedTime = 0;
-            _durationTime = Accessor.Condition.IsDashHolding ? int.MaxValue : mActionData.DurationTime;
+            _durationTime = Accessor.Condition.IsDashHolding ? int.MaxValue : _actionData.DurationTime;
         }
         
         public override void OnStart()
@@ -93,7 +93,7 @@ namespace GameMain.Runtime
                             }
                         }
                         
-                        Rotate(Accessor.Condition.MoveDirection);
+                        UpdateMoveRotate();
                     }
                     else
                     {

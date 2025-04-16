@@ -6,17 +6,17 @@ namespace GameMain.Runtime
 {
     public class BtFloatConditionNodeData : AConditionNodeData
     {
-        public float FloatValue;
+        public float Value;
 
         public BtFloatConditionNodeData(int childIndex, int operatorValue, int stopsValue, string key, float floatValue)
             : base(childIndex, operatorValue, stopsValue, key)
         {
-            FloatValue = floatValue;
+            Value = floatValue;
         }
 
         public override Node CreateNode()
         {
-            return CreateConditionNode(FloatValue);
+            return new BlackboardConditionFloat(Key, Operator, Value, Stops, CreateChild());
         }
     }
     

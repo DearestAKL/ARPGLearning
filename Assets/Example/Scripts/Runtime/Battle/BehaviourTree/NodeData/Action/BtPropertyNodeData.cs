@@ -4,18 +4,18 @@ using NPBehave;
 
 namespace GameMain.Runtime
 {
-    public class BtPropertyNodeData : BtNodeData
+    public class BtSetIntPropertyNodeData : BtNodeData
     {
-        public object Value;
+        public int Value;
 
-        public BtPropertyNodeData(object value)
+        public BtSetIntPropertyNodeData(int value)
         {
             Value = value;
         }
 
         public override Node CreateNode()
         {
-            return new Property(PropertyKey, Value);
+            return new SetIntProperty(PropertyKey, Value);
         }
     }
     
@@ -29,23 +29,80 @@ namespace GameMain.Runtime
         public object CreateInstance(IMessage message)
         {
             var m = (BtPropertyIntMessage)message;
-            var value = new BtIntPropertyData(m.Key,m.Value);
-            return new BtPropertyNodeData(value);
+            return new BtSetIntPropertyNodeData(m.Value);
         }
     }
     
-    public sealed class BtSetStringPropertyNodeFactory : IGfPbFactory
+    public class BtSetBoolPropertyNodeData : BtNodeData
+    {
+        public bool Value;
+
+        public BtSetBoolPropertyNodeData(bool value)
+        {
+            Value = value;
+        }
+
+        public override Node CreateNode()
+        {
+            return new SetBoolProperty(PropertyKey, Value);
+        }
+    }
+    
+    public sealed class BtSetBoolPropertyNodeFactory : IGfPbFactory
     {
         public IMessage CreateMessage()
         {
-            return new BtPropertyStringMessage();
+            return new BtPropertyBoolMessage();
         }
     
         public object CreateInstance(IMessage message)
         {
-            var m = (BtPropertyStringMessage)message;
-            var value = new BtStringPropertyData(m.Key, m.Content);
-            return new BtPropertyNodeData(value);
+            var m = (BtPropertyBoolMessage)message;
+            return new BtSetBoolPropertyNodeData(m.Value);
         }
     }
+    
+    public class BtSetFloatPropertyNodeData : BtNodeData
+    {
+        public float Value;
+
+        public BtSetFloatPropertyNodeData(float value)
+        {
+            Value = value;
+        }
+
+        public override Node CreateNode()
+        {
+            return new SetFloatProperty(PropertyKey, Value);
+        }
+    }
+    
+    public sealed class BtSetFloatPropertyNodeFactory : IGfPbFactory
+    {
+        public IMessage CreateMessage()
+        {
+            return new BtPropertyFloatMessage();
+        }
+    
+        public object CreateInstance(IMessage message)
+        {
+            var m = (BtPropertyFloatMessage)message;
+            return new BtSetFloatPropertyNodeData(m.Value);
+        }
+    }
+    
+    // public sealed class BtSetStringPropertyNodeFactory : IGfPbFactory
+    // {
+    //     public IMessage CreateMessage()
+    //     {
+    //         return new BtPropertyStringMessage();
+    //     }
+    //
+    //     public object CreateInstance(IMessage message)
+    //     {
+    //         var m = (BtPropertyStringMessage)message;
+    //         var value = new BtStringPropertyData(m.Key, m.Content);
+    //         return new BtPropertyNodeData(value);
+    //     }
+    // }
 }

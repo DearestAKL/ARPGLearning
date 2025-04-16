@@ -30,6 +30,8 @@ namespace GameMain.Runtime
             public const string Fishing = "Fishing";//钓鱼 鼠标左键
             
             public const string WalkSwitch = "WalkSwitch";//切换为步行状态 left ctrl
+            
+            public const string Jump = "Jump";//Jump
         }
     }
 }

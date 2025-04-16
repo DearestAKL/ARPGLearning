@@ -9,12 +9,6 @@ namespace GameMain.Runtime
     {
         public BattleCharacterAccessorComponent Accessor { get; }
         public GfEntity Entity { get; }
-        
-        public CharacterBlackboard(BattleCharacterAccessorComponent accessor,Blackboard parent, Clock clock) : base(parent, clock)
-        {
-            Accessor       = accessor ?? throw new ArgumentNullException(nameof(accessor));
-            Entity         = Accessor.Entity;
-        }
 
         public CharacterBlackboard(BattleCharacterAccessorComponent accessor,Clock clock) : base(clock)
         {
@@ -27,6 +21,7 @@ namespace GameMain.Runtime
     {
         PlayerDistance,
         HasTarget,
+        CanAttack,
     }
     
     public static class CharacterBlackboardKeyExtend
@@ -35,6 +30,7 @@ namespace GameMain.Runtime
         {
             {(int)CharacterBlackboardKey.PlayerDistance,"PlayerDistance"},
             {(int)CharacterBlackboardKey.HasTarget,"HasTarget"},
+            {(int)CharacterBlackboardKey.CanAttack,"CanAttack"},
         };
 
         public static string GetString(this CharacterBlackboardKey key)

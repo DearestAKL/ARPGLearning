@@ -14,10 +14,6 @@ namespace GameMain.Runtime
 
         public override Node CreateNode()
         {
-            if (!string.IsNullOrEmpty(PropertyKey))
-            {
-                return new Wait(PropertyKey);
-            }
             return new Wait(Duration);
         }
     }

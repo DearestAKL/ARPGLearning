@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9047902071782424653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D/dash_sp
+  m_EditorClassIdentifier: 
+  Path: event:/3D/dash_sp
+  Guid:
+    Data1: 681823436
+    Data2: 1156648482
+    Data3: -486488438
+    Data4: -262877381
+  Banks:
+  - {fileID: -773807382018666933}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10
+  MaxDistance: 30
+  Length: 650
 --- !u!114 &-8774486434049639814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +81,33 @@ MonoBehaviour:
   MinDistance: 10
   MaxDistance: 30
   Length: 1000
+--- !u!114 &-8336456041577695113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D/ding
+  m_EditorClassIdentifier: 
+  Path: event:/3D/ding
+  Guid:
+    Data1: -1204532546
+    Data2: 1216009851
+    Data3: 1049084312
+    Data4: -1208686676
+  Banks:
+  - {fileID: -773807382018666933}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 10
+  MaxDistance: 30
+  Length: 440
 --- !u!114 &-8302644020569305299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +483,7 @@ MonoBehaviour:
   Path: Assets/Example/GameRes/Audio/Desktop/Sound.bank
   Name: Sound
   StudioPath: bank:/Sound
-  lastModified: 638757770919326316
+  lastModified: 638770739042633925
   FileSizes: []
   Exists: 1
 --- !u!114 &-314563538228705531
@@ -499,12 +553,14 @@ MonoBehaviour:
   - {fileID: -4054468598547389545}
   - {fileID: -3524490909290323107}
   - {fileID: -8774486434049639814}
+  - {fileID: -8336456041577695113}
+  - {fileID: -9047902071782424653}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6959596555059065437}
   StringsBanks:
   - {fileID: 1158345663358902160}
-  cacheTime: 638757770919326316
+  cacheTime: 638770739042633925
   cacheVersion: 131609
 --- !u!114 &1158345663358902160
 MonoBehaviour:
@@ -521,10 +577,10 @@ MonoBehaviour:
   Path: Assets/Example/GameRes/Audio/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638757767002108836
+  lastModified: 638770739037548669
   FileSizes:
   - Name: 
-    Value: 1792
+    Value: 1870
   Exists: 1
 --- !u!114 &2095606205594914053
 MonoBehaviour:
@@ -676,7 +732,7 @@ MonoBehaviour:
   Path: Assets/Example/GameRes/Audio/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638757767002098833
+  lastModified: 638770739037538660
   FileSizes: []
   Exists: 1
 --- !u!114 &9195644102153684379

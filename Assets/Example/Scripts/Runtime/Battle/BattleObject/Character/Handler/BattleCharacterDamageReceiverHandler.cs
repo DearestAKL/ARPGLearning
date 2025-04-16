@@ -33,6 +33,11 @@ namespace GameMain.Runtime
             return _accessor.Condition.DamageReductionProperty.TotalValue;
         }
 
+        public void SetWarningFlag(bool enable)
+        {
+            _accessor.Condition.IsWarning = enable;
+        }
+
         public void Dispose()
         {
 

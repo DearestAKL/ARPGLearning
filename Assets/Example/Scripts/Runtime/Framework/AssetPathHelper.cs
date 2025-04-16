@@ -37,7 +37,7 @@ namespace GameMain.Runtime
         private static readonly string PrefabsPath = "Prefabs/";
         private static readonly string RoomPath = "Room/";
         private static readonly string InteractiveObjectPath = "InteractiveObject/";
-        private static readonly string DamageWarningPath = "DamageWarning/";
+        private static readonly string DamageRangePath = "DamageRange/";
         private static readonly string WorldPath = "World/";
 
         public static string GetSoundPath(string name)
@@ -172,9 +172,9 @@ namespace GameMain.Runtime
             return $"{ResPath}{PrefabsPath}{InteractiveObjectPath}{name}.prefab";
         }
         
-        public static string GetDamageWarningPath(string name)
+        public static string GetDamageRangePath(string name)
         {
-            return $"{ResPath}{PrefabsPath}{DamageWarningPath}{name}.prefab";
+            return $"{ResPath}{PrefabsPath}{DamageRangePath}{name}.prefab";
         }
     }
 
@@ -184,6 +184,7 @@ namespace GameMain.Runtime
         Hit,
         Dash,
         Die,
+        Flash,
     }
 
     public static class BattleCommonEffect
@@ -193,6 +194,7 @@ namespace GameMain.Runtime
             {(int)CommonEffectType.Hit, "EF_CMN_Hit"},
             //{(int)CommonEffectType.Dash, "EF_CMN_Dash"},
             {(int)CommonEffectType.Die, "EF_CMN_Die"},
+            {(int)CommonEffectType.Flash, "EF_CMN_Flash"},
         };
 
         public static string GetPath(this CommonEffectType effectType)

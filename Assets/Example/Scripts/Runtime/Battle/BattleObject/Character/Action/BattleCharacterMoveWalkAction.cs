@@ -26,14 +26,14 @@ namespace GameMain.Runtime
             End
         }
 
-        private BattleCharacterMoveWalkActionData mActionData;
+        private BattleCharacterMoveWalkActionData _actionData;
 
-        public override ABattleCharacterActionData ActionData => mActionData;
+        public override ABattleCharacterActionData ActionData => _actionData;
         public const int ActionType = (int)BattleCharacterActionType.MoveWalk;
         
-        private static readonly string WalkStartAnimationName = "WalkStart";
-        private static readonly string WalkLoopAnimationName = "WalkLoop";
-        private static readonly string WalkEndAnimationName = "WalkEnd";
+        private static readonly string WalkStartAnimationName = "WalkStartF";
+        private static readonly string WalkLoopAnimationName = "WalkLoopF";
+        private static readonly string WalkEndAnimationName = "WalkEndF";
         
         private Status _status;
 
@@ -41,7 +41,7 @@ namespace GameMain.Runtime
         {
             base.OnEnter(prevAction, reenter);
 
-            mActionData = GetActionData<BattleCharacterMoveWalkActionData>();
+            _actionData = GetActionData<BattleCharacterMoveWalkActionData>();
             
             _status = Status.Start;
         }
@@ -63,7 +63,7 @@ namespace GameMain.Runtime
                 case Status.Start:
                     if (Accessor.Condition.IsMoving)
                     {
-                        Rotate(Accessor.Condition.MoveDirection);
+                        UpdateMoveRotate();
                         if (!Animation.IsThatPlaying(AnimationClipIndex))
                         {
                             ChangeStatus(Status.Loop);
@@ -77,7 +77,7 @@ namespace GameMain.Runtime
                 case Status.Loop:
                     if (Accessor.Condition.IsMoving)
                     {
-                        Rotate(Accessor.Condition.MoveDirection);
+                        UpdateMoveRotate();
                         if (Accessor.Condition.IsDashHolding)
                         {
                             EndActionAndRequestForChange(BattleCharacterMoveSprintActionData.Create());
@@ -107,11 +107,11 @@ namespace GameMain.Runtime
                     }
                     break;
             }
-            
+
             //如果是没有位移的动画 则代码控制位移
             if (!Animation.HasRootMotionMoveAnimation)
             {
-                HorizontalMove(deltaTime, Accessor.Condition.MoveDirection, 1.5f);
+                HorizontalMove(deltaTime, Accessor.Condition.MoveDirection, 1f);
             }
         }
 

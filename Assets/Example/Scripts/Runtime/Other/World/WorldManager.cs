@@ -10,6 +10,7 @@ namespace GameMain.Runtime
         private Dictionary<string, World> _dict = new Dictionary<string, World>();
         private List<string> _removes = new List<string>();
         private World _curWorld;
+        public World CurWorld => _curWorld;
 
         public void Update(float deltaTime)
         {
@@ -40,18 +41,18 @@ namespace GameMain.Runtime
 
         public void SetWorldActive(bool active)
         {
-            _curWorld.SetActive(active);
+            _curWorld.gameObject.SetActive(active);
         }
 
-        public async UniTask ChangeWorld(string nextName)
+        public async UniTask ChangeWorld(int worldId, int transitionPointId = 0)
         {
             if (_curWorld != null)
             {
-                _curWorld.SetActive(false);
+                _curWorld.Exit();
             }
 
-            _curWorld = await CreateWorld(nextName);
-            _curWorld.SetActive(true);
+            _curWorld = await CreateWorld($"World_{worldId}");
+            _curWorld.Enter(transitionPointId);
         }
 
         private async UniTask<World> CreateWorld(string name)

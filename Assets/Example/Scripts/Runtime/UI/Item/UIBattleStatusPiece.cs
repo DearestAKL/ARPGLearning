@@ -17,6 +17,7 @@ namespace GameMain.Runtime
         private bool _isVisibility;
         private Vector3 _position;
         public bool IsVisibility => _isVisibility;
+        public bool IsUserPlayer => _isUserPlayer;
 
         private readonly Color _playerColor = new Color(55f/255f,158f/255f,13f/255f,1f);
         private readonly Color _enemyColor = new Color(212f/255f,33f/255f,40f/255f,1f);

@@ -159,6 +159,15 @@ namespace TreeDesigner
     public class BoolPropertyPort : PropertyPort<bool>
     {
         public BoolPropertyPort() { }
+        
+        public override int GetPbTypeId() => GameMain.Runtime.RyPbTypes.BtPropertyBool;
+        public override Google.Protobuf.IMessage Serialize()
+        {
+            return new GameMain.Runtime.BtPropertyBoolMessage
+            {
+                Value = Value 
+            };
+        }
     }
 
     [Serializable]
@@ -182,12 +191,13 @@ namespace TreeDesigner
     public class FloatPropertyPort : PropertyPort<float>
     {
         public FloatPropertyPort() { }
-        public override float GetDefferentTypeSourceValue(object value)
+        public override int GetPbTypeId() => GameMain.Runtime.RyPbTypes.BtPropertyFloat;
+        public override Google.Protobuf.IMessage Serialize()
         {
-            if (value is int a)
-                return a;
-            else
-                return 0;
+            return new GameMain.Runtime.BtPropertyFloatMessage
+            {
+                Value = Value 
+            };
         }
     }
 

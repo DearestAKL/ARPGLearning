@@ -19,16 +19,21 @@ namespace GameMain.Runtime
         MoveRun = 3,
         MoveSprint = 4,
         
-        Dash = 5, 
+        Turn = 5, 
+        MoveMixed = 6, 
         
+        Dash = 9,
+
         LightAttack = 10,
         ChargeAttack = 11,
         SpecialAttack = 12,
         Ultimate = 13,
         
         Defend = 20,
-        
+
         PlayAnimationState = 30,
+        
+        JumpTo = 40,
 
         // =========================
         // 被动动作
@@ -174,11 +179,15 @@ namespace GameMain.Runtime
         {
             ABattleCharacterActionData nextActionData = null;
             
-            if (Accessor.Condition.IsMoving)
+            if (Accessor.Condition.IsMoving && Accessor.Condition.Frame.CanMove.Current)
             {
                 if (ActionData.ActionType == (int)BattleCharacterActionType.Dash)
                 {
                     nextActionData = BattleCharacterMoveSprintActionData.Create();
+                }
+                else if (Accessor.Condition.HasLockTarget)
+                {
+                    nextActionData = BattleCharacterMoveMixedActionData.Create();
                 }
                 else if (Accessor.Condition.IsWalk)
                 {
@@ -221,7 +230,18 @@ namespace GameMain.Runtime
             Accessor.Transform.MovePosition(new GfFloat3(0, diffPosition, 0));
         }
 
-
+        protected void UpdateMoveRotate()
+        {
+            if (Accessor.Condition.HasLockTarget)
+            {
+                Rotate(Accessor.Condition.CharacterDirection);
+            }
+            else
+            {
+                Rotate(Accessor.Condition.MoveDirection);
+            }
+        }
+        
         protected void Rotate(GfFloat2 targetRotation)
         {
             if (targetRotation.SqrMagnitude <= 0.1f)

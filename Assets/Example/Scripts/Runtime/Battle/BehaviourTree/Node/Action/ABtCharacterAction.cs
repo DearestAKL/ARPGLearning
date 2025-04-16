@@ -14,6 +14,9 @@ namespace GameMain.Runtime
         protected BattleCharacterDirectorComponent Director     => Entity.GetComponent(ref _directorCache);
         private GfComponentCache<BattleCharacterDirectorComponent>  _directorCache;
         
+        protected BattleCharacterNavMeshComponent NavMesh     => Entity.GetComponent(ref _navMeshCache);
+        private GfComponentCache<BattleCharacterNavMeshComponent>  _navMeshCache;
+
         protected GfRequestResult RequestResult { get; private set; }
         
         protected ABtCharacterAction(string name) : base(name)
