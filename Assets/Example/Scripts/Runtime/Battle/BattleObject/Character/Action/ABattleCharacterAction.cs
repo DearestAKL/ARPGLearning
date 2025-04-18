@@ -19,7 +19,7 @@ namespace GameMain.Runtime
         MoveRun = 3,
         MoveSprint = 4,
         
-        Turn = 5, 
+        //Turn = 5, 
         MoveMixed = 6, 
         
         Dash = 9,
@@ -52,9 +52,6 @@ namespace GameMain.Runtime
 
     public abstract class ABattleCharacterAction : AGfActionState<BattleObjectActionContext>
     {
-        /// <summary>
-        /// 基本的なアクション遷移制御のためのTransition定義
-        /// </summary>
         private class Transition : IGfFsmStateTransition
         {
             public    int                    JudgeOrder => 0;
